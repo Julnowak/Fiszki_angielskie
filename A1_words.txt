@@ -1,0 +1,4 @@
+ang - pol - kat.nazwa_kategorii - opis/zdj
+cat - kot - kat.zwierzeta
+dog - pies - kat.zwierzeta
+fish - ryba - kat.zwierzeta
