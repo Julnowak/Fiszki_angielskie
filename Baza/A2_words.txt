@@ -2,3 +2,6 @@ ang - pol - nazwa_kategorii - opis/zdj
 rabbit - królik - zwierzęta
 mouse - mysz - zwierzęta
 elephant - słoń - zwierzęta
+snake - wąż - zwierzęta
+monkey - małpa - zwierzęta
+duck - kaczka - zwierzęta
