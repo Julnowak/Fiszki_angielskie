@@ -1,5 +1,5 @@
-ang - pol - kat.nazwa_kategorii - opis/zdj
-cat - kot - kat.zwierzeta
-dog - pies - kat.zwierzeta
-fish - ryba - kat.zwierzeta
-cow - krowa - kat.zwierzeta
+ang - pol - nazwa_kategorii - opis/zdj
+cat - kot - zwierzęta
+dog - pies - zwierzęta
+fish - ryba - zwierzęta
+cow - krowa - zwierzęta
