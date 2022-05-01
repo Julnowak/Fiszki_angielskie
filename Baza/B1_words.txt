@@ -3,3 +3,5 @@ spider - pająk - zwierzęta
 bee - pszczoła - zwierzęta
 tiger - tygrys - zwierzęta
 goat - koza - zwierzęta
+sweatshirt - bluza - ubrania
+underwear - bielizna - ubrania
