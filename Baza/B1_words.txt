@@ -5,3 +5,6 @@ tiger - tygrys - zwierzęta
 goat - koza - zwierzęta
 sweatshirt - bluza - ubrania
 underwear - bielizna - ubrania
+baggage - bagaż - wakacje
+campsite - pole namiotowe - wakacje
+tent - namiot - wakacje
