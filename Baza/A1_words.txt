@@ -15,3 +15,5 @@ brown - brązowy - kolory
 black - czarny - kolory
 white - biały - kolory
 grey - szary - kolory
+coat - płaszcz - ubrania
+skirt - spódnica - ubrania
