@@ -9,3 +9,4 @@ pink - różowy - kolory
 purple - fioletowy - kolory
 jumper - sweter - ubrania
 trainers - buty sportowe - ubrania
+candy - cukierek - jedzenie
