@@ -15,6 +15,7 @@ brown - brązowy - kolory
 black - czarny - kolory
 white - biały - kolory
 grey - szary - kolory
+orange - pomarańczowy - kolor
 coat - płaszcz - ubrania
 skirt - spódnica - ubrania
 hat - kapelusz - ubrania
@@ -35,4 +36,10 @@ vegetable - warzywo - jedzenie
 fruit - owoc - jedzenie
 drink - napój - jedzenie
 ticket - bilet - wakacje
-
+sun - słońce - pogoda
+warm - ciepło - pogoda
+cold - zimno - pogoda
+rain - deszcz - pogoda
+wind - wiatr - pogoda
+snow - śnieg - pogoda
+hot - gorąco - pogoda
