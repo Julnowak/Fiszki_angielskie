@@ -7,3 +7,11 @@ pig - świnia - zwierzęta
 sheep - owca - zwierzęta
 horse - koń - zwierzęta
 bird - ptak - zwierzęta
+red - czerwony - kolory
+blue - niebieski - kolory
+yellow - żółty - kolory
+green - zielony - kolory
+brown - brązowy - kolory
+black - czarny - kolory
+white - biały - kolory
+grey - szary - kolory
