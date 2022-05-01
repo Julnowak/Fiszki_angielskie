@@ -17,3 +17,6 @@ white - biały - kolory
 grey - szary - kolory
 coat - płaszcz - ubrania
 skirt - spódnica - ubrania
+hat - kapelusz - ubrania
+shoes - buty - ubrania
+shirt - koszula - ubrania
