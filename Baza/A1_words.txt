@@ -20,3 +20,17 @@ skirt - spódnica - ubrania
 hat - kapelusz - ubrania
 shoes - buty - ubrania
 shirt - koszula - ubrania
+trousers - spodnie - ubrania
+jeans - dżinsy - ubrania
+sugar - cukier - jedzenie
+meat - mięso - jedzenie
+ice cream - lody - jedzenie
+egg - jajko - jedzenie
+bread - chleb - jedzenie
+chocolate - czekolada - jedzenie
+biscuit - herbatnik - jedzenie
+rice - ryż - jedzenie
+cheese - ser - jedzenie
+vegetable - warzywo - jedzenie
+fruit - owoc - jedzenie
+drink - napój - jedzenie
