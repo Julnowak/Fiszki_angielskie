@@ -5,3 +5,5 @@ elephant - słoń - zwierzęta
 snake - wąż - zwierzęta
 monkey - małpa - zwierzęta
 duck - kaczka - zwierzęta
+pink - różowy - kolory
+purple - fioletowy - kolory
