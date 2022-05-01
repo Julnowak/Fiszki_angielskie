@@ -10,3 +10,7 @@ purple - fioletowy - kolory
 jumper - sweter - ubrania
 trainers - buty sportowe - ubrania
 candy - cukierek - jedzenie
+tourist - turysta - wakacje
+suitcase - walizka - wakacje
+passport - paszport - wakacje
+airport - lotnisko - wakacje
