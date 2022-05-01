@@ -7,3 +7,5 @@ monkey - małpa - zwierzęta
 duck - kaczka - zwierzęta
 pink - różowy - kolory
 purple - fioletowy - kolory
+jumper - sweter - ubrania
+trainers - buty sportowe - ubrania
