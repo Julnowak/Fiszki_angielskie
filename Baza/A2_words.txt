@@ -5,3 +5,19 @@ elephant - słoń - zwierzęta
 snake - wąż - zwierzęta
 monkey - małpa - zwierzęta
 duck - kaczka - zwierzęta
+pink - różowy - kolory
+purple - fioletowy - kolory
+jumper - sweter - ubrania
+trainers - buty sportowe - ubrania
+candy - cukierek - jedzenie
+tourist - turysta - wakacje
+suitcase - walizka - wakacje
+passport - paszport - wakacje
+airport - lotnisko - wakacje
+dry - sucho - pogoda
+fog - mgła - pogoda
+cloud - chmura - pogoda
+cloudy - pochmurno - pogoda
+windy - wietrznie - pogoda
+wet - mokro - pogoda
+storm - burza - pogoda
