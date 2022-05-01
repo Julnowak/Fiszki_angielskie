@@ -34,3 +34,5 @@ cheese - ser - jedzenie
 vegetable - warzywo - jedzenie
 fruit - owoc - jedzenie
 drink - napój - jedzenie
+ticket - bilet - wakacje
+
