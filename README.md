@@ -16,3 +16,9 @@ Pomysły wykonania i propozycje:
 - kategorie
 - zapisywanie wyników
 - obrazki lub opisy przy odgadnięciu
+
+# Przydzielone zadania
+- Julia Nowak: pisanie kodu w Pythonie, realizacja interfejsu tkinker i funkcjonalności
+- f
+- h
+- o
