@@ -1,11 +1,11 @@
 from tkinter import *
 import random
 
-root = Tk()
-root.title('Fiszki angielsko-polskie')
+okno = Tk()
+okno.title('Fiszki angielsko-polskie')
 
 # Tworzy okno
-root.geometry('550x550')
+okno.geometry('550x550')
 list_of_words = []
 
 ### TRZEBA pomyśleć nad ścieżką!
@@ -14,6 +14,18 @@ with open('C:/Users/Julia/Documents/GitHub/Fiszki_angielskie/Baza/A1_words.txt',
     for line in lines:
         list_of_words.append(line.rstrip())
 
+
+def click_action():
+    print("Wow!")
+
 list_of_words.pop(0)
 print(list_of_words)
-root.mainloop()
+
+# Przyciski
+przycisk_start = Button(okno, text='Graj', width=8, command=click_action, image="Pla")
+przycisk_start.pack()
+
+przycisk_opcji = Button(okno, text='Opcje', width=8, command=click_action)
+przycisk_opcji.pack()
+
+okno.mainloop()
