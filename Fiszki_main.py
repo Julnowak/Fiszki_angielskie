@@ -10,7 +10,7 @@ import winsound
 
 def beep():
     mixer.init()
-    s = mixer.Sound("Klik.wav")
+    s = mixer.Sound("Sounds/Klik.wav")
     s.play()
 
 root = Tk()
@@ -18,7 +18,7 @@ root.title('Fiszki angielsko-polskie')
 
 
 mixer.init()
-sound=mixer.Sound("muzyka.wav")
+sound=mixer.Sound("Sounds/muzyka.wav")
 sound.set_volume(0.4)
 sound.play(-1)
 
