@@ -3,46 +3,130 @@ from PIL import Image, ImageTk
 import random
 import os
 
-simp_path = 'A1_words.txt'
-abs_path = os.path.abspath(simp_path)
-
-print(abs_path)
+# Tutaj robi dźwięki :P
+# import winsound
+# winsound.Beep(555, 500)
 
 root = Tk()
 root.title('Fiszki angielsko-polskie')
 
+from pygame import mixer
+mixer.init()
+sound=mixer.Sound("muzyka.wav")
+sound.play(-1)
+
 # Tworzy okno
-root.geometry('550x550')
+
+w = 800 # width for the Tk root
+h = 650 # height for the Tk root
+
+# get screen width and height
+ws = root.winfo_screenwidth() # width of the screen
+hs = root.winfo_screenheight() # height of the screen
+
+# calculate x and y coordinates for the Tk root window
+x = (ws/2) - (w/2)
+y = (hs/2) - (h/2)
+
+# set the dimensions of the screen
+# and where it is placed
+root.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+# label = Label(root, text='To jest tytuł fiszek', font=('Comic_Sans', 25))
+# label.pack()
+
 list_of_words = []
-
-root.configure(bg="#ffffff")
-
-canvas = Canvas(root, bg="#ffffff", height=1024, width=1440, bd=0, highlightthickness=0, relief="ridge")
-
-canvas.place(x=0, y=0)
 
 
 ## Pobieranie słówek
 # Pobiera słówka z A1
 
-with open(r'Baza\A1_words.txt', 'r', encoding='UTF-8') as lines:
+with open('Baza/A1_words.txt', 'r', encoding='UTF-8') as lines:
     for line in lines:
         list_of_words.append(line.rstrip())
 
 
-def click_action():
+def start_game():
     print("Wow!")
+    # Wybó trybu
 
+#
+# list_of_words.pop(0)
+# print(list_of_words)
 
-list_of_words.pop(0)
-print(list_of_words)
+def MENU():
+    def tab2():
+        label.destroy()
 
+        przycisk_next.destroy()
+        przycisk_start.destroy()
+        przycisk_opcji.destroy()
+        przycisk_exit.destroy()
 
-# Przyciski
-przycisk_start = Button(root, text='Graj', width=8, command=click_action)
-przycisk_start.pack()
+        label2 = Label(root, text='Druga strona', font=('Comic_Sans', 25))
+        label2.pack()
 
-# przycisk_opcji = Button(okno, text='Opcje', width=8, command=click_action)
-# przycisk_opcji.pack()
+        def back():
+            label2.destroy()
+            przycisk_next2.destroy()
+            MENU()
 
+        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=back)
+        przycisk_next2.pack(side=BOTTOM)
+
+    def OPCJE():
+        label.destroy()
+        przycisk_next.destroy()
+        przycisk_start.destroy()
+        przycisk_opcji.destroy()
+        przycisk_exit.destroy()
+        label2 = Label(root, text='Strona opcji', font=('Comic_Sans', 25))
+        label2.pack()
+
+        def back():
+            label2.destroy()
+            przycisk_next2.destroy()
+            MENU()
+
+        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=back)
+        przycisk_next2.pack(side=BOTTOM)
+
+    def EXIT():
+        label.destroy()
+        przycisk_next.destroy()
+        przycisk_start.destroy()
+        przycisk_opcji.destroy()
+        przycisk_exit.destroy()
+        label2 = Label(root, text='Czy na pewno chcesz opuścić grę?', font=('Comic_Sans', 25))
+        label2.pack()
+
+        def back():
+            label2.destroy()
+            przycisk_back.destroy()
+            przycisk_quit.destroy()
+            MENU()
+
+        przycisk_back = Button(root, text='Nie', font=('Comic_Sans', 25), command=back)
+        przycisk_back.pack()
+
+        przycisk_quit = Button(root, text='Tak', font=('Comic_Sans', 25), command=quit)
+        przycisk_quit.pack()
+
+    label = Label(root, text='Pierwsza', font=('Comic_Sans', 25))
+    label.pack()
+
+    # Przyciski
+    przycisk_start = Button(root, text='Graj', width=8, command=start_game)
+    przycisk_start.pack()
+
+    przycisk_next = Button(root, text='Następna strona', font=('Comic_Sans', 25), command=tab2)
+    przycisk_next.pack(side=BOTTOM)
+
+    przycisk_opcji = Button(root, text='Opcje', command=OPCJE)
+    przycisk_opcji.pack()
+
+    przycisk_exit = Button(root, text='Wyjście', command=EXIT)
+    przycisk_exit.pack()
+
+MENU()
 root.mainloop()
