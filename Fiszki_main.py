@@ -1,16 +1,31 @@
 from tkinter import *
+from PIL import Image, ImageTk
 import random
+import os
 
-okno = Tk()
-okno.title('Fiszki angielsko-polskie')
+simp_path = 'A1_words.txt'
+abs_path = os.path.abspath(simp_path)
+
+print(abs_path)
+
+root = Tk()
+root.title('Fiszki angielsko-polskie')
 
 # Tworzy okno
-okno.geometry('550x550')
+root.geometry('550x550')
 list_of_words = []
 
-### TRZEBA pomyśleć nad ścieżką!
+root.configure(bg="#ffffff")
+
+canvas = Canvas(root, bg="#ffffff", height=1024, width=1440, bd=0, highlightthickness=0, relief="ridge")
+
+canvas.place(x=0, y=0)
+
+
+## Pobieranie słówek
 # Pobiera słówka z A1
-with open('C:/Users/Julia/Documents/GitHub/Fiszki_angielskie/Baza/A1_words.txt', 'r', encoding='UTF-8') as lines:
+
+with open(r'Baza\A1_words.txt', 'r', encoding='UTF-8') as lines:
     for line in lines:
         list_of_words.append(line.rstrip())
 
@@ -18,14 +33,16 @@ with open('C:/Users/Julia/Documents/GitHub/Fiszki_angielskie/Baza/A1_words.txt',
 def click_action():
     print("Wow!")
 
+
 list_of_words.pop(0)
 print(list_of_words)
 
+
 # Przyciski
-przycisk_start = Button(okno, text='Graj', width=8, command=click_action, image="Pla")
+przycisk_start = Button(root, text='Graj', width=8, command=click_action)
 przycisk_start.pack()
 
-przycisk_opcji = Button(okno, text='Opcje', width=8, command=click_action)
-przycisk_opcji.pack()
+# przycisk_opcji = Button(okno, text='Opcje', width=8, command=click_action)
+# przycisk_opcji.pack()
 
-okno.mainloop()
+root.mainloop()
