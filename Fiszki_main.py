@@ -2,15 +2,21 @@ from tkinter import *
 from PIL import Image, ImageTk
 import random
 import os
+from pygame import mixer
 
 # Tutaj robi dźwięki :P
-# import winsound
-# winsound.Beep(555, 500)
+import winsound
+# winsound.Beep(1200, 200)
+
+def beep():
+    mixer.init()
+    s = mixer.Sound("Klik.wav")
+    s.play()
 
 root = Tk()
 root.title('Fiszki angielsko-polskie')
 
-from pygame import mixer
+
 mixer.init()
 sound=mixer.Sound("muzyka.wav")
 sound.play(-1)
@@ -48,7 +54,7 @@ with open('Baza/A1_words.txt', 'r', encoding='UTF-8') as lines:
 
 def start_game():
     print("Wow!")
-    # Wybó trybu
+    # Wybór trybu
 
 #
 # list_of_words.pop(0)
@@ -71,7 +77,7 @@ def MENU():
             przycisk_next2.destroy()
             MENU()
 
-        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=back)
+        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=lambda: [beep(), back()])
         przycisk_next2.pack(side=BOTTOM)
 
     def OPCJE():
@@ -88,7 +94,7 @@ def MENU():
             przycisk_next2.destroy()
             MENU()
 
-        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=back)
+        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=lambda: [beep(), back()])
         przycisk_next2.pack(side=BOTTOM)
 
     def EXIT():
@@ -106,26 +112,26 @@ def MENU():
             przycisk_quit.destroy()
             MENU()
 
-        przycisk_back = Button(root, text='Nie', font=('Comic_Sans', 25), command=back)
+        przycisk_back = Button(root, text='Nie', font=('Comic_Sans', 25), command=lambda: [beep(), back()])
         przycisk_back.pack()
 
-        przycisk_quit = Button(root, text='Tak', font=('Comic_Sans', 25), command=quit)
+        przycisk_quit = Button(root, text='Tak', font=('Comic_Sans', 25), command=lambda: [beep(), quit()])
         przycisk_quit.pack()
 
     label = Label(root, text='Pierwsza', font=('Comic_Sans', 25))
     label.pack()
 
     # Przyciski
-    przycisk_start = Button(root, text='Graj', width=8, command=start_game)
+    przycisk_start = Button(root, text='Graj', width=8, command=lambda: [beep(), start_game()])
     przycisk_start.pack()
 
-    przycisk_next = Button(root, text='Następna strona', font=('Comic_Sans', 25), command=tab2)
+    przycisk_next = Button(root, text='Następna strona', font=('Comic_Sans', 25), command=lambda: [beep(), tab2()])
     przycisk_next.pack(side=BOTTOM)
 
-    przycisk_opcji = Button(root, text='Opcje', command=OPCJE)
+    przycisk_opcji = Button(root, text='Opcje', command=lambda: [beep(), OPCJE()])
     przycisk_opcji.pack()
 
-    przycisk_exit = Button(root, text='Wyjście', command=EXIT)
+    przycisk_exit = Button(root, text='Wyjście', command=lambda: [beep(), EXIT()])
     przycisk_exit.pack()
 
 MENU()
