@@ -19,6 +19,7 @@ root.title('Fiszki angielsko-polskie')
 
 mixer.init()
 sound=mixer.Sound("muzyka.wav")
+sound.set_volume(0.4)
 sound.play(-1)
 
 # Tworzy okno
@@ -60,15 +61,36 @@ def start_game():
 # list_of_words.pop(0)
 # print(list_of_words)
 
-def MENU():
-    def tab2():
-        label.destroy()
 
-        przycisk_next.destroy()
+def MENU():
+    def destroyer():
+        label.destroy()
         przycisk_start.destroy()
         przycisk_opcji.destroy()
         przycisk_exit.destroy()
+        przycisk_dodaj.destroy()
+        przycisk_postepy.destroy()
 
+
+    def DODAJ():
+        destroyer()
+        label2 = Label(root, text='Druga strona', font=('Comic_Sans', 25))
+        label2.pack()
+
+        def back():
+            label2.destroy()
+            przycisk_next2.destroy()
+            wejscie.destroy()
+            MENU()
+
+        wejscie = Entry(root,width=40)
+        wejscie.pack()
+        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), back()])
+        przycisk_next2.pack(side=BOTTOM)
+
+    def POSTEPY():
+        destroyer()
         label2 = Label(root, text='Druga strona', font=('Comic_Sans', 25))
         label2.pack()
 
@@ -80,12 +102,29 @@ def MENU():
         przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=lambda: [beep(), back()])
         przycisk_next2.pack(side=BOTTOM)
 
+    def WYBOR():
+        destroyer()
+        label2 = Label(root, text='Druga strona', font=('Comic_Sans', 25))
+        label2.pack()
+
+        def back():
+            label2.destroy()
+            przycisk_next2.destroy()
+            przycisk_learn.destroy()
+            przycisk_challenge.destroy()
+            MENU()
+
+        przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25), command=lambda: [beep(), back()])
+        przycisk_next2.pack(side=BOTTOM)
+
+        przycisk_learn = Button(root, text='Tryb nauki', font=('Comic_Sans', 25), command=lambda: [beep()])
+        przycisk_learn.pack()
+
+        przycisk_challenge = Button(root, text='Tryb wyzwania', font=('Comic_Sans', 25), command=lambda: [beep()])
+        przycisk_challenge.pack()
+
     def OPCJE():
-        label.destroy()
-        przycisk_next.destroy()
-        przycisk_start.destroy()
-        przycisk_opcji.destroy()
-        przycisk_exit.destroy()
+        destroyer()
         label2 = Label(root, text='Strona opcji', font=('Comic_Sans', 25))
         label2.pack()
 
@@ -98,11 +137,7 @@ def MENU():
         przycisk_next2.pack(side=BOTTOM)
 
     def EXIT():
-        label.destroy()
-        przycisk_next.destroy()
-        przycisk_start.destroy()
-        przycisk_opcji.destroy()
-        przycisk_exit.destroy()
+        destroyer()
         label2 = Label(root, text='Czy na pewno chcesz opuścić grę?', font=('Comic_Sans', 25))
         label2.pack()
 
@@ -122,11 +157,14 @@ def MENU():
     label.pack()
 
     # Przyciski
-    przycisk_start = Button(root, text='Graj', width=8, command=lambda: [beep(), start_game()])
+    przycisk_start = Button(root, text='Graj', width=8, command=lambda: [beep(), WYBOR()])
     przycisk_start.pack()
 
-    przycisk_next = Button(root, text='Następna strona', font=('Comic_Sans', 25), command=lambda: [beep(), tab2()])
-    przycisk_next.pack(side=BOTTOM)
+    przycisk_dodaj = Button(root, text='Dodaj fiszkę', command=lambda: [beep(), DODAJ()])
+    przycisk_dodaj.pack()
+
+    przycisk_postepy = Button(root, text='Postępy', command=lambda: [beep(), POSTEPY()])
+    przycisk_postepy.pack()
 
     przycisk_opcji = Button(root, text='Opcje', command=lambda: [beep(), OPCJE()])
     przycisk_opcji.pack()
