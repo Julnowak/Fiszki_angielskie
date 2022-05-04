@@ -22,3 +22,5 @@ Pomysły wykonania i propozycje:
 - f
 - h
 - o
+
+UWAGA! Foldery trzeba będzie posortować! Miejscie to na uwadze, jeśli chcielibyście coś robić ze ścieżkami do plików.
