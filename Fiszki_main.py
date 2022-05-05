@@ -52,14 +52,10 @@ with open('Baza/A1_words.txt', 'r', encoding='UTF-8') as lines:
     for line in lines:
         list_of_words.append(line.rstrip())
 
-
-def start_game():
-    print("Wow!")
-    # Wybór trybu
-
 #
 # list_of_words.pop(0)
 # print(list_of_words)
+
 
 
 def MENU():
@@ -71,7 +67,7 @@ def MENU():
         przycisk_dodaj.destroy()
         przycisk_postepy.destroy()
 
-
+# Usuń fiszkę ----- dodać
     def DODAJ():
         destroyer()
         label2 = Label(root, text='Druga strona', font=('Comic_Sans', 25))
@@ -80,11 +76,48 @@ def MENU():
         def back():
             label2.destroy()
             przycisk_next2.destroy()
-            wejscie.destroy()
+            wejscieANG.destroy()
+            wejsciePOL.destroy()
+            wejscieKAT.destroy()
+            labelANG.destroy()
+            labelPOL.destroy()
+            labelKAT.destroy()
+            przycisk_submit.destroy()
             MENU()
 
-        wejscie = Entry(root,width=40)
-        wejscie.pack()
+        labelANG = Label(root, text='Angielski/English', font=('Comic_Sans', 16))
+        labelANG.pack()
+
+        wejscieANG = Entry(root, width=40)
+        wejscieANG.pack()
+
+        labelPOL = Label(root, text='Polski/Polish', font=('Comic_Sans', 16))
+        labelPOL.pack()
+
+        wejsciePOL = Entry(root, width=40)
+        wejsciePOL.pack()
+
+        labelKAT = Label(root, text='Kategoria/Category', font=('Comic_Sans', 16))
+        labelKAT.pack()
+
+        wejscieKAT = Entry(root, width=40)
+        wejscieKAT .pack()
+
+        def submit():
+            # ang = StringVar()
+            # pol = StringVar()
+            # nazwa_kategorii = StringVar()
+
+            ang = wejscieANG.get()
+            pol = wejsciePOL.get()
+            nazwa_kategorii = wejscieKAT.get()
+
+            print(ang, pol, nazwa_kategorii)
+
+
+        przycisk_submit = Button(root, text='Dodaj', font=('Comic_Sans', 25), command=lambda: [beep(), submit()])
+        przycisk_submit.pack()
+
         przycisk_next2 = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), back()])
         przycisk_next2.pack(side=BOTTOM)
@@ -147,13 +180,13 @@ def MENU():
             przycisk_quit.destroy()
             MENU()
 
-        przycisk_back = Button(root, text='Nie', font=('Comic_Sans', 25), command=lambda: [beep(), back()])
-        przycisk_back.pack()
+        przycisk_back = Button(root, text='Nie',width = 15,height = 5, font=('Comic_Sans', 25), command=lambda: [beep(), back()])
+        przycisk_back.pack(padx=33,pady=100)
 
         przycisk_quit = Button(root, text='Tak', font=('Comic_Sans', 25), command=lambda: [beep(), quit()])
         przycisk_quit.pack()
 
-    label = Label(root, text='Pierwsza', font=('Comic_Sans', 25))
+    label = Label(root, text='NAZWA', font=('Comic_Sans', 25))
     label.pack()
 
     # Przyciski
