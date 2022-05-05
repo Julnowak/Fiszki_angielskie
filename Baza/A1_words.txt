@@ -55,4 +55,5 @@ to draw - rysować - czynności
 to speak - mówić - czynności
 to play - grać - czynności
 to listen - słuchać - czynności
-to sing - śpiewać
+to sing - śpiewać - czynności
+to travel - podróżować - czynności
