@@ -24,3 +24,7 @@ grumpy - zrzędliwy - uczucia i emocje
 infatuated - zauroczony - uczucia i emocje
 loathing - odraza - uczucia i emocje
 misery - nędza - uczucia i emocje
+outrage - zniewaga - uczucia i emocje
+remorse - wyrzuty sumienia - uczucia i emocje
+subdued - przygnębiony - uczucia i emocje
+vivacious - pełen życia - uczucia i emocje
