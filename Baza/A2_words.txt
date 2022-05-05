@@ -21,3 +21,5 @@ cloudy - pochmurno - pogoda
 windy - wietrznie - pogoda
 wet - mokro - pogoda
 storm - burza - pogoda
+sock - skarpeta - ubrania
+to exercise - ćwiczyć - czynności
