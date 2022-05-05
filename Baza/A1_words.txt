@@ -43,3 +43,16 @@ rain - deszcz - pogoda
 wind - wiatr - pogoda
 snow - śnieg - pogoda
 hot - gorąco - pogoda
+to eat - jeść - czynności
+to write - pisać - czynności
+to sleep - spać - czynności
+to read - czytać - czynności
+to look - patrzeć - czynności
+to smile - uśmiechać się - czynności
+to walk - iść - czynności
+to run - biec - czynności
+to draw - rysować - czynności
+to speak - mówić - czynności
+to play - grać - czynności
+to listen - słuchać - czynności
+to sing - śpiewać
