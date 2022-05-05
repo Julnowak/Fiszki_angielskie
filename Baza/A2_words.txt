@@ -24,3 +24,5 @@ storm - burza - pogoda
 sock - skarpeta - ubrania
 to exercise - ćwiczyć - czynności
 to decide - decydować - czynności
+to throw - rzucać - czynności
+to follow - podążać za kimś - czynności
