@@ -1,1 +1,26 @@
 ang - pol - nazwa_kategorii - opis/zdj
+hedgehog - jeż - zwierzęta
+falcon - sokół - zwierzęta
+firefly - świetlik - zwierzęta
+mammal - ssak - zwierzęta
+reptile - gad - zwierzęta
+amphibian - płaz - zwierzęta
+beetle - chrząszcz - zwierzęta
+carnivore - mięsożerca - zwierzęta
+eel - węgorz - zwierzęta
+rodent - gryzoń - zwierzęta
+gilet - kamizelka - ubrania
+cardigan - sweter rozpinany - ubrania
+apparel - odzież - ubrania
+jersey - koszulka sportowa - ubrania
+adoration - uwielbienie - uczucia i emocje
+alienation - wyobcowanie - uczucia i emocje
+awe - podziw  - uczucia i emocje
+bliss - rozkosz - uczucia i emocje
+contempt - pogarda - uczucia i emocje
+dismay - niepokój - uczucia i emocje
+envious - zazdrosny - uczucia i emocje
+grumpy - zrzędliwy - uczucia i emocje
+infatuated - zauroczony - uczucia i emocje
+loathing - odraza - uczucia i emocje
+misery - nędza - uczucia i emocje
