@@ -19,6 +19,7 @@ Pomysły wykonania i propozycje:
 
 # Przydzielone zadania
 - Julia Nowak: pisanie kodu w Pythonie, realizacja interfejsu tkinker i funkcjonalności
+- Piotr Loch: przygotowanie bazy fiszek
 - f
 - h
 - o
