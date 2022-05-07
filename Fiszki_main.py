@@ -62,8 +62,9 @@ def MENU():
         label2.pack()
 
         def back():
-            label2.destroy()
-            przycisk_next2.destroy()
+            lista = [label2,przycisk_next2]
+            for i in lista:
+                i.destroy()
             wejscieANG.destroy()
             wejsciePOL.destroy()
             wejscieKAT.destroy()
@@ -227,7 +228,48 @@ def MENU():
         destroyer()
 
         def back():
+            label.destroy()
+            przycisk_back.destroy()
+            b.destroy()
+            l.destroy()
             MENU()
+
+        label = Label(root, text='Baza danych', font=('Comic_Sans', 25))
+        label.pack()
+
+        things = [{"dictionaryItem": "value"}, {"anotherDict": "itsValue"}, 10, "foo", ["bar", "baz"]]
+        # f = Frame(root).pack()
+        l = Listbox(root)
+
+
+
+
+
+        l.pack()
+        num = 0
+        for i in list_of_words:
+            l.insert(num, i)
+            num += 1
+
+        scrollbar = Scrollbar(root, orient='vertical', command=l.yview)
+        l.config(yscrollcommand=scrollbar.set)
+        def delete(listbox):
+            global things
+            # Delete from Listbox
+            selection = l.curselection()
+            l.delete(selection[0])
+            # Delete from list that provided it
+            value = eval(l.get(selection[0]))
+            ind = things.index(value)
+            del (things[ind])
+            print(things)
+
+        b = Button(root, text="Usuń", command=lambda: delete(l))
+        b.pack()
+
+        przycisk_back = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                               command=lambda: [beep(), back()])
+        przycisk_back.pack(side=BOTTOM)
 
     def EXIT():
         destroyer()
@@ -242,7 +284,7 @@ def MENU():
 
         przycisk_back = Button(root, text='Nie', width=15, height=5, font=('Comic_Sans', 25),
                                command=lambda: [beep(), back()])
-        przycisk_back.pack(padx=300, pady=100)
+        przycisk_back.pack()
         # MILEGO DNIA jeszcze
         przycisk_quit = Button(root, text='Tak', font=('Comic_Sans', 25), command=lambda: [beep(), quit()])
         przycisk_quit.pack()
