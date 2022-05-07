@@ -56,7 +56,6 @@ def MENU():
         przycisk_postepy.destroy()
         przycisk_usun.destroy()
 
-    # Usuń fiszkę ----- dodać
     def DODAJ():
         destroyer()
         label2 = Label(root, text='Dodaj fiszkę', font=('Comic_Sans', 25))
