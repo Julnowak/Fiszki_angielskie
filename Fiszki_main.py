@@ -69,7 +69,8 @@ class MENU(Page):
         interface.append(label)
 
         # Przyciski
-        przycisk_start = Button(self.root, text='Graj', height=3, width=20,font=('Comic_Sans', 14), command=lambda: [beep(), self.START()])
+
+        przycisk_start = Button(self.root, text='Graj', height=3, width=20, font=('Comic_Sans', 14), command=lambda: [beep(), self.START()])
         interface.append(przycisk_start)
 
         przycisk_dodaj = Button(self.root, text='Dodaj fiszkę', height=3, width=20,font=('Comic_Sans', 14), command=lambda: [beep(), self.DODAJ()])
@@ -86,12 +87,6 @@ class MENU(Page):
 
         przycisk_exit = Button(self.root, text='Wyjście', height=3, width=20,font=('Comic_Sans', 14), command=lambda: [beep(), self.EXIT()])
         interface.append(przycisk_exit)
-
-        image = Image.open('bober.png')
-        display = ImageTk.PhotoImage(image)
-
-        label4 = Label(self.root, image=display)
-        interface.append(label4)
 
         label.grid(column=1, row=0)
         przycisk_start.grid(column=1, row=1)
@@ -111,6 +106,13 @@ class App(Page):
         # Tworzy okno
         self.root = Tk()
         self.root.title('Fiszki angielsko-polskie')
+        img = PhotoImage(file="tło2.png")
+        self.root.config(bg='black')
+        label = Label(
+            self.root,
+            image=img
+        )
+        label.place(x=0, y=0)
 
         self.width = 1000  # width for the Tk root
         self.height = 800  # height for the Tk root
@@ -155,9 +157,12 @@ class DODAJ_PAGE(Page):
         self.create()
 
     def configure(self):
+        # Kolumny
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
+
+        # Rzędy
         self.root.rowconfigure(0, weight=2)
         self.root.rowconfigure(1, weight=1)
         self.root.rowconfigure(2, weight=1)
@@ -170,12 +175,13 @@ class DODAJ_PAGE(Page):
     def create(self):
         self.configure()
         interface = []
+        img = PhotoImage(file="tło.png")
 
         label2 = Label(self.root, text='Dodaj fiszkę', font=('Comic_Sans', 25))
         interface.append(label2)
 
         # Przyciski
-        lvl = Label(self.root, text='Poziom', font=('Comic_Sans', 16))
+        lvl = Label(self.root, text='Poziom/Level', font=('Comic_Sans', 16))
         interface.append(lvl)
 
         wejscielvl = Entry(self.root, width=40)
@@ -276,10 +282,30 @@ class DODAJ_PAGE(Page):
 
         if ang != '' and pol != '' and kat != '':
             if lvl in self.baza.keys():
-                with open(self.baza[lvl], 'a+', encoding='UTF-8') as f:
+                ans = True
+                with open(self.baza[lvl], 'r+', encoding='UTF-8') as f:
+                    for line in f:
+                        lista = line.split(' - ')
 
-                    f.write(f"{ang} - {pol} - {kat}\n")
-                self.show_message_good()
+                        if ang in lista[0]:
+                            a = True
+                        else:
+                            a = False
+
+                        if pol in lista[1]:
+                            p = True
+                        else:
+                            p = False
+
+                        if a or p:
+                            ans = self.show_message_isHere(a, p)
+                            break
+                if ans:
+                    with open(self.baza[lvl], 'a+', encoding='UTF-8') as f:
+                        f.write(f"{ang} - {pol} - {kat}\n")
+                    self.show_message_neutral()
+                else:
+                    self.show_message_info()
             else:
                 ans = True
                 with open('Baza/Others.txt', 'r', encoding='UTF-8') as f:
@@ -362,18 +388,18 @@ class BAZA_PAGE(Page):
         label = Label(self.root, text='Baza danych', font=('Comic_Sans', 25))
         interface.append(label)
 
-        scroll = Scrollbar(self.root)
-        scroll.pack(side='right', fill='y')
+        # scroll = Scrollbar(self.root)
+        # scroll.pack(side='right', fill='y')
 
-        leftside = Listbox(self.root, yscrollcommand=scroll.set)
-        for line in range(10):
-            leftside.insert('end', "Scale " + str(line))
-
-        leftside.pack()
-
-        selectbutton = Button(self.root, text="Select", command=lambda: [self.get(leftside)])
-        selectbutton.pack()
-
+        # leftside = Listbox(self.root, yscrollcommand=scroll.set)
+        # for line in range(10):
+        #     leftside.insert('end', "Scale " + str(line))
+        #
+        # leftside.pack()
+        #
+        # selectbutton = Button(self.root, text="Select", command=lambda: [self.get(leftside)])
+        # selectbutton.pack()
+        #
         przycisk_back = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_back)
@@ -400,7 +426,7 @@ class START_PAGE(Page):
         LEARN_PAGE(self.root, lista)
 
     def start_challenge(self,lista):
-        LEARN_PAGE(self.root, lista)
+        CHALLENGE_PAGE(self.root, lista)
 
     def create(self):
         interface = []
@@ -437,25 +463,39 @@ class EXIT_PAGE(Page):
 
     def Quit(self):
         label = Label(self.root, text='Miłego dnia!', font=('Comic_Sans', 25))
-        label.pack()
+        label.grid(column=0, columnspan=4, row=3)
         label.after(1500, label.quit)
 
+    def configure(self):
+        # Kolumny
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+
+
+
     def create(self):
+        self.configure()
         interface = []
 
         label2 = Label(self.root, text='Czy na pewno chcesz opuścić grę?', font=('Comic_Sans', 25))
         interface.append(label2)
 
-        przycisk_back = Button(self.root, text='Nie', width=15, height=5, font=('Comic_Sans', 25),
+        przycisk_back = Button(self.root, text='Nie', font=('Comic_Sans', 25),
                                command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_back)
         przycisk_quit = Button(self.root, text='Tak', font=('Comic_Sans', 25), command=lambda: [beep(), self.Quit()])
         interface.append(przycisk_quit)
 
-        for elem in interface:
-            elem.pack()
-
-        self.inter = interface
+        label2.grid(columnspan=4, row=0)
+        przycisk_back.grid(column=1, columnspan=2, row=1)
+        przycisk_quit.grid(column=0, columnspan=2, row=1)
 
 
 class POSTEPY_PAGE(Page):
@@ -508,20 +548,103 @@ class LEARN_PAGE(Page):
     def onPress(self,i,table):
         table[i] = not table[i]
 
+    def keyboard(self, window):
+        pass
+        # def clicked(txt):
+        #     print(txt)
+        #
+        # A = Button(window, text="A", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("A"))
+        # A.grid(column=1, row=1)
+        #
+        # btn2 = Button(window, text="R", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("R"))
+        # btn2.grid(column=2, row=1)
+        # btn3 = Button(window, text="B", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("B"))
+        # btn3.grid(column=3, row=1)
+        # btn4 = Button(window, text="Z", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("Z"))
+        # btn4.grid(column=4, row=1)
+        # btn5 = Button(window, text="T", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("T"))
+        # btn5.grid(column=5, row=1)
+        # btn6 = Button(window, text="I", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("I"))
+        # btn6.grid(column=6, row=1)
+        # btn7 = Button(window, text="C", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("C"))
+        # btn7.grid(column=7, row=1)
+        # btn8 = Button(window, text="X", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("X"))
+        # btn8.grid(column=8, row=1)
+        #
+        # btn9 = Button(window, text="O", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #               command=lambda: clicked("O"))
+        # btn9.grid(column=2, row=2)
+        # btn10 = Button(window, text="Y", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("Y"))
+        # btn10.grid(column=3, row=2)
+        # btn11 = Button(window, text="P", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("P"))
+        # btn11.grid(column=4, row=2)
+        # btn12 = Button(window, text="N", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("N"))
+        # btn12.grid(column=5, row=2)
+        # btn13 = Button(window, text="D", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("D"))
+        # btn13.grid(column=6, row=2)
+        # btn14 = Button(window, text="W", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("W"))
+        # btn14.grid(column=7, row=2)
+        #
+        # btn15 = Button(window, text="V", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("V"))
+        # btn15.grid(column=3, row=3)
+        # btn16 = Button(window, text="S", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("S"))
+        # btn16.grid(column=4, row=3)
+        # btn17 = Button(window, text="L", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("L"))
+        # btn17.grid(column=5, row=3)
+        # btn18 = Button(window, text="U", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("U"))
+        # btn18.grid(column=6, row=3)
+        #
+        # btn19 = Button(window, text="M", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("M"))
+        # btn19.grid(column=4, row=4)
+        # btn20 = Button(window, text="E", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+        #                command=lambda: clicked("E"))
+        # btn20.grid(column=5, row=4)
     def create(self):
         interface = []
         label2 = Label(self.root, text='Strona uczenia', font=('Comic_Sans', 25))
         interface.append(label2)
 
-        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface)])
-        interface.append(przycisk_next2)
+
 
         is_checked = []
 
+        self.keyboard(self.root)
 
-        for elem in interface:
-            elem.pack()
+
+        list_of_words = []
+        with open('Baza/A1_words.txt', 'r', encoding='UTF-8') as f:
+            for line in f:
+                list_of_words.append(line)
+        list_of_words.pop(0)
+
+        choice = random.choice(list_of_words)
+        choice_list = choice.split(' - ')
+
+
+        word = Label(self.root, text=choice, font=('Comic_Sans', 25))
+        interface.append(word)
+
+        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_next2)
 
         # Nieco zmienić i będzie działać
         # for i in range(7):
@@ -529,7 +652,8 @@ class LEARN_PAGE(Page):
         #     interface.append(chk)
         #     is_checked.append(0)
         #     print(is_checked)
-
+        for elem in interface:
+            elem.pack()
         self.inter = interface
 
 
