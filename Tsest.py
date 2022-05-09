@@ -3,6 +3,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
 import os
+import time
 from pygame import mixer
 # Tutaj robi dźwięki :P
 import winsound
@@ -29,22 +30,22 @@ class MENU(Page):
         self.create()
 
     def WYBOR(self):
-        pass
+        WYBOR_PAGE(self.root, self.inter)
 
     def DODAJ(self):
         DODAJ_PAGE(self.root, self.inter)
 
     def BAZA(self):
-        pass
+        WYBOR_PAGE(self.root, self.inter)
 
     def POSTEPY(self):
-        pass
+        POSTEPY_PAGE(self.root, self.inter)
 
     def OPCJE(self):
-        pass
+        OPCJE_PAGE(self.root, self.inter)
 
     def EXIT(self):
-        pass
+        EXIT_PAGE(self.root, self.inter)
 
     def create(self):
         interface = []
@@ -163,7 +164,7 @@ class DODAJ_PAGE(Page):
         interface.append(przycisk_submit)
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.deco(self.inter)])
+                                command=lambda: [beep(), self.back(self.inter)])
         interface.append(przycisk_next2)
 
         labeltip = Label(self.root, text='Nie musisz wprowadzać poziomu - twoja fiszka zostanie wprowadzona do katalogu roboczego\n Możesz ją edytować później.', font=('Comic_Sans', 16))
@@ -174,7 +175,7 @@ class DODAJ_PAGE(Page):
 
         self.inter = interface
 
-    def deco(self, lista):
+    def back(self, lista):
         self.destroyer(lista)
         MENU(self.root, lista)
 
@@ -265,20 +266,179 @@ class DODAJ_PAGE(Page):
 
 
 class OPCJE_PAGE(Page):
-    pass
+    def __init__(self, root, lista):
+        super().__init__()
+        self.inter = []
+        self.root = root
+        self.destroyer(lista)
+        self.create()
+
+    def back(self, lista):
+        self.destroyer(lista)
+        MENU(self.root, lista)
+
+    def create(self):
+        interface = []
+        label2 = Label(self.root, text='Strona opcji', font=('Comic_Sans', 25))
+        interface.append(label2)
+
+        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_next2)
 
 
 class BAZA_PAGE(Page):
-    pass
+    def __init__(self, root, lista):
+        super().__init__()
+        self.inter = []
+        self.root = root
+        self.destroyer(lista)
+        self.create()
+
+    def back(self, lista):
+        self.destroyer(lista)
+        MENU(self.root, lista)
+
+    def create(self):
+        pass
+        # label = Label(root, text='Baza danych', font=('Comic_Sans', 25))
+        # label.pack()
+        #
+        # things = [{"dictionaryItem": "value"}, {"anotherDict": "itsValue"}, 10, "foo", ["bar", "baz"]]
+        # # f = Frame(root).pack()
+        # l = Listbox(root)
+        #
+        # l.pack()
+        # num = 0
+        # for i in list_of_words:
+        #     l.insert(num, i)
+        #     num += 1
+        #
+        # scrollbar = Scrollbar(root, orient='vertical', command=l.yview)
+        # l.config(yscrollcommand=scrollbar.set)
+        #
+        # def delete(listbox):
+        #     global things
+        #     # Delete from Listbox
+        #     selection = l.curselection()
+        #     l.delete(selection[0])
+        #     # Delete from list that provided it
+        #     value = eval(l.get(selection[0]))
+        #     ind = things.index(value)
+        #     del (things[ind])
+        #     print(things)
+        #
+        # b = Button(root, text="Usuń", command=lambda: delete(l))
+        # b.pack()
+        #
+        # przycisk_back = Button(root, text='Poprzednia strona', font=('Comic_Sans', 25),
+        #                        command=lambda: [beep(), back()])
+        # przycisk_back.pack(side=BOTTOM)
 
 
 class WYBOR_PAGE(Page):
-    pass
+    def __init__(self, root, lista):
+        super().__init__()
+        self.inter = []
+        self.root = root
+        self.destroyer(lista)
+        self.create()
+
+
+    def back(self, lista):
+        self.destroyer(lista)
+        MENU(self.root, lista)
+
+    def start_lean(self):
+        pass
+
+    def start_challenge(self):
+        pass
+
+    def create(self):
+        interface = []
+        label2 = Label(self.root, text='Druga strona', font=('Comic_Sans', 25))
+        interface.append(label2)
+
+
+        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_next2)
+
+        przycisk_learn = Button(self.root, text='Tryb nauki', font=('Comic_Sans', 25), command=lambda: [beep(), self.start_lean()])
+        interface.append(przycisk_learn)
+
+        przycisk_challenge = Button(self.root, text='Tryb wyzwania', font=('Comic_Sans', 25), command=lambda: [beep()])
+        interface.append(przycisk_challenge)
+
+        for elem in interface:
+            elem.pack()
+
+        self.inter = interface
 
 
 class EXIT_PAGE(Page):
-    pass
+    def __init__(self, root, lista):
+        super().__init__()
+        self.inter = []
+        self.root = root
+        self.destroyer(lista)
+        self.create()
 
+    def back(self, lista):
+        self.destroyer(lista)
+        MENU(self.root, lista)
+
+    def Quit(self):
+        label = Label(self.root, text='Miłego dnia!', font=('Comic_Sans', 25))
+        label.pack()
+        label.after(1500, label.quit)
+
+    def create(self):
+        interface = []
+
+        label2 = Label(self.root, text='Czy na pewno chcesz opuścić grę?', font=('Comic_Sans', 25))
+        interface.append(label2)
+
+        przycisk_back = Button(self.root, text='Nie', width=15, height=5, font=('Comic_Sans', 25),
+                               command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_back)
+        # MILEGO DNIA jeszcze
+        przycisk_quit = Button(self.root, text='Tak', font=('Comic_Sans', 25), command=lambda: [beep(), self.Quit()])
+        interface.append(przycisk_quit)
+
+        for elem in interface:
+            elem.pack()
+
+        self.inter = interface
+
+
+class POSTEPY_PAGE(Page):
+    def __init__(self, root, lista):
+        super().__init__()
+        self.inter = []
+        self.root = root
+        self.destroyer(lista)
+        self.create()
+
+    def back(self, lista):
+        self.destroyer(lista)
+        MENU(self.root, lista)
+
+    def create(self):
+        interface = []
+
+        label2 = Label(self.root, text='Druga strona', font=('Comic_Sans', 25))
+        interface.append(label2)
+
+        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_next2)
+
+        for elem in interface:
+            elem.pack()
+
+        self.inter = interface
 
 def beep():
     mixer.init()

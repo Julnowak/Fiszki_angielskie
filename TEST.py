@@ -1,18 +1,17 @@
-import tkinter as tk
+from tkinter import *
+from PIL import Image, ImageTk
 
+from Tkinter import *
+import PIL.Image
+import PIL.ImageTk
 
-def show_message():
-    label = tk.Label(root, text="Hello, world!",
-                     background="red",
-                     foreground="white")
-    label.place(anchor="n", relx=.5, y=0)
-    label.after(1500, label.destroy)
+root = Toplevel()
 
+im = PIL.Image.open("photo.png")
+photo = PIL.ImageTk.PhotoImage(im)
 
-root = tk.Tk()
-root.geometry("600x200")
-
-button = tk.Button(root, text="Show message", command=show_message)
-button.pack(side="bottom")
+label = Label(root, image=photo)
+label.image = photo  # keep a reference!
+label.pack()
 
 root.mainloop()
