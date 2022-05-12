@@ -1,32 +1,141 @@
-try:
-    # Python2
-    import Tkinter as tk
-except ImportError:
-    # Python3
-    import tkinter as tk
+# -*- coding: utf-8 -*-
 
+import tkinter
 
-class ScaleDemo(tk.Frame):
-    def __init__(self, parent=tk.Tk()):
-        tk.Frame.__init__(self, parent)
-        self.pack()
-        self.parent = parent
-        tk.Label(self, text="Scale/Slider").pack()
-        self.var = tk.IntVar()
-        self.scale1 = tk.Scale(self, label='volume',
-                               command=self.onMove,
-                               variable=self.var,
-                               from_=0, to=255,
-                               length=300, tickinterval=30,
-                               showvalue='yes',
-                               orient='horizontal')
-        self.scale1.pack()
+import os
+import sys
+import mp3play
 
-    def onMove(self, value):
-        """ you can use value or self.scale1.get() """
-        s = "moving = %s" % value
-        # show result in the title
-        self.parent.title(s)
+class Core():
 
+    def __init__(self):
 
-ScaleDemo().mainloop()
+        self.Music = os.listdir(os.path.join(os.path.expanduser('~'), 'Desktop', 'NarutoLibMin'))
+        self.MusicPath = os.path.join(os.path.expanduser('~'),'Desktop', 'NarutoLibMin')
+        print (self.Music)
+
+        self.count = ''
+        self.mp3 = ''
+        self.VolumeSlider = ''
+        self.count = 0
+
+        self.createRoot()
+        self.createButtons()
+
+        self.LoadSong(False)
+
+    #---------------------------------------------
+
+    def createRoot(self, w = 729, h = 170):
+
+        self.root = Tkinter.Tk()
+        self.root.option_add('*Font', 'courier 12')
+        self.root.option_add('*Background', 'light blue')
+        self.root.configure(bg='light blue')
+
+        ws = self.root.winfo_screenwidth()
+        hs = self.root.winfo_screenheight()
+        x = (ws/2) - (w/2)
+        y = (hs/2) - (h/2)
+        self.root.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+    #---------------------------------------------
+
+    def createButtons(self):
+
+        tkinter.Button(self.root, height=2, width=10, text='◄◄', borderwidth=10,command=self.BackwardSong, fg = 'black', bg='light blue').grid(row=0,column=0)
+        tkinter.Button(self.root, height=2, width=10, text='►', borderwidth=10,command=self.PlayButton, fg = 'black', bg='light blue').grid(row=0,column=1)
+
+        self.buttonPause = tkinter.Button(self.root, height=2, width=10, text='║║', borderwidth=10,command=self.PauseButton, fg = 'black', bg='light blue')
+        self.buttonPause.grid(row=0,column=2)
+
+        tkinter.Button(self.root, height=2, width=10, text='■', borderwidth=10,command=self.StopButton, fg = 'black', bg='light blue').grid(row=0,column=3)
+        tkinter.Button(self.root, height=2, width=10, text='►►', borderwidth=10,command=self.ForwardSong, fg = 'black', bg='light blue').grid(row=0,column=4)
+        tkinter.Button(self.root, height=2, width=10, text='Quit', borderwidth=10,command=self.Quit, fg = 'black', bg='light blue').grid(row=1,column=1)
+        self.VolumeSlider = tkinter.Scale(self.root, length = 140, label='  Volume ', orient = 'horizontal', fg = 'black', bg='light blue', command = self.VolAdj).grid(row=1, column=2)
+
+    #---------------------------------------------
+
+    def LoadSong(self, play=True):
+        self.mp3 = self.mp3play.load(os.path.join(self.MusicPath, self.Music[self.count]))
+        if play:
+            self.mp3.play()
+
+    #---------------------------------------------
+
+    def PlayNextSongAuto(self):
+
+        track = 0
+        while track < self.mp3.seconds():
+            self.root.after(3600)
+            track += 1
+        self.count = 0
+        self.LoadSong()
+
+    #---------------------------------------------
+
+    def ForwardSong(self):
+        Stop = len(self.Music) - 2
+        print( Stop)
+        if self.count > Stop:
+            print( 'End of Play List')
+            self.count = 0
+            self.Quit()
+        self.StopButton()
+        self.count += 1
+        self.LoadSong()
+
+    #---------------------------------------------
+
+    def BackwardSong(self):
+#        if self.count > -3:
+#            print 'End of Play List'
+#            self.Quit()
+        self.StopButton()
+        self.count -= 1
+        self.LoadSong()
+
+    #---------------------------------------------
+
+    def PlayButton(self):
+        self.buttonPause.configure(text = '║║', command=self.PauseButton)
+        self.mp3.play()
+
+    #---------------------------------------------
+
+    def PauseButton(self):
+        self.buttonPause.configure(text = 'Unpause', command=self.UnPauseButton)
+        if self.mp3.isplaying():
+            self.mp3.pause()
+
+    #---------------------------------------------
+
+    def UnPauseButton(self):
+        self.buttonPause.configure(text = '║║', command=self.PauseButton)
+        if self.mp3.ispaused():
+            self.mp3.unpause()
+    #---------------------------------------------
+
+    def StopButton(self):
+        self.buttonPause.configure(text = '║║', command=self.PauseButton)
+        self.mp3.stop()
+
+    #---------------------------------------------
+
+    def Quit(self):
+        self.StopButton()
+        sys.exit('')
+
+    #---------------------------------------------
+
+    def VolAdj(self, val):
+        self.mp3.volume(val)
+
+    #---------------------------------------------
+
+    def Run(self):
+        self.root.mainloop()
+
+#---------------------------------------------------------------------
+
+Core().Run()
