@@ -22,12 +22,13 @@ class Page:
         return lista
 
 
-class MENU(Page):
-    def __init__(self, root, lista):
+class MENU(Page, ):
+    def __init__(self, root, lista, sound=None):
         super(MENU, self).__init__()
         self.root = root
         self.inter = lista
         self.create()
+        self.sound = sound
 
     def START(self):
         START_PAGE(self.root, self.inter)
@@ -42,7 +43,7 @@ class MENU(Page):
         POSTEPY_PAGE(self.root, self.inter)
 
     def OPCJE(self):
-        OPCJE_PAGE(self.root, self.inter)
+        OPCJE_PAGE(self.root, self.inter,self.sound)
 
     def EXIT(self):
         EXIT_PAGE(self.root, self.inter)
@@ -137,7 +138,7 @@ class App(Page):
         self.sound.play(-1)
 
         self.inter = []
-        MENU(self.root, self.inter)
+        MENU(self.root, self.inter,self.sound)
         self.root.mainloop()
 
 
@@ -273,7 +274,7 @@ class DODAJ_PAGE(Page):
         label.after(2000, label.destroy)
 
     def submit(self, lvl, ANG, POL, KAT):
-        lvl = lvl.get()
+        lvl = lvl.get().capitalize()
         ang = ANG.get()
         pol = POL.get()
         kat = KAT.get()
@@ -341,16 +342,28 @@ class DODAJ_PAGE(Page):
 
 
 class OPCJE_PAGE(Page):
-    def __init__(self, root, lista):
+    def __init__(self, root, lista,sound):
         super().__init__()
         self.inter = []
         self.root = root
+        self.sound = sound
         self.destroyer(lista)
         self.create()
 
     def back(self, lista):
         self.destroyer(lista)
-        MENU(self.root, lista)
+        MENU(self.root, lista,self.sound)
+
+    def up_sound(self):
+        a = self.sound.get_volume() + 0.1
+        self.sound.set_volume(a)
+
+    def change_music(self):
+        a = self.sound.get_volume()
+        self.sound.stop()
+        self.sound = mixer.Sound("Sounds/Adventure.wav")
+        self.sound.set_volume(a)
+        self.sound.play(-1)
 
     def create(self):
         interface = []
@@ -360,6 +373,14 @@ class OPCJE_PAGE(Page):
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next2)
+
+        przycisk_next3 = Button(self.root, text='UPP', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.up_sound()])
+        interface.append(przycisk_next3)
+
+        przycisk_next4 = Button(self.root, text='Zmiana', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.change_music()])
+        interface.append(przycisk_next4)
 
         for elem in interface:
             elem.pack()

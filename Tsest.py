@@ -1,35 +1,32 @@
-# Import module
-from tkinter import *
+try:
+    # Python2
+    import Tkinter as tk
+except ImportError:
+    # Python3
+    import tkinter as tk
 
-# Create object
-root = Tk()
 
-# Adjust size
-root.geometry("400x400")
+class ScaleDemo(tk.Frame):
+    def __init__(self, parent=tk.Tk()):
+        tk.Frame.__init__(self, parent)
+        self.pack()
+        self.parent = parent
+        tk.Label(self, text="Scale/Slider").pack()
+        self.var = tk.IntVar()
+        self.scale1 = tk.Scale(self, label='volume',
+                               command=self.onMove,
+                               variable=self.var,
+                               from_=0, to=255,
+                               length=300, tickinterval=30,
+                               showvalue='yes',
+                               orient='horizontal')
+        self.scale1.pack()
 
-# Add image file
-bg = PhotoImage(file="bober.png")
+    def onMove(self, value):
+        """ you can use value or self.scale1.get() """
+        s = "moving = %s" % value
+        # show result in the title
+        self.parent.title(s)
 
-# Show image using label
-label1 = Label(root, image=bg)
-label1.place(x=0, y=0)
 
-label2 = Label(root, text="Welcome")
-label2.pack(pady=50)
-
-# Create Frame
-frame1 = Frame(root)
-frame1.pack(pady=20)
-
-# Add buttons
-button1 = Button(frame1, text="Exit")
-button1.pack(pady=20)
-
-button2 = Button(frame1, text="Start")
-button2.pack(pady=20)
-
-button3 = Button(frame1, text="Reset")
-button3.pack(pady=20)
-
-# Execute tkinter
-root.mainloop()
+ScaleDemo().mainloop()
