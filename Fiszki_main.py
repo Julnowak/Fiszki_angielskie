@@ -6,18 +6,20 @@ import random
 import os
 import time
 from pygame import mixer
+
+
 # Tutaj robi dźwięki :P
 
+
+def destroyer(lista):
+    for elem in lista:
+        elem.destroy()
+    return lista
 
 
 class Page:
     def __init__(self):
         self.lista = []
-
-    def destroyer(self, lista):
-        for elem in lista:
-            elem.destroy()
-        return lista
 
 
 class MENU(Page):
@@ -29,22 +31,22 @@ class MENU(Page):
         self.sound = sound
 
     def START(self):
-        START_PAGE(self.root, self.inter)
+        START_PAGE(self.root, self.inter, self.sound)
 
     def DODAJ(self):
-        DODAJ_PAGE(self.root, self.inter)
+        DODAJ_PAGE(self.root, self.inter, self.sound)
 
     def BAZA(self):
-        BAZA_PAGE(self.root, self.inter)
+        BAZA_PAGE(self.root, self.inter, self.sound)
 
     def POSTEPY(self):
-        POSTEPY_PAGE(self.root, self.inter)
+        POSTEPY_PAGE(self.root, self.inter, self.sound)
 
     def OPCJE(self):
         OPCJE_PAGE(self.root, self.inter, self.sound)
 
     def EXIT(self):
-        EXIT_PAGE(self.root, self.inter)
+        EXIT_PAGE(self.root, self.inter, self.sound)
 
     def configure(self):
         self.root.columnconfigure(0, weight=1)
@@ -58,7 +60,6 @@ class MENU(Page):
         self.root.rowconfigure(5, weight=1)
         self.root.rowconfigure(6, weight=1)
         self.root.rowconfigure(7, weight=10)
-
 
     def create(self):
         self.configure()
@@ -126,7 +127,6 @@ class App(Page):
         ws = self.root.winfo_screenwidth()  # width of the screen
         hs = self.root.winfo_screenheight()  # height of the screen
 
-
         x = (ws / 2) - (self.width / 2)
         y = (hs / 2) - (self.height / 2)
 
@@ -135,11 +135,11 @@ class App(Page):
         self.track_pages = dict()
 
         mixer.init()
-        random.choice(os.listdir("C:\\"))
-
-        self.sound = mixer.Sound("Sounds/" + random.choice(os.listdir("Sounds")))
+        s = random.choice(os.listdir("Sounds"))
+        self.sound = mixer.Sound("Sounds/" + s)
         self.sound.set_volume(0.1)
         self.sound.play(-1)
+        print(self.sound)
 
         self.inter = []
         MENU(self.root, self.inter, self.sound)
@@ -159,7 +159,7 @@ class DODAJ_PAGE(Page):
         self.inter = []
         self.root = root
         self.sound = sound
-        self.destroyer(lista)
+        destroyer(lista)
         self.create()
 
     def configure(self):
@@ -229,8 +229,7 @@ class DODAJ_PAGE(Page):
                          font=('Comic_Sans', 16))
         interface.append(labeltip)
 
-
-        l = Label(self.root, height=3, width=50,bg="black", fg="#000")
+        l = Label(self.root, height=3, width=50, bg="black", fg="#000")
         interface.append(l)
 
         self.inter = interface
@@ -249,7 +248,7 @@ class DODAJ_PAGE(Page):
         przycisk_back.grid(column=1, row=7)
 
     def back(self, lista):
-        self.destroyer(lista)
+        destroyer(lista)
         MENU(self.root, lista, self.sound)
 
     def show_message_good(self):
@@ -365,11 +364,11 @@ class OPCJE_PAGE(Page):
         self.inter = []
         self.root = root
         self.sound = sound
-        self.destroyer(lista)
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
+        destroyer(lista)
         MENU(self.root, lista, self.sound)
 
     def up_sound(self):
@@ -379,7 +378,7 @@ class OPCJE_PAGE(Page):
     def change_music(self):
         a = self.sound.get_volume()
         self.sound.stop()
-        self.sound = mixer.Sound("Sounds/Adventure.wav")
+        self.sound = mixer.Sound("Sounds/" + random.choice(os.listdir("Sounds")))
         self.sound.set_volume(a)
         self.sound.play(-1)
 
@@ -407,16 +406,17 @@ class OPCJE_PAGE(Page):
 
 
 class BAZA_PAGE(Page):
-    def __init__(self, root, lista):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
+        self.sound = sound
         self.list_of_words = []
-        self.destroyer(lista)
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
+        destroyer(lista)
         MENU(self.root, lista)
 
     def configure(self):
@@ -441,24 +441,29 @@ class BAZA_PAGE(Page):
         elif p:
             return messagebox.askyesno('Wykryto powtórzenie w słówku polskim!',
                                        'Czy aby na pewno chcesz dodać fiszkę?')
-    def are_you_sure(self,l,lista):
+
+    def are_you_sure(self, l, lista):
         h = l.get()
         new = h.split(' - ')
-        ans = messagebox.askyesno('Usuwanie fiszki', f'Czy na pewno chcesz usunąć fiszkę "{new[0]} - {new[1]}" z kategoii "{new[2].rstrip()}" ?')
-        if ans:
-            for plik in lista:
-                print(plik)
-                with open(plik, 'r+', encoding='UTF-8') as f:
-                    d = f.readlines()
-                    f.seek(0)
-                    for i in d:
-                        if i != h:
-                            f.write(i)
-                    f.truncate()
-                    f.close()
-            self.show_message_positive()
-        else:
-            self.show_message_info()
+        try:
+            ans = messagebox.askyesno('Usuwanie fiszki',
+                                      f'Czy na pewno chcesz usunąć fiszkę "{new[0]} - {new[1]}" z kategorii "{new[2].rstrip()}" ?')
+            if ans:
+                    for plik in lista:
+                        with open(plik, 'r+', encoding='UTF-8') as f:
+                            d = f.readlines()
+                            f.seek(0)
+                            for i in d:
+                                if i != h:
+                                    f.write(i)
+                            f.truncate()
+                            f.close()
+                    self.show_message_positive()
+            else:
+                self.show_message_info()
+
+        except:
+            self.show_message_warning()
 
     def edit(self):
         win = Tk()
@@ -483,6 +488,13 @@ class BAZA_PAGE(Page):
     def show_message_info(self):
         label = Label(self.root, text="Nie usunięto fiszki",
                       background="cyan",
+                      foreground="black", height=3, width=50)
+        label.grid(column=1, row=6)
+        label.after(2000, label.destroy)
+
+    def show_message_warning(self):
+        label = Label(self.root, text="Wybrana fiszka nie istnieje",
+                      background="red",
                       foreground="black", height=3, width=50)
         label.grid(column=1, row=6)
         label.after(2000, label.destroy)
@@ -515,10 +527,14 @@ class BAZA_PAGE(Page):
 
         for plik in lista:
             with open(plik, 'r+', encoding='UTF-8') as f:
-                next(f)
-                for line in f:
-                    self.list_of_words.append(line)
-                f.close()
+                try:
+                    next(f)
+                    for line in f:
+                        self.list_of_words.append(line)
+                    f.close()
+                except:
+                    f.close()
+
         l = Combobox(self.root, width=50)
         l['values'] = self.list_of_words
         try:
@@ -529,13 +545,12 @@ class BAZA_PAGE(Page):
         l.grid(column=1, row=2)
         self.inter.append(l)
 
+        przycisk_remove = Button(self.root, text='Usuń', command=lambda: [beep(), self.are_you_sure(l, lista),BAZA_PAGE(self.root,self.inter,self.sound)])
+        przycisk_remove.grid(row=4, column=0)
+        self.inter.append(przycisk_remove)
 
-        przycisk_remove = Button(self.root,text='Usuń', command=lambda:[beep(), self.are_you_sure(l,lista),BAZA_PAGE(self.root,self.inter)])
-        przycisk_remove .grid(row=4,column=0)
-        self.inter.append(przycisk_remove )
-
-        przycisk_edit = Button(self.root,text='Edytuj', command=lambda:[beep(), self.edit()])
-        przycisk_edit .grid(row=4, column=2)
+        przycisk_edit = Button(self.root, text='Edytuj', command=lambda: [beep(), self.edit()])
+        przycisk_edit.grid(row=4, column=2)
         self.inter.append(przycisk_edit)
 
     def create(self):
@@ -543,7 +558,7 @@ class BAZA_PAGE(Page):
 
         label = Label(self.root, text='Baza danych', font=('Comic_Sans', 25))
         interface.append(label)
-        label.grid(row=0,columnspan=5)
+        label.grid(row=0, columnspan=5)
 
         label2 = Label(self.root, text='Wybierz zakres', font=('Comic_Sans', 25))
         label2.grid(row=0, columnspan=5)
@@ -588,38 +603,39 @@ class BAZA_PAGE(Page):
         check7.grid(row=3, column=2, sticky=W)
         interface.append(check7)
 
-        przycisk = Button(self.root,text='Aktualizuj bazę', command=lambda:[self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO)])
-        przycisk.grid(row=3,columnspan=5)
+        przycisk = Button(self.root, text='Aktualizuj bazę',
+                          command=lambda: [self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO)])
+        przycisk.grid(row=3, columnspan=5)
         interface.append(przycisk)
 
         przycisk_back = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_back)
-        przycisk_back.grid(row=5,columnspan=5)
+        przycisk_back.grid(row=5, columnspan=5)
 
         self.inter = interface
 
 
 class START_PAGE(Page):
-    def __init__(self, root, lista,sound):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
         self.sound = sound
-        self.destroyer(lista)
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
+        destroyer(lista)
         MENU(self.root, lista, self.sound)
 
     def start_learn(self, lista):
         tryb = 'LEARN'
-        CHOICE_PAGE(self.root, lista,tryb)
+        CHOICE_PAGE(self.root, lista, tryb, self.sound)
 
     def start_challenge(self, lista):
         tryb = 'CHALLENGE'
-        CHOICE_PAGE(self.root, lista,tryb)
+        CHOICE_PAGE(self.root, lista, tryb, self.sound)
 
     def configure(self):
         # Kolumny
@@ -638,12 +654,12 @@ class START_PAGE(Page):
         interface = []
         self.configure()
         label2 = Label(self.root, text='Druga strona', font=('Comic_Sans', 25))
-        label2.grid(row=0,columnspan=5)
+        label2.grid(row=0, columnspan=5)
         interface.append(label2)
 
         przycisk_learn = Button(self.root, text='Tryb nauki', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.start_learn(interface)])
-        przycisk_learn.grid(row=1,columnspan=5)
+        przycisk_learn.grid(row=1, columnspan=5)
         interface.append(przycisk_learn)
 
         przycisk_challenge = Button(self.root, text='Tryb wyzwania', font=('Comic_Sans', 25),
@@ -663,16 +679,16 @@ class START_PAGE(Page):
 
 
 class EXIT_PAGE(Page):
-    def __init__(self, root, lista,sound):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
         self.sound = sound
-        self.destroyer(lista)
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
+        destroyer(lista)
         MENU(self.root, lista, self.sound)
 
     def Quit(self):
@@ -711,17 +727,17 @@ class EXIT_PAGE(Page):
 
 
 class POSTEPY_PAGE(Page):
-    def __init__(self, root, lista,sound):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
         self.sound = sound
-        self.destroyer(lista)
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
-        MENU(self.root, lista,self.sound)
+        destroyer(lista)
+        MENU(self.root, lista, self.sound)
 
     def create(self):
         interface = []
@@ -740,18 +756,19 @@ class POSTEPY_PAGE(Page):
 
 
 class CHOICE_PAGE(Page):
-    def __init__(self, root, lista, tryb):
+    def __init__(self, root, lista, tryb, sound):
         super().__init__()
         self.inter = []
         self.root = root
+        self.sound = sound
         self.list_of_words = []
         self.tryb = tryb
-        self.destroyer(lista)
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
-        START_PAGE(self.root, lista)
+        destroyer(lista)
+        START_PAGE(self.root, lista, self.sound)
 
     def onPress(self, i, table):
         table[i] = not table[i]
@@ -839,7 +856,9 @@ class CHOICE_PAGE(Page):
         self.root.rowconfigure(4, weight=1)
         self.root.rowconfigure(5, weight=10)
 
-    def checked(self, a1, a2, b1, b2, c1, c2, o):
+    def checked(self, a1, a2, b1, b2, c1, c2, o,inter):
+        lista = []
+
         a1 = a1.get()
         a2 = a2.get()
         b1 = b1.get()
@@ -848,7 +867,6 @@ class CHOICE_PAGE(Page):
         c2 = c2.get()
         o = o.get()
 
-        lista = []
         if a1 == 1:
             lista.append('Baza/A1_words.txt')
         if a2 == 1:
@@ -865,22 +883,41 @@ class CHOICE_PAGE(Page):
             lista.append('Baza/Others.txt')
 
         for plik in lista:
-            print(plik)
             with open(plik, 'r+', encoding='UTF-8') as f:
-                for line in f[1:]:
-                    self.list_of_words.append(line)
+                try:
+                    next(f)
+                    for line in f:
+                        self.list_of_words.append(line)
+                    f.close()
+                except:
+                    f.close()
+
+        if not self.list_of_words:
+            self.show_message_warning()
+        else:
+            self.play(inter)
+
+    def show_message_warning(self):
+        label = Label(self.root, text="Nie wybrano żadnych fiszek!",
+                      background="red",
+                      foreground="black", height=3, width=50)
+        label.grid(columnspan=5, row=4)
+        label.after(2000, label.destroy)
 
     def play(self, lista):
-        self.destroyer(lista)
-        print(lista)
+        destroyer(lista)
         if self.tryb == 'LEARN':
-            LEARN_PAGE(self.root, lista)
+            LEARN_PAGE(self.root, lista, self.sound)
         elif self.tryb == 'CHALLENGE':
-            CHALLENGE_PAGE(self.root, lista)
+            CHALLENGE_PAGE(self.root, lista, self.sound)
 
     def create(self):
         interface = []
         self.configure()
+
+        label = Label(self.root, text='Choice', font=('Comic_Sans', 25))
+        interface.append(label)
+        label.grid(row=0, columnspan=5)
 
         label2 = Label(self.root, text='Wybierz zakres', font=('Comic_Sans', 25))
         label2.grid(row=0, columnspan=5)
@@ -925,86 +962,106 @@ class CHOICE_PAGE(Page):
         check7.grid(row=3, column=2, sticky=W)
         interface.append(check7)
 
-        # bOK = Button(self.root, text='Rozpocznij', font=('Comic_Sans', 25), command=[beep(),self.play(interface)])
-        # bOK.grid(row=4, columnspan=5)
+        przycisk = Button(self.root, text='Rozpocznij',
+                          command=lambda: [self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO,interface)])
+        przycisk.grid(row=3, columnspan=5)
+        interface.append(przycisk)
 
-        # interface.append(bOK)
+        label = Label(self.root, height=3, width=50)
+        label.grid(columnspan=5, row=4)
+        interface.append(label)
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         przycisk_next2.grid(row=5, columnspan=5)
         interface.append(przycisk_next2)
 
-
-
         self.inter = interface
+
 
 class LEARN_PAGE(Page):
 
-    def __init__(self, root, lista):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
-        self.destroyer(lista)
+        self.sound = sound
+        destroyer(lista)
         self.create()
 
+    def configure(self):
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
+        self.root.rowconfigure(0, weight=10)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=10)
+
     def back(self, lista):
-        self.destroyer(lista)
-        CHOICE_PAGE(self.root, lista, 'LEARN')
+        destroyer(lista)
+        CHOICE_PAGE(self.root, lista, 'LEARN', self.sound)
 
     def create(self):
         interface = []
         label2 = Label(self.root, text='Strona nauki', font=('Comic_Sans', 25))
         interface.append(label2)
+        label2.grid(row=1, columnspan=5)
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next2)
 
-        for elem in interface:
-            elem.grid()
+        przycisk_next2.grid(row=2, columnspan=5)
 
         self.inter = interface
 
+
 class CHALLENGE_PAGE(Page):
 
-    def __init__(self, root, lista):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
-        self.destroyer(lista)
+        self.sound = sound
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
-        CHOICE_PAGE(self.root, lista, 'CHALLENGE')
+        destroyer(lista)
+        CHOICE_PAGE(self.root, lista, 'CHALLENGE', self.sound)
 
     def create(self):
         interface = []
         label2 = Label(self.root, text='Strona wyzwania', font=('Comic_Sans', 25))
         interface.append(label2)
+        label2.grid(row=1, columnspan=5)
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next2)
 
-        for elem in interface:
-            elem.grid()
+        przycisk_next2.grid(row=2, columnspan=5)
 
         self.inter = interface
 
 
 class TIME_PAGE(Page):
-    def __init__(self, root, lista):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
-        self.destroyer(lista)
+        self.sound = sound
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
-        CHALLENGE_PAGE(self.root, lista)
+        destroyer(lista)
+        CHALLENGE_PAGE(self.root, lista, self.sound)
 
     def create(self):
         interface = []
@@ -1022,16 +1079,17 @@ class TIME_PAGE(Page):
 
 
 class LIFE_PAGE(Page):
-    def __init__(self, root, lista):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.inter = []
         self.root = root
-        self.destroyer(lista)
+        self.sound = sound
+        destroyer(lista)
         self.create()
 
     def back(self, lista):
-        self.destroyer(lista)
-        CHALLENGE_PAGE(self.root, lista)
+        destroyer(lista)
+        CHALLENGE_PAGE(self.root, lista, self.sound)
 
     def create(self):
         interface = []
@@ -1050,7 +1108,7 @@ class LIFE_PAGE(Page):
 
 def beep():
     mixer.init()
-    s = mixer.Sound("Sounds/Klik.wav")
+    s = mixer.Sound("App_interactions/Klik.wav")
     s.play()
 
 
