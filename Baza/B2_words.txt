@@ -1,3 +1,5 @@
 ang - pol - nazwa_kategorii - opis/zdj
 fox - lis - zwierzęta
 bear - niedźwiedź - zwierzęta
+cello - wiolonczela - instrumenty
+strings - struny - instrumenty
