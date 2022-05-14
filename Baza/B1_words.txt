@@ -8,3 +8,8 @@ underwear - bielizna - ubrania
 baggage - bagaż - wakacje
 campsite - pole namiotowe - wakacje
 tent - namiot - wakacje
+bull - byk - zwierzęta
+dolphin - delfin - zwierzęta
+donkey - osioł - zwierzęta
+giraffe - żyrafa - zwierzęta
+shark - rekin - zwierzęta
