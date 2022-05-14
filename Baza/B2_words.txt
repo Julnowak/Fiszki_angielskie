@@ -3,3 +3,23 @@ fox - lis - zwierzęta
 bear - niedźwiedź - zwierzęta
 cello - wiolonczela - instrumenty
 strings - struny - instrumenty
+almond - migdał - jedzenie
+bean - fasola - jedzenie
+cabbage - kapusta - jedzenie
+carbohydrates - węglowodany - jedzenie
+cauliflower - kalafior - jedzenie
+dairy - nabiał - jedzenie
+dip - sos - jedzenie
+dressing - sos do sałatek - jedzenie
+fat - tłuszcz - jedzenie
+hazelnut - orzech laskowy - jedzenie
+lentils - soczewica - jedzenie
+noodles - makaron - jedzenie
+olive - oliwka - jedzenie
+protein - białko - jedzenie
+bill - rachunek - zakupy
+budget - budżet - zakupy
+coupon - kupon - zakupy
+debt - dług - zakupy
+savings - oszczędności - zakupy
+wealth - bogactwo - zakupy
