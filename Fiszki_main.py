@@ -181,7 +181,6 @@ class DODAJ_PAGE(Page):
     def create(self):
         self.configure()
         interface = []
-        img = PhotoImage(file="tło.png")
 
         label2 = Label(self.root, text='Dodaj fiszkę', font=('Comic_Sans', 25))
         interface.append(label2)
@@ -258,14 +257,6 @@ class DODAJ_PAGE(Page):
         label.grid(column=1, row=6)
         label.after(2000, label.destroy)
 
-    def show_message_neutral(self):
-        label = Label(self.root,
-                      text="Fiszka została dodana do katalogu 'Inne'\nUpewnij się, że dobrze wpisałeś poziom.",
-                      background="yellow",
-                      foreground="black", height=3, width=50)
-        label.grid(column=1, row=6)
-        label.after(2500, label.destroy)
-
     def show_message_negative(self):
         label = Label(self.root, text="Nie uzupełniono jednej z rubryk! Spróbuj jeszcze raz", height=3, width=50,
                       background="red",
@@ -302,26 +293,32 @@ class DODAJ_PAGE(Page):
             if lvl in self.baza.keys():
                 ans = True
                 with open(self.baza[lvl], 'r+', encoding='UTF-8') as f:
+                    next(f)
                     for line in f:
                         lista = line.split(' - ')
 
-                        if ang in lista[0]:
+                        if ang == lista[0]:
                             a = True
                         else:
                             a = False
+                        print(lista)
+                        if pol == lista[1]:
 
-                        if pol in lista[1]:
                             p = True
                         else:
                             p = False
 
                         if a or p:
+                            print(a)
                             ans = self.show_message_isHere(a, p)
+                            break
+                        else:
+                            ans = True
                             break
                 if ans:
                     with open(self.baza[lvl], 'a+', encoding='UTF-8') as f:
                         f.write(f"{ang} - {pol} - {kat}\n")
-                    self.show_message_neutral()
+                    self.show_message_good()
                 else:
                     self.show_message_info()
             else:
@@ -346,7 +343,7 @@ class DODAJ_PAGE(Page):
                 if ans:
                     with open('Baza/Others.txt', 'a+', encoding='UTF-8') as f:
                         f.write(f"{ang} - {pol} - {kat}\n")
-                    self.show_message_neutral()
+                    self.show_message_good()
                 else:
                     self.show_message_info()
             f.close()
@@ -375,6 +372,10 @@ class OPCJE_PAGE(Page):
         a = self.sound.get_volume() + 0.1
         self.sound.set_volume(a)
 
+    def down_sound(self):
+        a = self.sound.get_volume() - 0.1
+        self.sound.set_volume(a)
+
     def change_music(self):
         a = self.sound.get_volume()
         self.sound.stop()
@@ -387,9 +388,13 @@ class OPCJE_PAGE(Page):
         label2 = Label(self.root, text='Strona opcji', font=('Comic_Sans', 25))
         interface.append(label2)
 
-        przycisk_next3 = Button(self.root, text='UPP', font=('Comic_Sans', 25),
+        przycisk_next3 = Button(self.root, text='Up', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.up_sound()])
         interface.append(przycisk_next3)
+
+        przycisk_next4 = Button(self.root, text='Down', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.down_sound()])
+        interface.append(przycisk_next4)
 
         przycisk_next4 = Button(self.root, text='Zmiana', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.change_music()])
