@@ -28,3 +28,14 @@ outrage - zniewaga - uczucia i emocje
 remorse - wyrzuty sumienia - uczucia i emocje
 subdued - przygnębiony - uczucia i emocje
 vivacious - pełen życia - uczucia i emocje
+accordion - akordeon - instrumenty
+bassoon - fagot - instrumenty
+brass instruments - instrumenty dęte blaszane - instrumenty
+clarinet - klarnet - instrumenty
+double bass - kontrabas - instrumenty
+harp - harfa - instrumenty
+pipe organ - organy - instrumenty
+saxophone - saksofon - instrumenty
+viola - altówka - instrumenty
+xylophone - ksylofon - instrumenty
+wind instruments - instrumenty

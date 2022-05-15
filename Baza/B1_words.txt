@@ -8,3 +8,17 @@ underwear - bielizna - ubrania
 baggage - bagaż - wakacje
 campsite - pole namiotowe - wakacje
 tent - namiot - wakacje
+bull - byk - zwierzęta
+dolphin - delfin - zwierzęta
+donkey - osioł - zwierzęta
+giraffe - żyrafa - zwierzęta
+shark - rekin - zwierzęta
+afraid - przestraszony - uczucia i emocje
+amazed - zdumiony - uczucia i emocje
+cheerful - radosny - uczucia i emocje
+curious - zaciekawiony - uczucia i emocje
+delighted - zachwycony - uczucia i emocje
+depressed - przygnębiony - uczucia i emocje
+disappointed - rozczarowany - uczucia i emocje
+embarrassed - zażenowany - uczucia i emocje
+jealous - zazdrosny - uczucia i emocje
