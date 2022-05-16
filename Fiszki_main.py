@@ -5,6 +5,7 @@ from PIL import Image, ImageTk
 import random
 import os
 import time
+from math import ceil
 from pygame import mixer
 
 
@@ -361,13 +362,9 @@ class OPCJE_PAGE(Page):
         destroyer(lista)
         MENU(self.root, lista, self.sound)
 
-    def up_sound(self):
-        a = self.sound.get_volume() + 0.1
-        self.sound.set_volume(a)
-
-    def down_sound(self):
-        a = self.sound.get_volume() - 0.1
-        self.sound.set_volume(a)
+    def change_volume(self, s):
+        a = s.get()
+        self.sound.set_volume(a/100)
 
     def change_music(self):
         a = self.sound.get_volume()
@@ -381,13 +378,15 @@ class OPCJE_PAGE(Page):
         label2 = Label(self.root, text='Strona opcji', font=('Comic_Sans', 25))
         interface.append(label2)
 
-        przycisk_next3 = Button(self.root, text='Up', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.up_sound()])
-        interface.append(przycisk_next3)
+        slider = Scale(self.root, from_=0, to=100, orient=HORIZONTAL)
+        interface.append(slider)
+        print(ceil(self.sound.get_volume()*100))
+        slider.set(ceil(self.sound.get_volume()*100))
 
-        przycisk_next4 = Button(self.root, text='Down', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.down_sound()])
+        przycisk_next4 = Button(self.root, text='Ustaw', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.change_volume(slider)])
         interface.append(przycisk_next4)
+
 
         przycisk_next4 = Button(self.root, text='Zmiana', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.change_music()])
