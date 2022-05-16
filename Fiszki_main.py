@@ -1104,7 +1104,7 @@ class LEARN_PAGE(Page):
 
 
         entry = Entry(self.root)
-        entry.grid()
+        entry.grid(row=3, columnspan=5)
         interface.append(entry)
 
         def answear():
@@ -1117,19 +1117,25 @@ class LEARN_PAGE(Page):
 
         przycisk_next2 = Button(self.root, text='Nowe słowo', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), LEARN_PAGE(self.root,self.inter,self.sound,self.list_of_words)])
-        przycisk_next2.grid(row=5, column=5)
+        przycisk_next2.grid(row=4, column=4)
         interface.append(przycisk_next2)
 
         przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), answear()])
-        przycisk_next4.grid(row=5, columnspan=3)
+        przycisk_next4.grid(row=4, column=2)
         interface.append(przycisk_next4)
+
+
+        label = Label(self.root, height=3, width=50)
+        label.grid(columnspan=5, row=5)
+
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next5)
+        przycisk_next5.grid(row=6, columnspan=5)
 
-        przycisk_next5.grid(row=4, columnspan=5)
+        interface.append(label)
 
         self.inter = interface
 
@@ -1137,14 +1143,14 @@ class LEARN_PAGE(Page):
         label = Label(self.root, text="Zgadłeś!", height=3, width=50,
                       background="lime",
                       foreground="black")
-        label.grid(column=1, row=6)
+        label.grid(columnspan=5, row=5)
         label.after(2000, label.destroy)
 
     def show_message_negative(self,correct):
         label = Label(self.root, text=f"Nie zgadłeś! Poprawna odpowiedź to: {correct}", height=3, width=50,
                       background="red",
                       foreground="black")
-        label.grid(column=1, row=6)
+        label.grid(columnspan=5, row=5)
         label.after(2000, label.destroy)
 
 class CHALLENGE_PAGE(Page):
@@ -1164,15 +1170,26 @@ class CHALLENGE_PAGE(Page):
 
     def create(self):
         interface = []
-        label2 = Label(self.root, text='Strona wyzwania', font=('Comic_Sans', 25))
+        label2 = Label(self.root, text='Wybierz tryb gry', font=('Comic_Sans', 25))
         interface.append(label2)
         label2.grid(row=1, columnspan=5)
 
-        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface)])
+        przycisk_next2 = Button(self.root, text='Na czas', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), TIME_PAGE(self.root,self.inter,self.sound,self.list_of_words)])
         interface.append(przycisk_next2)
 
         przycisk_next2.grid(row=2, columnspan=5)
+
+        przycisk_next3 = Button(self.root, text='Życia', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), LIFE_PAGE(self.root,self.inter,self.sound,self.list_of_words)])
+        interface.append(przycisk_next3)
+        przycisk_next3.grid(row=3, columnspan=5)
+
+        przycisk_next4 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_next4)
+
+        przycisk_next4.grid(row=4, columnspan=5)
 
         self.inter = interface
 
@@ -1189,7 +1206,7 @@ class TIME_PAGE(Page):
 
     def back(self, lista):
         destroyer(lista)
-        CHALLENGE_PAGE(self.root, lista, self.sound)
+        CHALLENGE_PAGE(self.root, lista, self.sound,self.list_of_words)
 
     def create(self):
         interface = []
@@ -1218,7 +1235,7 @@ class LIFE_PAGE(Page):
 
     def back(self, lista):
         destroyer(lista)
-        CHALLENGE_PAGE(self.root, lista, self.sound)
+        CHALLENGE_PAGE(self.root, lista, self.sound,self.list_of_words)
 
     def create(self):
         interface = []
