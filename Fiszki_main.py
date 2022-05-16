@@ -366,10 +366,16 @@ class OPCJE_PAGE(Page):
         a = s.get()
         self.sound.set_volume(a/100)
 
-    def change_music(self):
+    def change_music(self, w):
+        w = w.get()
         a = self.sound.get_volume()
         self.sound.stop()
-        self.sound = mixer.Sound("Sounds/" + random.choice(os.listdir("Sounds")))
+        print(w)
+        if w == 'LOSOWA':
+            t = random.choice(os.listdir("Sounds"))
+            self.sound = mixer.Sound("Sounds/" + t)
+        else:
+            self.sound = mixer.Sound("Sounds/" + w + '.wav')
         self.sound.set_volume(a)
         self.sound.play(-1)
 
@@ -388,8 +394,13 @@ class OPCJE_PAGE(Page):
         interface.append(przycisk_next4)
 
 
+        wejscie= Combobox(self.root)
+        wejscie['values'] = [i.removesuffix('.wav') for i in os.listdir("Sounds")] + ['LOSOWA']
+        wejscie.current(0)
+        interface.append(wejscie)
+
         przycisk_next4 = Button(self.root, text='Zmiana', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.change_music()])
+                                command=lambda: [beep(), self.change_music(wejscie)])
         interface.append(przycisk_next4)
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
@@ -1167,10 +1178,11 @@ class CHALLENGE_PAGE(Page):
 
 
 class TIME_PAGE(Page):
-    def __init__(self, root, lista, sound):
+    def __init__(self, root, lista, sound,words):
         super().__init__()
         self.inter = []
         self.root = root
+        self.list_of_words = words
         self.sound = sound
         destroyer(lista)
         self.create()
@@ -1195,11 +1207,12 @@ class TIME_PAGE(Page):
 
 
 class LIFE_PAGE(Page):
-    def __init__(self, root, lista, sound):
+    def __init__(self, root, lista, sound,words):
         super().__init__()
         self.inter = []
         self.root = root
         self.sound = sound
+        self.list_of_words = words
         destroyer(lista)
         self.create()
 
