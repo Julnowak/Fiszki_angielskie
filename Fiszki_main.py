@@ -531,12 +531,8 @@ class BAZA_PAGE(Page):
         except:
             pass
 
-
-
         l = Label(win, height=3, width=50, bg="black", fg="#000")
         l.pack()
-
-
 
         win.mainloop()
 
@@ -846,75 +842,6 @@ class CHOICE_PAGE(Page):
         destroyer(lista)
         START_PAGE(self.root, lista, self.sound)
 
-    def onPress(self, i, table):
-        table[i] = not table[i]
-
-    def submit(self, lvl, ANG, POL, KAT):
-        lvl = lvl.get()
-        ang = ANG.get()
-        pol = POL.get()
-        kat = KAT.get()
-
-        lvl = lvl.strip()
-
-        if ang != '' and pol != '' and kat != '':
-            if lvl in self.baza.keys():
-                ans = True
-                with open(self.baza[lvl], 'r+', encoding='UTF-8') as f:
-                    next(f)
-                    for line in f:
-                        lista = line.split(' - ')
-
-                        if ang == lista[0]:
-                            a = True
-                        else:
-                            a = False
-                        if pol == lista[1]:
-
-                            p = True
-                        else:
-                            p = False
-
-                        if a or p:
-                            ans = self.show_message_isHere(a, p)
-                            break
-                        else:
-                            ans = True
-                            break
-                if ans:
-                    with open(self.baza[lvl], 'a+', encoding='UTF-8') as f:
-                        f.write(f"{ang} - {pol} - {kat}\n")
-                    self.show_message_good()
-                else:
-                    self.show_message_info()
-            else:
-                ans = True
-                with open('Baza/Others.txt', 'r', encoding='UTF-8') as f:
-                    for line in f:
-                        lista = line.split(' - ')
-
-                        if ang in lista[0]:
-                            a = True
-                        else:
-                            a = False
-
-                        if pol in lista[1]:
-                            p = True
-                        else:
-                            p = False
-
-                        if a or p:
-                            ans = self.show_message_isHere(a, p)
-                            break
-                if ans:
-                    with open('Baza/Others.txt', 'a+', encoding='UTF-8') as f:
-                        f.write(f"{ang} - {pol} - {kat}\n")
-                    self.show_message_good()
-                else:
-                    self.show_message_info()
-            f.close()
-        else:
-            self.show_message_negative()
     # def keyboard(self, window):
     #     pass
     #     # def clicked(txt):
@@ -1049,9 +976,9 @@ class CHOICE_PAGE(Page):
     def play(self, lista):
         destroyer(lista)
         if self.tryb == 'LEARN':
-            LEARN_PAGE(self.root, lista, self.sound)
+            LEARN_PAGE(self.root, lista, self.sound,self.list_of_words)
         elif self.tryb == 'CHALLENGE':
-            CHALLENGE_PAGE(self.root, lista, self.sound)
+            CHALLENGE_PAGE(self.root, lista, self.sound,self.list_of_words)
 
     def create(self):
         interface = []
@@ -1123,10 +1050,11 @@ class CHOICE_PAGE(Page):
 
 class LEARN_PAGE(Page):
 
-    def __init__(self, root, lista, sound):
+    def __init__(self, root, lista, sound, words):
         super().__init__()
         self.inter = []
         self.root = root
+        self.list_of_words = words
         self.sound = sound
         destroyer(lista)
         self.create()
@@ -1154,22 +1082,69 @@ class LEARN_PAGE(Page):
         interface.append(label2)
         label2.grid(row=1, columnspan=5)
 
-        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface)])
+        def generate():
+            slowo = random.choice(self.list_of_words)
+            return slowo
+
+        wordos = generate().split(' - ')
+
+        label3 = Label(self.root, text= wordos[1], font=('Comic_Sans', 25))
+        interface.append(label3)
+        label3.grid(row=2, columnspan=5)
+
+
+        entry = Entry(self.root)
+        entry.grid()
+        interface.append(entry)
+
+        def answear():
+            ans = entry.get()
+
+            if ans == wordos[0].rstrip():
+                self.show_message_good()
+            else:
+                self.show_message_negative(wordos[0])
+
+        przycisk_next2 = Button(self.root, text='Nowe słowo', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), LEARN_PAGE(self.root,self.inter,self.sound,self.list_of_words)])
+        przycisk_next2.grid(row=5, column=5)
         interface.append(przycisk_next2)
 
-        przycisk_next2.grid(row=2, columnspan=5)
+        przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), answear()])
+        przycisk_next4.grid(row=5, columnspan=3)
+        interface.append(przycisk_next4)
+
+        przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_next5)
+
+        przycisk_next5.grid(row=4, columnspan=5)
 
         self.inter = interface
 
+    def show_message_good(self):
+        label = Label(self.root, text="Zgadłeś!", height=3, width=50,
+                      background="lime",
+                      foreground="black")
+        label.grid(column=1, row=6)
+        label.after(2000, label.destroy)
+
+    def show_message_negative(self,correct):
+        label = Label(self.root, text=f"Nie zgadłeś! Poprawna odpowiedź to: {correct}", height=3, width=50,
+                      background="red",
+                      foreground="black")
+        label.grid(column=1, row=6)
+        label.after(2000, label.destroy)
 
 class CHALLENGE_PAGE(Page):
 
-    def __init__(self, root, lista, sound):
+    def __init__(self, root, lista, sound,words):
         super().__init__()
         self.inter = []
         self.root = root
         self.sound = sound
+        self.list_of_words = words
         destroyer(lista)
         self.create()
 
