@@ -223,11 +223,6 @@ class DODAJ_PAGE(Page):
                                command=lambda: [beep(), self.back(self.inter)])
         interface.append(przycisk_back)
 
-        labeltip = Label(self.root,
-                         text='Nie musisz wprowadzać poziomu - twoja fiszka zostanie wprowadzona do katalogu roboczego\n Możesz ją edytować później.',
-                         font=('Comic_Sans', 16))
-        interface.append(labeltip)
-
         l = Label(self.root, height=3, width=50, bg="black", fg="#000")
         interface.append(l)
 
@@ -301,7 +296,6 @@ class DODAJ_PAGE(Page):
                             a = True
                         else:
                             a = False
-                        print(lista)
                         if pol == lista[1]:
 
                             p = True
@@ -309,7 +303,6 @@ class DODAJ_PAGE(Page):
                             p = False
 
                         if a or p:
-                            print(a)
                             ans = self.show_message_isHere(a, p)
                             break
                         else:
@@ -470,17 +463,81 @@ class BAZA_PAGE(Page):
         except:
             self.show_message_warning()
 
-    def edit(self):
+    def add(self, e, e1, e2,h,lista,roo):
+        e = e.get()
+        e1 = e1.get()
+        e2 = e2.get()
+        for plik in lista:
+            with open(plik, 'r+', encoding='UTF-8') as f:
+                d = f.readlines()
+                f.seek(0)
+                for i in d:
+                    if i != h:
+                        f.write(i)
+                    else:
+                        f.write(f'{e} - {e1} - {e2}\n')
+
+                f.truncate()
+                f.close()
+        self.show_message_positive_edit(roo)
+
+    def edit(self, l, lista):
         win = Tk()
 
         def create_window():
             new_window = Toplevel(win)
 
-        win.after(3000, create_window)
+        ws = win.winfo_screenwidth()  # width of the screen
+        hs = win.winfo_screenheight()  # height of the screen
+
+        x = (ws / 2) - (400 / 2)
+        y = (hs / 2) - (500 / 2)
+
+        win.geometry('%dx%d+%d+%d' % (400, 500, x, y))
+
+        h = l.get()
+        new = h.split(' - ')
+
+        lab = Label(win, text=f'Edytujesz swoją fiszkę "{new[0]} - {new[1]}" z kategorii "{new[2].rstrip()}"')
+        lab.pack()
+
+        lab1 = Label(win, text=f'Nowa nazwa angielska')
+        lab1.pack()
+
         entryText = StringVar()
-        entry = Entry(win, textvariable=entryText)
         entryText.set("Hello World")
+        entry = Entry(win, textvariable=entryText)
         entry.pack()
+
+        lab2 = Label(win, text=f'Nowa nazwa polska')
+        lab2.pack()
+
+        entryText2 = StringVar()
+        entryText2.set("Hello World")
+        entry2 = Entry(win, textvariable=entryText2)
+        entry2.pack()
+
+        lab3 = Label(win, text=f'Nowa kategoria')
+        lab3.pack()
+
+        entryText3 = StringVar()
+        entryText3.set("Hello World")
+        entry3 = Entry(win, textvariable=entryText3)
+        entry3.pack()
+        try:
+            przycisk = Button(win, text='Aktualizuj',
+                              command=lambda: [beep(), self.add(entry,entry2,entry3, h, lista,win),BAZA_PAGE(self.root,self.inter,self.sound)])
+            przycisk.pack()
+        except:
+            pass
+
+
+
+        l = Label(win, height=3, width=50, bg="black", fg="#000")
+        l.pack()
+
+
+
         win.mainloop()
 
     def show_message_positive(self):
@@ -490,8 +547,22 @@ class BAZA_PAGE(Page):
         label.grid(column=1, row=6)
         label.after(2000, label.destroy)
 
+    def show_message_positive_edit(self,roo):
+        label = Label(roo, text="Poprawnie edytowano fiszkę",
+                      background="lime",
+                      foreground="black", height=3, width=50)
+        label.pack()
+        label.after(2000, label.destroy)
+
     def show_message_info(self):
         label = Label(self.root, text="Nie usunięto fiszki",
+                      background="cyan",
+                      foreground="black", height=3, width=50)
+        label.grid(column=1, row=6)
+        label.after(2000, label.destroy)
+
+    def show_message_info_edit(self):
+        label = Label(self.root, text="Nie zmieniono fiszki",
                       background="cyan",
                       foreground="black", height=3, width=50)
         label.grid(column=1, row=6)
@@ -550,11 +621,11 @@ class BAZA_PAGE(Page):
         l.grid(column=1, row=2)
         self.inter.append(l)
 
-        przycisk_remove = Button(self.root, text='Usuń', command=lambda: [beep(), self.are_you_sure(l, lista),BAZA_PAGE(self.root,self.inter,self.sound)])
+        przycisk_remove = Button(self.root, text='Usuń', command=lambda: [beep(), self.are_you_sure(l, lista), BAZA_PAGE(self.root,self.inter,self.sound)])
         przycisk_remove.grid(row=4, column=0)
         self.inter.append(przycisk_remove)
 
-        przycisk_edit = Button(self.root, text='Edytuj', command=lambda: [beep(), self.edit()])
+        przycisk_edit = Button(self.root, text='Edytuj', command=lambda: [beep(), self.edit(l,lista)])
         przycisk_edit.grid(row=4, column=2)
         self.inter.append(przycisk_edit)
 
@@ -778,6 +849,72 @@ class CHOICE_PAGE(Page):
     def onPress(self, i, table):
         table[i] = not table[i]
 
+    def submit(self, lvl, ANG, POL, KAT):
+        lvl = lvl.get()
+        ang = ANG.get()
+        pol = POL.get()
+        kat = KAT.get()
+
+        lvl = lvl.strip()
+
+        if ang != '' and pol != '' and kat != '':
+            if lvl in self.baza.keys():
+                ans = True
+                with open(self.baza[lvl], 'r+', encoding='UTF-8') as f:
+                    next(f)
+                    for line in f:
+                        lista = line.split(' - ')
+
+                        if ang == lista[0]:
+                            a = True
+                        else:
+                            a = False
+                        if pol == lista[1]:
+
+                            p = True
+                        else:
+                            p = False
+
+                        if a or p:
+                            ans = self.show_message_isHere(a, p)
+                            break
+                        else:
+                            ans = True
+                            break
+                if ans:
+                    with open(self.baza[lvl], 'a+', encoding='UTF-8') as f:
+                        f.write(f"{ang} - {pol} - {kat}\n")
+                    self.show_message_good()
+                else:
+                    self.show_message_info()
+            else:
+                ans = True
+                with open('Baza/Others.txt', 'r', encoding='UTF-8') as f:
+                    for line in f:
+                        lista = line.split(' - ')
+
+                        if ang in lista[0]:
+                            a = True
+                        else:
+                            a = False
+
+                        if pol in lista[1]:
+                            p = True
+                        else:
+                            p = False
+
+                        if a or p:
+                            ans = self.show_message_isHere(a, p)
+                            break
+                if ans:
+                    with open('Baza/Others.txt', 'a+', encoding='UTF-8') as f:
+                        f.write(f"{ang} - {pol} - {kat}\n")
+                    self.show_message_good()
+                else:
+                    self.show_message_info()
+            f.close()
+        else:
+            self.show_message_negative()
     # def keyboard(self, window):
     #     pass
     #     # def clicked(txt):
