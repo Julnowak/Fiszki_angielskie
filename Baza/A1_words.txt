@@ -65,3 +65,15 @@ to improve - ulepszać - czynności
 to choose - wybierać - czynności
 to think - myśleć - czynności
 dog - pies - zwierzęta
+arm - ramię - części ciała
+eye - oko - części ciała
+nose - nos - części ciała
+ear - ucho - części ciała
+head - głowa - części ciała
+face - twarz - części ciała
+hair - włosy - części ciała
+mouth - usta - części ciała
+hand - dłoń - części ciała
+leg - noga - części ciała
+foot - stopa - części ciała
+body - ciało - części ciała
