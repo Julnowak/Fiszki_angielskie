@@ -73,3 +73,4 @@ nerve - nerw - części ciała
 skull - czaszka - części ciała
 insomnia - bezsenność - zdrowie
 short-sighted - krótkowzroczny - zdrowie
+injection - zastrzyk - zdrowie
