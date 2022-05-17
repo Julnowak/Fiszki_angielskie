@@ -72,3 +72,4 @@ calf - łydka - części ciała
 nerve - nerw - części ciała
 skull - czaszka - części ciała
 insomnia - bezsenność - zdrowie
+short-sighted - krótkowzroczny - zdrowie
