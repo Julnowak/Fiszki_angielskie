@@ -48,3 +48,4 @@ rocket - rakieta - środki transportu
 yacht - jacht - środki transportu
 to faint - zemdleć - zdrowie
 injury - kontuzja - zdrowie
+to shiver - mieć dreszcze - zdrowie
