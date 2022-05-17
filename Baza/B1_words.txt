@@ -45,3 +45,6 @@ cough - kaszel - zdrowie
 deaf - głuchy - zdrowie
 disabled - niepełnosprawny - zdrowie
 disease - choroba - zdrowie
+fever - gorączka - zdrowie
+flu - grypa - zdrowie
+heart attack - zawał - zdrowie
