@@ -53,3 +53,4 @@ to sneeze - kichać - zdrowie
 stroke - wylew - zdrowie
 symptom - objaw - zdrowie
 wound - rana - zdrowie
+to itch - swędzieć - zdrowie
