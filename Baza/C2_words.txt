@@ -56,3 +56,18 @@ testimony - zeznania - słownictwo prawnicze
 trustee - kurator - słownictwo prawnicze
 verdict - werdykt - słownictwo prawnicze
 warrant - nakaz sądowy - słownictwo prawnicze
+appendix - wyrostek robaczkowy - części ciała
+artery - tętnica - części ciała
+bladder - pęcherz - części ciała
+collarbone - obojczyk - części ciała
+larynx - krtań - części ciała
+navel - pępek - części ciała
+ovary - jajnik - części ciała
+shin - goleń - części ciała
+tendon - ścięgno - części ciała
+tibia - piszczel - części ciała
+tonsils - migdałki - części ciała
+nostril - nozdrze - części ciała
+calf - łydka - części ciała
+nerve - nerw - części ciała
+skull - czaszka - części ciała
