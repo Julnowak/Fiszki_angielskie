@@ -22,3 +22,16 @@ depressed - przygnębiony - uczucia i emocje
 disappointed - rozczarowany - uczucia i emocje
 embarrassed - zażenowany - uczucia i emocje
 jealous - zazdrosny - uczucia i emocje
+forehead - czoło
+throat - gardło
+lip - warga
+chin - podbródek
+cheek - policzek
+tongue - język
+thumb - kciuk
+skin - skóra
+elbow - łokieć
+ankle - kostka
+knee - kolano
+shoulder - 
+bone
