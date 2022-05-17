@@ -35,3 +35,5 @@ ankle - kostka - części ciała
 knee - kolano - części ciała
 shoulder - bark - części ciała
 bone - kość - części ciała
+bottom - pośladki - części ciała
+breast - pierś - części ciała
