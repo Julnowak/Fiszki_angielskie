@@ -16,3 +16,43 @@ prudent - roztropny - cechy charakteru
 sullen - nadąsany - cechy charakteru
 vigilant - baczny - cechy charakteru
 zealous - gorliwy - cechy charakteru
+whiteout - śnieżyca - pogoda
+waterspout - trąba wodna
+thaw - odwilż - pogoda
+squal - szkwał - pogoda
+precipitation - opady atmosferyczne - pogoda
+outflow - odpływ - pogoda
+inflow - napływa - pogoda
+icicle - sopel - pogoda
+evaporation - parowanie - pogoda
+downpour - ulewa - pogoda
+blustery - wietrzny - pogoda
+black ice - gołoledź - pogoda
+aurora - zorza - pogoda
+anemometer - wiatromierz - pogoda
+windsock - wiatrowskaz - pogoda
+to acquit - uniewinnić - słownictwo prawnicze
+affidavit - oświadczenie pod przysięgą - słownictwo prawnicze
+allegation - oskarżenie - słownictwo prawnicze
+attorney - prawnik - słownictwo prawnicze
+counsel - obrońca - słownictwo prawnicze
+custody - kuratela - słownictwo prawnicze
+decree - wyrok - słownictwo prawnicze
+evidence - materiał dowodowy - słownictwo prawnicze
+felony - zbrodnia - słownictwo prawnicze
+grievance - skarga - słownictwo prawnicze
+indictment - akt oskarżenia - słownictwo prawnicze
+lawsuit - pozew sądowy - słownictwo prawnicze
+litigation - spór sądowy - słownictwo prawnicze
+mistrial - nieważne postępowanie sądowe - słownictwo prawnicze
+negligence - zaniedbanie - słownictwo prawnicze
+oath - przysięga - słownictwo prawnicze
+to overrule - uchylić - słownictwo prawnicze
+parole - warunkowe zwolnienie z więzienia - słownictwo prawnicze
+plea - zarzut - słownictwo prawnicze
+to revoke - anulować - słownictwo prawnicze
+settlement - porozumienie - słownictwo prawnicze
+testimony - zeznania - słownictwo prawnicze
+trustee - kurator - słownictwo prawnicze
+verdict - werdykt - słownictwo prawnicze
+warrant - nakaz sądowy - słownictwo prawnicze
