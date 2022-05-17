@@ -31,3 +31,10 @@ change - reszta - zakupy
 cheque - czek - zakupy
 receipt - paragon - zakupy
 sale - wyprzedaż - zakupy
+back - plecy - części ciała
+neck - szyja - części ciała
+finger - palec u ręki - części ciała
+toe - palec u nogi - części ciała
+brain - mózg - części ciała
+heart - serce - części ciała
+stomach - żołądek - części ciała
