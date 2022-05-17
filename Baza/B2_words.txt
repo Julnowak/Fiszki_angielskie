@@ -49,3 +49,7 @@ yacht - jacht - środki transportu
 to faint - zemdleć - zdrowie
 injury - kontuzja - zdrowie
 to shiver - mieć dreszcze - zdrowie
+to sneeze - kichać - zdrowie
+stroke - wylew - zdrowie
+symptom - objaw - zdrowie
+wound - rana - zdrowie
