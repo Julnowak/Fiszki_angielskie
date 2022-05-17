@@ -1,1 +1,18 @@
 ang - pol - nazwa_kategorii - opis/zdj
+amiable - uprzejmy - cechy charakteru
+apprehensive - bojaźliwy - cechy charakteru
+boisterous - niesforny - cechy charakteru
+callous - bezwzględny - cechy charakteru
+candid - szczery - cechy charakteru
+churlish - gburowaty - cechy charakteru
+conceited - zarozumiały - cechy charakteru
+conscientious - skrupulatny - cechy charakteru
+crabby - zrzędliwy - cechy charakteru
+imperturbable - spokojny - cechy charakteru
+irascible - wybuchowy - cechy charakteru
+jovial - wesoły - cechy charakteru
+plucky - rezolutny - cechy charakteru
+prudent - roztropny - cechy charakteru
+sullen - nadąsany - cechy charakteru
+vigilant - baczny - cechy charakteru
+zealous - gorliwy - cechy charakteru
