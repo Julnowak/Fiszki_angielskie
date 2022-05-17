@@ -77,3 +77,9 @@ hand - dłoń - części ciała
 leg - noga - części ciała
 foot - stopa - części ciała
 body - ciało - części ciała
+airplane - samolot - środki transportu
+boat - łódź - środki transportu
+bus - autobus - środki transportu
+car - samochód - środki transportu
+taxi - taksówksa - środki transportu
+train - pociąg - środki transportu
