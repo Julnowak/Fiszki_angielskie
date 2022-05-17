@@ -42,7 +42,7 @@ ambulance - karetka - środki transportu
 bicycle - rower - środki transportu
 coach - autokar - środki transportu
 helicopter - helikopter - środki transportu
-motorbike - motocykl -  - środki transportu
+motorbike - motocykl - środki transportu
 scooter - skuter - środki transportu
 ship - statek - środki transportu
 underground - metro - środki transportu
