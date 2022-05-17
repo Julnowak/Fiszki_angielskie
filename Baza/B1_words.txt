@@ -37,3 +37,11 @@ shoulder - bark - części ciała
 bone - kość - części ciała
 bottom - pośladki - części ciała
 breast - pierś - części ciała
+airliner - samolot pasażerski - środki transportu
+ferry - prom - środki transportu
+jet - odrzutowiec - środki transportu
+lorry - ciężarówka - środki transportu
+trolleybus - trolejbus - środki transportu
+truck - cieżarówka - środki transportu
+van - furgonetka - środki transportu
+vehicle - pojazd - środki transportu
