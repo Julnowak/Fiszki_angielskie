@@ -83,3 +83,4 @@ bus - autobus - środki transportu
 car - samochód - środki transportu
 taxi - taksówksa - środki transportu
 train - pociąg - środki transportu
+cold - przeziębienie - zdrowie
