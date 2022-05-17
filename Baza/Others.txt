@@ -17,3 +17,11 @@ breastbone - mostek - części ciała
 kidney - nerka - części ciała
 to choke - krztusić się - zdrowie
 jaundice - żółtaczka - zdrowie
+allergy - alergia - zdrowie
+angina - angina - zdrowie
+immunity - odporność - zdrowie
+chikenpox - ospa wietrzna - zdrowie
+coma - śpiączka - zdrowie
+inflammation - zapalenie - zdrowie
+rheumatic - reumatyczny
+hiccup - czkawka - zdrowie
