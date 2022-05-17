@@ -47,3 +47,4 @@ hang glider - lotnia  - środki transportu
 rocket - rakieta - środki transportu
 yacht - jacht - środki transportu
 to faint - zemdleć - zdrowie
+injury - kontuzja - zdrowie
