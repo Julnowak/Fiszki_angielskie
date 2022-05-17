@@ -23,3 +23,7 @@ coupon - kupon - zakupy
 debt - dług - zakupy
 savings - oszczędności - zakupy
 wealth - bogactwo - zakupy
+objection - sprzeciw - słownictwo prawnicze
+sentence - wyrok - słownictwo prawnicze
+witness - świadek - słownictwo prawnicze
+guilty - winny - słownictwo prawnicze
