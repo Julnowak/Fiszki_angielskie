@@ -48,3 +48,4 @@ disease - choroba - zdrowie
 fever - gorączka - zdrowie
 flu - grypa - zdrowie
 heart attack - zawał - zdrowie
+prescription - recepta - zdrowie
