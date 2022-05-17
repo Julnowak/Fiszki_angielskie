@@ -41,3 +41,7 @@ bleed - krwawić - zdrowie
 blind - ślepy - zdrowie
 burn - poparzyć się - zdrowie
 cancer - nowotwór - zdrowie
+cough - kaszel - zdrowie
+deaf - głuchy - zdrowie
+disabled - niepełnosprawny - zdrowie
+disease - choroba - zdrowie
