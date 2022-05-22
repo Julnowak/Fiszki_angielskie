@@ -1073,6 +1073,7 @@ class LEARN_PAGE(Page):
         destroyer(lista)
         self.counter_pos = cpos
         self.counter_neg = cneg
+        self.counter_help = 0
         self.create()
 
     def configure(self):
@@ -1092,14 +1093,70 @@ class LEARN_PAGE(Page):
         destroyer(lista)
         CHOICE_PAGE(self.root, lista, 'LEARN', self.sound)
 
+    def save(self, en, file):
+        word = en.rstrip() + '\n'
+
+        flaga = True
+        with open(file, 'r+', encoding='UTF-8') as f:
+            try:
+                for line in f:
+                    if line == word:
+                        flaga = False
+                        f.close()
+            except:
+                f.close()
+        if flaga:
+            with open(file, 'a+', encoding='UTF-8') as f:
+                f.write(word)
+                f.close()
+
+            if file == 'umiem.txt':
+                with open('nie_umiem.txt', 'r+', encoding='UTF-8') as f:
+                        d = f.readlines()
+                        f.seek(0)
+                        for i in d:
+                            if i != word:
+                                f.write(i)
+                        f.truncate()
+                        f.close()
+            else:
+                with open('umiem.txt', 'r+', encoding='UTF-8') as f:
+                    d = f.readlines()
+                    f.seek(0)
+                    for i in d:
+                        if i != word:
+                            f.write(i)
+                    f.truncate()
+                    f.close()
+
+    def helper(self, word):
+        if self.counter_help < len(word):
+            self.counter_help += 1
+
+        if word[self.counter_help-1] != ' ':
+            h = word[0:self.counter_help]
+        else:
+            h = word[0:self.counter_help+1]
+            self.counter_help += 1
+        label = Label(self.root, text=f"Podpowiedź: {h}",
+                      background="cyan",
+                      foreground="black", height=3, width=50)
+        label.grid(columnspan=5, row=5)
+
+        label.after(2000, label.destroy)
+
     def create(self):
         interface = []
-        label2 = Label(self.root, text='Strona nauki', font=('Comic_Sans', 25))
-        interface.append(label2)
-        label2.grid(row=1, columnspan=5)
+
+        label = Label(self.root, text="Podpowiedź: ", height=3, width=50,
+                      background="lime",
+                      foreground="black")
+        label.grid(columnspan=5, row=5)
+        label.after(2000, label.destroy)
 
         def generate():
             slowo = random.choice(self.list_of_words)
+            self.counter_help = 0
             return slowo
 
         wordos = generate().split(' - ')
@@ -1115,47 +1172,65 @@ class LEARN_PAGE(Page):
 
         def answear():
             ans = entry.get()
-            print(ans[0:3])
             if ans == wordos[0].rstrip():
                 self.show_message_good()
                 self.counter_pos += 1
-            elif len(ans) > 3 and wordos[0][0:3] == 'to ':
-                print(wordos[0][3:])
+            elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
                 if ans == wordos[0][3:]:
                     self.show_message_good()
                     self.counter_pos += 1
+                else:
+                    self.show_message_negative(wordos[0])
+                    self.counter_neg += 1
             else:
                 self.show_message_negative(wordos[0])
                 self.counter_neg += 1
+            self.counter_help = 0
 
+        # Pytanie o cofanie
         def ask():
             pass
 
         przycisk_next2 = Button(self.root, text='Nowe słowo', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), LEARN_PAGE(self.root, self.inter, self.sound, self.list_of_words,self.counter_pos, self.counter_neg)])
-        przycisk_next2.grid(row=4, column=4)
+        przycisk_next2.grid(row=4, column=2)
         interface.append(przycisk_next2)
 
         przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), answear()])
-        przycisk_next4.grid(row=4, column=2)
+        przycisk_next4.grid(row=4, column=1)
         interface.append(przycisk_next4)
 
 
         label = Label(self.root, height=3, width=50)
         label.grid(columnspan=5, row=5)
 
+        przycisk_next0 = Button(self.root, text='UMIEM!', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.save(wordos[0], 'umiem.txt')])
+        interface.append(przycisk_next0)
+        przycisk_next0.grid(column=3, row=4)
+
+        przycisk_next8 = Button(self.root, text='NIE UMIEM!', font=('umiem', 25),
+                                command=lambda: [beep(), self.save(wordos[0], 'nie_umiem.txt')])
+        interface.append(przycisk_next8)
+        przycisk_next8.grid(column=4, row=4)
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next5)
-        przycisk_next5.grid(row=6, columnspan=5)
+        przycisk_next5.grid(row=7, columnspan=5)
 
         przycisk_next6 = Button(self.root, text='Podsumowanie', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos)])
 
         interface.append(przycisk_next6)
-        przycisk_next6.grid(row=7, columnspan=5)
+        przycisk_next6.grid(row=6, column=2)
+
+        przycisk_next9 = Button(self.root, text='Podpowiedź', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.helper(wordos[0])])
+
+        interface.append(przycisk_next9)
+        przycisk_next9.grid(row=6, column=4)
 
         interface.append(label)
 
@@ -1190,6 +1265,7 @@ class CHALLENGE_PAGE(Page):
         destroyer(lista)
         CHOICE_PAGE(self.root, lista, 'CHALLENGE', self.sound)
 
+
     def create(self):
         interface = []
         label2 = Label(self.root, text='Wybierz tryb gry', font=('Comic_Sans', 25))
@@ -1210,7 +1286,6 @@ class CHALLENGE_PAGE(Page):
         przycisk_next4 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next4)
-
         przycisk_next4.grid(row=4, columnspan=5)
 
         self.inter = interface
@@ -1285,18 +1360,26 @@ class SUMMARY_PAGE(Page):
         destroyer(lista)
         self.create()
 
-    def back(self, lista):
+    def menu(self, lista):
         destroyer(lista)
-        CHALLENGE_PAGE(self.root, lista, self.sound, [])
+        MENU(self.root, lista, self.sound)
+
+    def again(self, lista):
+        destroyer(lista)
+        CHOICE_PAGE(self.root, lista,'LEARN', self.sound)
 
     def create(self):
         interface = []
         label2 = Label(self.root, text='Podsumowanie', font=('Comic_Sans', 25))
         interface.append(label2)
 
-        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface),canvas.get_tk_widget().destroy()])
+        przycisk_next2 = Button(self.root, text='Powrót do Menu', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.menu(interface), canvas.get_tk_widget().destroy()])
         interface.append(przycisk_next2)
+
+        przycisk_next3 = Button(self.root, text='Zagraj ponownie', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.again(interface), canvas.get_tk_widget().destroy()])
+        interface.append(przycisk_next3)
 
         label3 = Label(self.root, text=f'Pozytywnie odpowiedziano {self.counter_pos} razy', font=('Comic_Sans', 25))
         interface.append(label3)
@@ -1305,23 +1388,20 @@ class SUMMARY_PAGE(Page):
         label4 = Label(self.root, text=f'Negatywnie odpowiedziano {self.counter_neg} razy', font=('Comic_Sans', 25))
         interface.append(label4)
 
-        # Use TkAgg
         matplotlib.use("TkAgg")
 
-        # Create a figure of specific size
         figure = Figure(figsize=(5, 5), dpi=100)
 
         data = (self.counter_pos, self.counter_neg)
         ax = figure.add_subplot(111)
 
-        ind = np.arange(2)  # the x locations for the groups
+        ind = np.arange(2)
         width = .8
 
         ax.bar(ind, data, width, color=['green', 'red'])
         ax.set_title('Wyniki')
         ax.set_xticks(range(2), ['Prawidłowe', 'Nieprawidłowe'])
 
-        # Add a canvas widget to associate the figure with canvas
         canvas = FigureCanvasTkAgg(figure, self.root)
         canvas.get_tk_widget().grid(row=0, column=0)
 
