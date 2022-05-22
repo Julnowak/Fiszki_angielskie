@@ -1,15 +1,19 @@
 from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
+import matplotlib
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (
+    FigureCanvasTkAgg,
+    NavigationToolbar2Tk
+)
 from PIL import Image, ImageTk
 import random
+import numpy as np
 import os
 import time
 from math import ceil
 from pygame import mixer
-
-
-# Tutaj robi dźwięki :P
 
 
 def destroyer(lista):
@@ -1060,13 +1064,15 @@ class CHOICE_PAGE(Page):
 
 class LEARN_PAGE(Page):
 
-    def __init__(self, root, lista, sound, words):
+    def __init__(self, root, lista, sound, words,cpos=0,cneg=0):
         super().__init__()
         self.inter = []
         self.root = root
         self.list_of_words = words
         self.sound = sound
         destroyer(lista)
+        self.counter_pos = cpos
+        self.counter_neg = cneg
         self.create()
 
     def configure(self):
@@ -1109,14 +1115,24 @@ class LEARN_PAGE(Page):
 
         def answear():
             ans = entry.get()
-
+            print(ans[0:3])
             if ans == wordos[0].rstrip():
                 self.show_message_good()
+                self.counter_pos += 1
+            elif len(ans) > 3 and wordos[0][0:3] == 'to ':
+                print(wordos[0][3:])
+                if ans == wordos[0][3:]:
+                    self.show_message_good()
+                    self.counter_pos += 1
             else:
                 self.show_message_negative(wordos[0])
+                self.counter_neg += 1
+
+        def ask():
+            pass
 
         przycisk_next2 = Button(self.root, text='Nowe słowo', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), LEARN_PAGE(self.root,self.inter,self.sound,self.list_of_words)])
+                                command=lambda: [beep(), LEARN_PAGE(self.root, self.inter, self.sound, self.list_of_words,self.counter_pos, self.counter_neg)])
         przycisk_next2.grid(row=4, column=4)
         interface.append(przycisk_next2)
 
@@ -1134,6 +1150,12 @@ class LEARN_PAGE(Page):
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next5)
         przycisk_next5.grid(row=6, columnspan=5)
+
+        przycisk_next6 = Button(self.root, text='Podsumowanie', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos)])
+
+        interface.append(przycisk_next6)
+        przycisk_next6.grid(row=7, columnspan=5)
 
         interface.append(label)
 
@@ -1250,6 +1272,64 @@ class LIFE_PAGE(Page):
             elem.pack()
 
         self.inter = interface
+
+class SUMMARY_PAGE(Page):
+
+    def __init__(self, root, lista, sound, cneg, cpos):
+        super().__init__()
+        self.inter = []
+        self.root = root
+        self.sound = sound
+        self.counter_pos = cpos
+        self.counter_neg = cneg
+        destroyer(lista)
+        self.create()
+
+    def back(self, lista):
+        destroyer(lista)
+        CHALLENGE_PAGE(self.root, lista, self.sound, [])
+
+    def create(self):
+        interface = []
+        label2 = Label(self.root, text='Podsumowanie', font=('Comic_Sans', 25))
+        interface.append(label2)
+
+        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.back(interface),canvas.get_tk_widget().destroy()])
+        interface.append(przycisk_next2)
+
+        label3 = Label(self.root, text=f'Pozytywnie odpowiedziano {self.counter_pos} razy', font=('Comic_Sans', 25))
+        interface.append(label3)
+
+
+        label4 = Label(self.root, text=f'Negatywnie odpowiedziano {self.counter_neg} razy', font=('Comic_Sans', 25))
+        interface.append(label4)
+
+        # Use TkAgg
+        matplotlib.use("TkAgg")
+
+        # Create a figure of specific size
+        figure = Figure(figsize=(5, 5), dpi=100)
+
+        data = (self.counter_pos, self.counter_neg)
+        ax = figure.add_subplot(111)
+
+        ind = np.arange(2)  # the x locations for the groups
+        width = .8
+
+        ax.bar(ind, data, width, color=['green', 'red'])
+        ax.set_title('Wyniki')
+        ax.set_xticks(range(2), ['Prawidłowe', 'Nieprawidłowe'])
+
+        # Add a canvas widget to associate the figure with canvas
+        canvas = FigureCanvasTkAgg(figure, self.root)
+        canvas.get_tk_widget().grid(row=0, column=0)
+
+        for elem in interface:
+            elem.grid()
+
+        self.inter = interface
+
 
 
 def beep():

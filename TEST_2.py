@@ -1,25 +1,38 @@
-# Import module
-from tkinter import *
+import tkinter
 
-# Create object
-root = Tk()
+root = tkinter.Tk()
+root.title('Timer')
+root.state('zoomed')
 
-# Adjust size
-root.geometry("400x400")
+sec = 0
+doTick = True
 
+def tick():
+    global sec
+    if not doTick:
+        return
+    sec += 0.1
+    sec = round(sec,1)
+    timeLabel.configure(text=sec)
+    root.after(100, tick)
 
+def stop():
+    global doTick
+    doTick = False
 
-label2 = Label(root, text="Welcome")
-label2.pack(pady=50)
+def start():
+    global doTick
+    doTick = True
+    # Perhaps reset `sec` too?
+    tick()
 
-# Create Frame
-frame1 = Frame(root)
-frame1.pack(pady=20)
+timeLabel = tkinter.Label(root, fg='green',font=('Helvetica',150))
+timeLabel.pack()
 
-entryText = StringVar()
-entry = Entry( root, textvariable=entryText )
-entryText.set( "Hello World" )
-entry.pack()
+startButton = tkinter.Button(root, text='Start', command=start)
+startButton.pack()
 
-# Execute tkinter
+stopButton = tkinter.Button(root, text='Stop', command=stop)
+stopButton.pack()
+
 root.mainloop()
