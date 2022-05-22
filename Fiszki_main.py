@@ -10,6 +10,7 @@ from matplotlib.backends.backend_tkagg import (
 from PIL import Image, ImageTk
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 import os
 import time
 from math import ceil
@@ -813,11 +814,15 @@ class EXIT_PAGE(Page):
 
 
 class POSTEPY_PAGE(Page):
-    def __init__(self, root, lista, sound):
+    def __init__(self, root, lista, sound, count_pos=0, count_neg=0, count_max=0):
         super().__init__()
         self.inter = []
         self.root = root
         self.sound = sound
+        self.count_pos = count_pos
+        self.count_neg = count_neg
+        self.count_max = count_max
+        self.container = []
         destroyer(lista)
         self.create()
 
@@ -825,18 +830,159 @@ class POSTEPY_PAGE(Page):
         destroyer(lista)
         MENU(self.root, lista, self.sound)
 
+    def checked(self, a1, a2, b1, b2, c1, c2, o):
+        lista = []
+
+        a1 = a1.get()
+        a2 = a2.get()
+        b1 = b1.get()
+        b2 = b2.get()
+        c1 = c1.get()
+        c2 = c2.get()
+        o = o.get()
+
+        if a1 == 1:
+            lista.append('Baza/A1_words.txt')
+        if a2 == 1:
+            lista.append('Baza/A2_words.txt')
+        if b1 == 1:
+            lista.append('Baza/B1_words.txt')
+        if b2 == 1:
+            lista.append('Baza/B2_words.txt')
+        if c1 == 1:
+            lista.append('Baza/C1_words.txt')
+        if c2 == 1:
+            lista.append('Baza/C2_words.txt')
+        if o == 1:
+            lista.append('Baza/Others.txt')
+
+        list_of_words = []
+        for plik in lista:
+            with open(plik, 'r+', encoding='UTF-8') as f:
+                try:
+                    next(f)
+                    for line in f:
+                        self.count_max += 1
+                        list_of_words.append(line)
+                    f.close()
+                except:
+                    f.close()
+
+        with open('umiem.txt', 'r+', encoding='UTF-8') as f:
+            try:
+                for line in f:
+                    if line in list_of_words:
+                        self.count_pos += 1
+                f.close()
+            except:
+                f.close()
+
+        with open('nie_umiem.txt', 'r+', encoding='UTF-8') as f:
+            try:
+                for line in f:
+                    if line in list_of_words:
+                        self.count_neg += 1
+                f.close()
+            except:
+                f.close()
+
+        labelpos = Label(self.root, text=f'Umiesz: {self.count_pos} z {self.count_max} ', font=('Comic_Sans', 25))
+        self.inter.append(labelpos)
+        self.container.append(labelpos)
+        labelpos.grid()
+
+        labelneg = Label(self.root, text=f'Nie umiesz: {self.count_neg} z {self.count_max} ', font=('Comic_Sans', 25))
+        self.inter.append(labelneg)
+        labelneg.grid()
+        self.container.append(labelneg)
+
+        labelnz = Label(self.root, text=f'Nieoznaczone: {self.count_max - self.count_neg - self.count_pos} z {self.count_max} ', font=('Comic_Sans', 25))
+        self.inter.append(labelnz)
+        labelnz.grid()
+        self.container.append(labelnz)
+
+        figure2 = Figure(figsize=(4, 3), dpi=100)
+        subplot2 = figure2.add_subplot(111)
+        labels2 = 'Umiem', 'Nie umiem', 'Nieoznaczone'
+        pieSizes = [self.count_pos, self.count_neg, self.count_max]
+        my_colors2 = ['lime', 'red', 'silver']
+        explode2 = (0, 0.1, 0)
+        subplot2.pie(pieSizes, colors=my_colors2, explode=explode2, labels=labels2, autopct='%.f%%', shadow=True,
+                     startangle=90)
+        subplot2.axis('equal')
+        pie2 = FigureCanvasTkAgg(figure2, self.root)
+        pie2.get_tk_widget().grid()
+        self.container.append(pie2)
+
+    def zeren(self):
+        self.count_pos = 0
+        self.count_neg = 0
+        self.count_max = 0
+
+    def d(self):
+        try:
+            self.container[-1].get_tk_widget().destroy()
+            for i in self.container:
+                i.destroy()
+        except:
+            pass
+        self.container = []
+
     def create(self):
         interface = []
 
         label2 = Label(self.root, text='Druga strona', font=('Comic_Sans', 25))
         interface.append(label2)
+        label2.grid()
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface)])
+                                command=lambda: [beep(), self.back(interface), self.zeren(), self.d()])
         interface.append(przycisk_next2)
+        przycisk_next2.grid()
 
-        for elem in interface:
-            elem.pack()
+        frame = Frame(self.root)
+        frame.grid()
+        interface.append(frame)
+
+        varA1 = IntVar()
+        check1 = Checkbutton(frame, text="A1", variable=varA1)
+        check1.grid(row=1, column=1, sticky=W)
+        interface.append(check1)
+
+        varA2 = IntVar()
+        check2 = Checkbutton(frame, text="A2", variable=varA2)
+        check2.grid(row=2, column=1, sticky=W)
+        interface.append(check2)
+
+        varB1 = IntVar()
+        check3 = Checkbutton(frame, text="B1", variable=varB1)
+        check3.grid(row=1, column=2, sticky=W)
+        interface.append(check3)
+
+        varB2 = IntVar()
+        check4 = Checkbutton(frame, text="B2", variable=varB2)
+        check4.grid(row=2, column=2, sticky=W)
+        interface.append(check4)
+
+        varC1 = IntVar()
+        check5 = Checkbutton(frame, text="C1", variable=varC1)
+        check5.grid(row=1, column=3, sticky=W)
+        interface.append(check5)
+
+        varC2 = IntVar()
+        check6 = Checkbutton(frame, text="C2", variable=varC2)
+        check6.grid(row=2, column=3, sticky=W)
+        interface.append(check6)
+
+        varO = IntVar()
+        check7 = Checkbutton(frame, text="Others", variable=varO)
+        check7.grid(row=3, column=2, sticky=W)
+        interface.append(check7)
+
+        przycisk = Button(self.root, text='Aktualizuj',
+                          command=lambda: [self.d(), self.zeren(), self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO)])
+        przycisk.grid(row=3, columnspan=5)
+        interface.append(przycisk)
 
         self.inter = interface
 
@@ -1094,7 +1240,8 @@ class LEARN_PAGE(Page):
         CHOICE_PAGE(self.root, lista, 'LEARN', self.sound)
 
     def save(self, en, file):
-        word = en.rstrip() + '\n'
+        word = en
+        print(word)
 
         flaga = True
         with open(file, 'r+', encoding='UTF-8') as f:
@@ -1145,6 +1292,12 @@ class LEARN_PAGE(Page):
 
         label.after(2000, label.destroy)
 
+    def ask(self):
+        ans = messagebox.askyesno('UWAGA!',
+                                  'Czy na pewno chcesz wyjść?\nTwoje postępy zostaną utracone!')
+        if ans:
+            self.back(self.inter)
+
     def create(self):
         interface = []
 
@@ -1159,7 +1312,8 @@ class LEARN_PAGE(Page):
             self.counter_help = 0
             return slowo
 
-        wordos = generate().split(' - ')
+        wordos1 = generate()
+        wordos = wordos1.split(' - ')
 
         label3 = Label(self.root, text= wordos[1], font=('Comic_Sans', 25))
         interface.append(label3)
@@ -1187,10 +1341,6 @@ class LEARN_PAGE(Page):
                 self.counter_neg += 1
             self.counter_help = 0
 
-        # Pytanie o cofanie
-        def ask():
-            pass
-
         przycisk_next2 = Button(self.root, text='Nowe słowo', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), LEARN_PAGE(self.root, self.inter, self.sound, self.list_of_words,self.counter_pos, self.counter_neg)])
         przycisk_next2.grid(row=4, column=2)
@@ -1206,17 +1356,17 @@ class LEARN_PAGE(Page):
         label.grid(columnspan=5, row=5)
 
         przycisk_next0 = Button(self.root, text='UMIEM!', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.save(wordos[0], 'umiem.txt')])
+                                command=lambda: [beep(), self.save(wordos1, 'umiem.txt')])
         interface.append(przycisk_next0)
         przycisk_next0.grid(column=3, row=4)
 
         przycisk_next8 = Button(self.root, text='NIE UMIEM!', font=('umiem', 25),
-                                command=lambda: [beep(), self.save(wordos[0], 'nie_umiem.txt')])
+                                command=lambda: [beep(), self.save(wordos1, 'nie_umiem.txt')])
         interface.append(przycisk_next8)
         przycisk_next8.grid(column=4, row=4)
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface)])
+                                command=lambda: [beep(), self.ask()])
         interface.append(przycisk_next5)
         przycisk_next5.grid(row=7, columnspan=5)
 
