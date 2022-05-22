@@ -23,3 +23,34 @@ coupon - kupon - zakupy
 debt - dług - zakupy
 savings - oszczędności - zakupy
 wealth - bogactwo - zakupy
+objection - sprzeciw - słownictwo prawnicze
+sentence - wyrok - słownictwo prawnicze
+witness - świadek - słownictwo prawnicze
+guilty - winny - słownictwo prawnicze
+eyelid - powieka - części ciała
+gum - dziąsło - części ciała
+hip - biodro - części ciała
+liver - wątroba - części ciała
+lungs - płuca - części ciała
+waist - talia - części ciała
+eyelash - rzęsa - części ciała
+jaw - szczęka - części ciała
+heel - pięta - części ciała
+chest - klatka piersiowa - części ciała
+thigh - udo - części ciała
+wrist - nadgarstek - części ciała
+nail - paznokieć - części ciała
+muscle - mięsień - części ciała
+skeleton - szkielet - części ciała
+glider - szybowiec - środki transportu
+hang glider - lotnia  - środki transportu
+rocket - rakieta - środki transportu
+yacht - jacht - środki transportu
+to faint - zemdleć - zdrowie
+injury - kontuzja - zdrowie
+to shiver - mieć dreszcze - zdrowie
+to sneeze - kichać - zdrowie
+stroke - wylew - zdrowie
+symptom - objaw - zdrowie
+wound - rana - zdrowie
+to itch - swędzieć - zdrowie

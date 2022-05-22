@@ -39,3 +39,6 @@ saxophone - saksofon - instrumenty
 viola - altówka - instrumenty
 xylophone - ksylofon - instrumenty
 wind instruments - instrumenty
+vein - żyła - części ciała
+spine - kręgosłup - części ciała
+dumb - niemy - zdrowie

@@ -1,2 +1,27 @@
 dog - pies - zwierzęta
 beaver - bóbr - zwierzęta
+brow - brew
+eyeball - gałka oczna - części ciała
+pupil - źrenica - części ciała
+temple - skroń - części ciała
+palate - podniebienie - części ciała
+ring finger - palec serdeczny - części ciała
+little finger - mały palec u ręki - części ciała
+index finger - palec wskazujący - części ciała
+middle finger - palec wskazujący - części ciała
+buttock - pośladek - części ciała
+limb - kończyna - części ciała
+forearm - przedramię - części ciała
+shoulder blade - obojczyk - części ciała
+breastbone - mostek - części ciała
+kidney - nerka - części ciała
+to choke - krztusić się - zdrowie
+jaundice - żółtaczka - zdrowie
+allergy - alergia - zdrowie
+angina - angina - zdrowie
+immunity - odporność - zdrowie
+chikenpox - ospa wietrzna - zdrowie
+coma - śpiączka - zdrowie
+inflammation - zapalenie - zdrowie
+rheumatic - reumatyczny
+hiccup - czkawka - zdrowie
