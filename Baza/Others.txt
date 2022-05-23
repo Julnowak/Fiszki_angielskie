@@ -23,5 +23,6 @@ immunity - odporność - zdrowie
 chikenpox - ospa wietrzna - zdrowie
 coma - śpiączka - zdrowie
 inflammation - zapalenie - zdrowie
-rheumatic - reumatyczny
+rheumatic - reumatyczny - zdrowie
 hiccup - czkawka - zdrowie
+swollen - spuchnięty - zdrowie
