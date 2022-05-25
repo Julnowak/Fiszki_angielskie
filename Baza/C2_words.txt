@@ -74,3 +74,5 @@ skull - czaszka - części ciała
 insomnia - bezsenność - zdrowie
 short-sighted - krótkowzroczny - zdrowie
 injection - zastrzyk - zdrowie
+diarrhoea - biegunka - zdrowie
+vaccine - szczepionka - zdrowie
