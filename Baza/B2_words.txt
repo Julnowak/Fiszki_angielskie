@@ -54,3 +54,6 @@ stroke - wylew - zdrowie
 symptom - objaw - zdrowie
 wound - rana - zdrowie
 to itch - swędzieć - zdrowie
+unconscious - nieprzytomny - zdrowie
+dizzy - cierpiący na zawroty głowy - zdrowie
+bruise - siniak - zdrowie
