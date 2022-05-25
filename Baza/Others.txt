@@ -26,3 +26,46 @@ inflammation - zapalenie - zdrowie
 rheumatic - reumatyczny - zdrowie
 hiccup - czkawka - zdrowie
 swollen - spuchnięty - zdrowie
+food poisoning - zatrucie pokarmowe - zdrowie
+sprain - zwichnięcie - zdrowie
+chronic condition - choroba przewlekła - zdrowie
+coma - śpiączka - zdrowie
+tuberculosis - gruźlica - zdrowie
+smallpox - ospa prawdziwa - zdrowie
+mental disability - niepełnosprawność umysłowa - zdrowie
+photosensitivity - światłoczułość - zdrowie
+terminally ill - śmiertelnie chory - zdrowie
+upset stomach - rozstrój żołądka - zdrowie
+sterility - bezpłodność - zdrowie
+throbbing pain - pulsujący ból - zdrowie
+labor pains - bóle porodowe - zdrowie
+hereditary disorder - choroba dziedziczna - zdrowie
+circulatory diseases - choroby układu krążenia - zdrowie
+coronary heart disease - choroba wieńcowa - zdrowie
+contagious disease - chroba zakaźna - zdrowie
+diabetes - cukrzyca - zdrowie
+icterus - żółtaczka - zdrowie
+mumps - świnka - zdrowie
+rubella - różyczka - zdrowie
+tetanus - tężec - zdrowie
+dyspnoea - duszności - zdrowie
+myopia - krótkowzroczność - zdrowie
+hyperopia - nadwzroczność - zdrowie
+measles - odra - zdrowie
+haemorrhage - krwotok - zdrowie
+cramp - skurcz - zdrowie
+sclerosis - miażdżyca - zdrowie
+hypertension - nadciśnienie - zdrowie
+benign tumor - nowotwór złośliwy - zdrowie
+malignant tumor - nowotwór złośliwy - zdrowie
+nausea - nudności - zdrowie
+callus - odcisk - zdrowie
+caries - próchnica - zdrowie
+hernia - przepuklina - zdrowie
+scab - strup - zdrowie
+syringe - strzykawka - zdrowie
+itching - świąd - zdrowie
+ulcer - wrzód - zdrowie
+appendicitis - zapalenie wyrostka robaczkowego - zdrowie
+cyst - trobiel - zdrowie
+varicose veins - żylaki - zdrowie
