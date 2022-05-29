@@ -94,3 +94,16 @@ sport - sport - sport i rekreacja
 swimming pool - basen - sport i rekreacja
 swim - pływać - sport i rekreacja
 tennis - tenis - sport i rekreacja
+brother - brat - rodzina
+child - dziecko - rodzina
+children - dzieci - rodzina
+dad - tata - rodzina
+daughter - córka - rodzina
+father - ojciec - rodzina
+husband - mąż - rodzina
+mother - matka - rodzina
+mum - mama - rodzina
+parents - rodzice - rodzina
+sister - siostra - rodzina
+son - syn - rodzina
+wife - żona - rodzina
