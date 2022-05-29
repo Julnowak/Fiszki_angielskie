@@ -99,3 +99,17 @@ versus - przeciwko - sport i rekreacja
 video game - gra wideo - sport i rekreacja
 volleyball - siatkówka - sport i rekreacja
 winner - zwycięzca - sport i rekreacja
+aunt - ciotka - rodzina
+big brother - starszy brat - rodzina
+big sister - starsza siostra - rodzina
+cousin - kuzyn - rodzina
+grandchild - wnuk - rodzina
+grandchildren - wnuczęta - rodzina
+granddad - dziadek - rodzina
+granddaughter -  wnuczek - rodzina
+grandfather - dziadek - rodzina
+grandma - babcia - rodzina
+grnadomother - babka - rodzina
+grandpa - dziadek - rodzina
+grandparents - dziadkowie - rodzina
+uncle - wujek - rodzina
