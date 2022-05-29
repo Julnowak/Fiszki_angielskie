@@ -76,3 +76,12 @@ short-sighted - krótkowzroczny - zdrowie
 injection - zastrzyk - zdrowie
 diarrhoea - biegunka - zdrowie
 vaccine - szczepionka - zdrowie
+counter - pionek - sport i rekreacja
+dice - kostka do gry - sport i rekreacja
+favourite - faworyt - sport i rekreacja
+foul - faul - sport i rekreacja
+striker - atakujący - sport i rekreacja
+hearts - kierki - sport i rekreacja
+hopscoth - gra w klasy - sport i rekreacja
+mau - makao - sport i rekreacja
+rummy - remik - sport i rekreacja
