@@ -51,3 +51,48 @@ activity - aktywność - sport i rekreacja
 badminton - badminton - sport i rekreacja
 baseball - bejsbol - sport i rekreacja
 bat - kij - sport i rekreacja
+bathing suit - strój kąpielowy - sport i rekreacja
+board - plansza - sport i rekreacja
+board game - gra planszowa - sport i rekreacja
+card game - gra karciana - sport i rekreacja
+chess - szachy - sport i rekreacja
+climbing - wspinaczka - sport i rekreacja
+club - klub - sport i rekreacja
+competition - zawody - sport i rekreacja
+cricket - krykiet - sport i rekreacja
+cycling - kolarstwo - sport i rekreacja
+fishing - łowienie ryb - sport i rekreacja
+footballer - piłkarz - sport i rekreacja
+goal - bramka - sport i rekreacja
+golf - golf - sport i rekreacja
+hobby - hobby - sport i rekreacja
+hockey - hokej - sport i rekreacja
+kit - ekwipunek - sport i rekreacja
+match - mecz - sport i rekreacja
+member - członek - sport i rekreacja
+playground - plac zabaw - sport i rekreacja
+pool - basen - sport i rekreacja
+practice - praktyka - sport i rekreacja
+prize - nagroda - sport i rekreacja
+puzzle - układanka - sport i rekreacja
+quiz - teleturniej - sport i rekreacja
+race - wyścig - sport i rekreacja
+racket - rakieta - sport i rekreacja
+riding - jazda konna - sport i rekreacja
+rugby - rugby - sport i rekreacja
+runner - biegacz - sport i rekreacja
+running - bieganie - sport i rekreacja
+sailing - żeglarstwo - sport i rekreacja
+skateboard - deskoroloka - sport i rekreacja
+skateboarding - jazda na deskorolce - sport i rekreacja
+skating - jazda na łyżwach - sport i rekreacja
+skiing - narciarstwo - sport i rekreacja
+soccer - piłka nożna - sport i rekreacja
+sports centre - centrum rekreacyjne - sport i rekreacja
+stadium - stadion - sport i rekreacja
+surf - surfować - sport i rekreacja
+swimming - pływanie - sport i rekreacja
+table tenis - tenis stołowy - sport i rekreacja
+team - drużyna - sport i rekreacja
+toy - zabawka - sport i rekreacja
+versus - przeciwko - sport i rekreacja
