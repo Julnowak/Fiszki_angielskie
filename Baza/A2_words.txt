@@ -47,3 +47,7 @@ scooter - skuter - środki transportu
 ship - statek - środki transportu
 underground - metro - środki transportu
 tram - tramwaj - środki transportu
+activity - aktywność - sport i rekreacja
+badminton - badminton - sport i rekreacja
+baseball - bejsbol - sport i rekreacja
+bat - kij - sport i rekreacja
