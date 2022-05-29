@@ -92,3 +92,10 @@ scoreboard - tabela wyników - sport i rekreacja
 ski - narta - sport i rekreacja
 squash - squash - sport i rekreacja
 supporter - kibic - sport i rekreacja
+swimmer - pływak - sport i rekreacja
+tournament - turniej - sport i rekreacja
+track - bieżnia - sport i rekreacja
+training - trening
+windsurfing - windsurfing - sport i rekreacja
+workout - trening - sport i rekreacja
+yoga - joga - sport i rekreacja
