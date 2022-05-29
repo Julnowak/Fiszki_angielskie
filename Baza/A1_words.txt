@@ -84,3 +84,13 @@ car - samochód - środki transportu
 taxi - taksówksa - środki transportu
 train - pociąg - środki transportu
 cold - przeziębienie - zdrowie
+ball - piłka - sport i rekreacja
+basketball - koszykówka - sport i rekreacja
+doll - lalka - sport i rekreacja
+football - piłka nożna - sport i rekreacja
+game - gra - sport i rekreacja
+player - gracz - sport i rekreacja
+sport - sport - sport i rekreacja
+swimming pool - basen - sport i rekreacja
+swim - pływać - sport i rekreacja
+tennis - tenis - sport i rekreacja
