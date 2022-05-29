@@ -49,3 +49,46 @@ fever - gorączka - zdrowie
 flu - grypa - zdrowie
 heart attack - zawał - zdrowie
 prescription - recepta - zdrowie
+athlete - sportowiec - sport i rekreacja
+athletics - lekkoatletyka - sport i rekreacja
+attack - atak - sport i rekreacja
+boxing - boks - sport i rekreacja
+captain - kapitan - sport i rekreacja
+champion - mistrz - sport i rekreacja
+championship - mistrzostwa - sport i rekreacja
+coach - trener - sport i rekreacja
+competitor - zawodnik - sport i rekreacja
+contest - konkurs - sport i rekreacja
+court - kort - sport i rekreacja
+cup - puchar - sport i rekreacja
+defeat - porażka - sport i rekreacja
+defence - obrona - sport i rekreacja
+diver - nurek - sport i rekreacja
+extreme sports - sporty ekstremalne - sport i rekreacja
+field - boisko - sport i rekreacja
+final - finał - sport i rekreacja
+fishing rod - wędka - sport i rekreacja
+goalkeeper - bramkarz - sport i rekreacja
+gymnastics - gimnastyka - sport i rekreacja
+hockey stick - kij hokejowy - sport i rekreacja
+ice hockey - hokej na lodzie - sport i rekreacja
+ice skating - łyżwiarstwo - sport i rekreacja
+jogging - jogging - sport i rekreacja
+leader - przywódca - sport i rekreacja
+league - liga - sport i rekreacja
+leisure - rekreacja - sport i rekreacja
+lottery - loteria - sport i rekreacja
+net - siatka - sport i rekreacja
+pool - bilard - sport i rekreacja
+position - pozycja - sport i rekreacja
+race - ścigać - sport i rekreacja
+record - rekord - sport i rekreacja
+ride - przejażdzka - sport i rekreacja
+rider - jeździć - sport i rekreacja
+run - bieg - sport i rekreacja
+sailor - marynarz - sport i rekreacja
+score - wynik - sport i rekreacja
+scoreboard - tabela wyników - sport i rekreacja
+ski - narta - sport i rekreacja
+squash - squash - sport i rekreacja
+supporter - kibic - sport i rekreacja
