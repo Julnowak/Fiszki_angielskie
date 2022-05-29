@@ -99,3 +99,5 @@ training - trening
 windsurfing - windsurfing - sport i rekreacja
 workout - trening - sport i rekreacja
 yoga - joga - sport i rekreacja
+relative - krewny - rodzina
+twin - bliźniak - rodzina
