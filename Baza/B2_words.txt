@@ -85,3 +85,8 @@ swing - huśtawka - sport i rekreacja
 target - cel - sport i rekreacja
 trophy - puchar - sport i rekreacja
 victory - zwycięstwo - sport i rekreacja
+siblings - rodzeństwo - rodzina
+stepdaughter - pasierbica - rodzina
+stepfather - ojczym - rodzina
+stepmother - macocha - rodzina
+stepson - pasierb - rodzina
