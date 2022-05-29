@@ -42,3 +42,8 @@ wind instruments - instrumenty
 vein - żyła - części ciała
 spine - kręgosłup - części ciała
 dumb - niemy - zdrowie
+bridge - brydż - sport i rekreacja
+dominoes - domino - sport i rekreacja
+pad - ochraniacz - sport i rekreacja
+triumph - triumf - sport i rekreacja
+win - wygrana - sport i rekreacja
