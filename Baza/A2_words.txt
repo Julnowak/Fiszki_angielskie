@@ -96,3 +96,6 @@ table tenis - tenis stołowy - sport i rekreacja
 team - drużyna - sport i rekreacja
 toy - zabawka - sport i rekreacja
 versus - przeciwko - sport i rekreacja
+video game - gra wideo - sport i rekreacja
+volleyball - siatkówka - sport i rekreacja
+winner - zwycięzca - sport i rekreacja
