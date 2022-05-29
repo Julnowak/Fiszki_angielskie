@@ -57,3 +57,31 @@ to itch - swędzieć - zdrowie
 unconscious - nieprzytomny - zdrowie
 dizzy - cierpiący na zawroty głowy - zdrowie
 bruise - siniak - zdrowie
+arrow - strzała - sport i rekreacja
+athletic - atletyczny - sport i rekreacja
+course - pole - sport i rekreacja
+defender - obrońca - sport i rekreacja
+hoop - obręcz - sport i rekreacja
+hunting - polowanie - sport i rekreacja
+lap - okrążenie - sport i rekreacja
+lead - czołówka - sport i rekreacja
+marathon - maraton - sport i rekreacja
+martial arts - sztuki walki - sport i rekreacja
+opponent - przeciwnik - sport i rekreacja
+participant - uczestnik - sport i rekreacja
+pass - podanie - sport i rekreacja
+penalty - rzut karny - sport i rekreacja
+pitch - boisko - sport i rekreacja
+play - zabawa - sport i rekreacja
+poker - poker - sport i rekreacja
+recreation - rekreacja - sport i rekreacja
+referee - sędzia - sport i rekreacja
+rope - lina - sport i rekreacja
+roulette - ruletka - sport i rekreacja
+semi-final - półfinał - sport i rekreacja
+set - set - sport i rekreacja
+shot - strzał - sport i rekreacja
+swing - huśtawka - sport i rekreacja
+target - cel - sport i rekreacja
+trophy - puchar - sport i rekreacja
+victory - zwycięstwo - sport i rekreacja
