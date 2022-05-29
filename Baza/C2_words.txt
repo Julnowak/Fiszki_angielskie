@@ -85,3 +85,4 @@ hearts - kierki - sport i rekreacja
 hopscoth - gra w klasy - sport i rekreacja
 mau - makao - sport i rekreacja
 rummy - remik - sport i rekreacja
+spouse - współmałżonek - rodzina
