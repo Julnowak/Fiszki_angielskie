@@ -90,3 +90,13 @@ stepdaughter - pasierbica - rodzina
 stepfather - ojczym - rodzina
 stepmother - macocha - rodzina
 stepson - pasierb - rodzina
+attic - strych - dom i jego wyposażenie
+basement - piwnic - dom i jego wyposażenie
+cellar - piwnica - dom i jego wyposażenie
+lobby - hol - dom i jego wyposażenie
+cloth - ścierka - dom i jego wyposażenie
+coffee maker - ekspres do kawy - dom i jego wyposażenie
+corkscrew - korkociąg - dom i jego wyposażenie
+scales - waga - dom i jego wyposażenie
+stool - taboret - dom i jego wyposażenie
+bathroom scales - waga łazienkowa - dom i jego wyposażenie
