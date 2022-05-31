@@ -101,3 +101,20 @@ workout - trening - sport i rekreacja
 yoga - joga - sport i rekreacja
 relative - krewny - rodzina
 twin - bliźniak - rodzina
+study - pracownia - dom i jego wyposażenie
+bin - śmietnik - dom i jego wyposażenie
+dishwasher - zmywarka - dom i jego wyposażenie
+eletric kettle - czajnik elektryczny - dom i jego wyposażenie
+freezer - zamrażarka - dom i jego wyposażenie
+frying pan - patelnia - dom i jego wyposażenie
+pot - garnek - dom i jego wyposażenie
+saucepan - rondel - dom i jego wyposażenie
+tap - kran - dom i jego wyposażenie
+teapot - czajniczek do herbaty - dom i jego wyposażenie
+tin opener - otwieracz do puszek - dom i jego wyposażenie
+toaster - toster - dom i jego wyposażenie
+basin - umywalka - dom i jego wyposażenie
+bath plug - zatyczka na odpływ - dom i jego wyposażenie
+shower curtain - zasłona prysznicowa - dom i jego wyposażenie
+soap dish - mydlniczka - dom i jego wyposażenie
+washbasin - umywalka - dom i jego wyposażenie
