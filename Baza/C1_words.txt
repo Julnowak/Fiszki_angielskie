@@ -47,3 +47,21 @@ dominoes - domino - sport i rekreacja
 pad - ochraniacz - sport i rekreacja
 triumph - triumf - sport i rekreacja
 win - wygrana - sport i rekreacja
+bath mat - dywanik łazienkowy - dom i jego wyposażenie
+bidet - bidet - dom i jego wyposażenie
+flush - spłuczka - dom i jego wyposażenie
+soap dispenser - dozownik mydła - dom i jego wyposażenie
+sponge - gąbka - dom i jego wyposażenie
+tiles - kafelki - dom i jego wyposażenie
+toilet paper holder - uchwyt na papier toaletowy - dom i jego wyposażenie
+towel holder - wieszak na ręcznik - dom i jego wyposażenie
+cake tin - foremka do pieczenia - dom i jego wyposażenie
+chopping knife - tasak - dom i jego wyposażenie
+chopsticks - pałeczki do ryżu - dom i jego wyposażenie
+cutting board - deska do krojenia - dom i jego wyposażenie
+gater - tarka - dom i jego wyposażenie
+rolling pin - wałek do ciasta - dom i jego wyposażenie
+sideboard - bufet - dom i jego wyposażenie
+sieve - sitko - dom i jego wyposażenie
+porch - weranda - dom i jego wyposażenie
+staircase - klatka schodowa - dom i jego wyposażenie
