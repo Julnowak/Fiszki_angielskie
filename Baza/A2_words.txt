@@ -113,3 +113,21 @@ grnadomother - babka - rodzina
 grandpa - dziadek - rodzina
 grandparents - dziadkowie - rodzina
 uncle - wujek - rodzina
+bowl - miska - dom i jego wyposażenie
+cooker - kuchenka - dom i jego wyposażenie
+cupboard - szafka - dom i jego wyposażenie
+drawer - szuflada - dom i jego wyposażenie
+fork - widelec - dom i jego wyposażenie
+fridge - lodówka - dom i jego wyposażenie
+kitchen table - stół kuchenny - dom i jego wyposażenie
+microwave - mikrofalówka - dom i jego wyposażenie
+shelf - półka - dom i jego wyposażenie
+sink - zlew - dom i jego wyposażenie
+spoon - łyżka - dom i jego wyposażenie
+garage - garaż - dom i jego wyposażenie
+hall - przedpokój - dom i jego wyposażenie
+sitting room - pokój dzienny - dom i jego wyposażenie
+bathroom cabinet - szafka łazienkowa - dom i jego wyposażenie
+towel - ręcznik - dom i jego wyposażenie
+wasching machine - pralka - dom i jego wyposażenie
+
