@@ -86,3 +86,8 @@ hopscoth - gra w klasy - sport i rekreacja
 mau - makao - sport i rekreacja
 rummy - remik - sport i rekreacja
 spouse - współmałżonek - rodzina
+drizzle - mżawka - zjawiska atmosferyczne
+hail - grad - zjawiska atmosferyczne
+hailstone - kulka gradu - zjawiska atmosferyczne
+hailstorm - gradobicie - zjawiska atmosferyczne
+whirlwind - trąba powietrzna - zjawiska atmosferyczne
