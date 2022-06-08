@@ -33,6 +33,13 @@ anemometer - wiatromierz - pogoda
 windsock - wiatrowskaz - pogoda
 to acquit - uniewinnić - słownictwo prawnicze
 affidavit - oświadczenie pod przysięgą - słownictwo prawnicze
+cyclone - cyklon - zjawiska atmosferyczne
+famine - klęska głodowa - zjawiska atmosferyczne
+mudslide - lawina błotna - zjawiska atmosferyczne
+twister - trąba powietrzna - zjawiska atmosferyczne
+typhoon - tajfun - zjawiska atmosferyczne
+volcanic eruption - wybuch wulkanu - zjawiska atmosferyczne
+
 allegation - oskarżenie - słownictwo prawnicze
 attorney - prawnik - słownictwo prawnicze
 counsel - obrońca - słownictwo prawnicze
