@@ -120,3 +120,9 @@ cold - zimno - zjawiska atmosferyczne
 hot - gorąco - zjawiska atmosferyczne
 rain - deszcz - zjawiska atmosferyczne
 snow - śnieg - zjawiska atmosferyczne
+summer - lato - zjawiska atmosferyczne
+sun - słońce - zjawiska atmosferyczne
+warm - ciepły - zjawiska atmosferyczne
+weather - pogoda - zjawiska atmosferyczne
+wind - wiatr - zjawiska atmosferyczne
+winter - zima - zjawiska atmosferyczne
