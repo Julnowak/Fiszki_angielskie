@@ -130,4 +130,14 @@ sitting room - pokój dzienny - dom i jego wyposażenie
 bathroom cabinet - szafka łazienkowa - dom i jego wyposażenie
 towel - ręcznik - dom i jego wyposażenie
 wasching machine - pralka - dom i jego wyposażenie
-
+cloud - chmura - zjawiska atmosferyczne
+cloudy - zachmurzony - zjawiska atmosferyczne
+fog - mgła - zjawiska atmosferyczne
+foggy - mglisty - zjawiska atmosferyczne
+ice - lód - zjawiska atmosferyczne
+spring - wiosna - zjawiska atmosferyczne
+storm - sztorm - zjawiska atmosferyczne
+sunny - słoneczny - zjawiska atmosferyczne
+thunderstorm - burza z piorunami - zjawiska atmosferyczne
+wet - mokry - zjawiska atmosferyczne
+windy - wietrzny - zjawiska atmosferyczne
