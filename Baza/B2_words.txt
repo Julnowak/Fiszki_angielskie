@@ -100,3 +100,10 @@ corkscrew - korkociąg - dom i jego wyposażenie
 scales - waga - dom i jego wyposażenie
 stool - taboret - dom i jego wyposażenie
 bathroom scales - waga łazienkowa - dom i jego wyposażenie
+daylight - światło dzienne - zjawiska atmosferyczne
+hurricane - huragan - zjawiska atmosferyczne
+moonlight - światło księżyca - zjawiska atmosferyczne
+rainbow - tęcza - zjawiska atmosferyczne
+rainfall - opady - zjawiska atmosferyczne
+stormy - burzowy - zjawiska atmosferyczne
+twilight - zmierzch - zjawiska atmosferyczne
