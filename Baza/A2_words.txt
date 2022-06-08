@@ -14,13 +14,6 @@ tourist - turysta - wakacje
 suitcase - walizka - wakacje
 passport - paszport - wakacje
 airport - lotnisko - wakacje
-dry - sucho - pogoda
-fog - mgła - pogoda
-cloud - chmura - pogoda
-cloudy - pochmurno - pogoda
-windy - wietrznie - pogoda
-wet - mokro - pogoda
-storm - burza - pogoda
 sock - skarpeta - ubrania
 to exercise - ćwiczyć - czynności
 to decide - decydować - czynności
