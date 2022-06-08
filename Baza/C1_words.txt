@@ -65,3 +65,7 @@ sideboard - bufet - dom i jego wyposażenie
 sieve - sitko - dom i jego wyposażenie
 porch - weranda - dom i jego wyposażenie
 staircase - klatka schodowa - dom i jego wyposażenie
+blizzard - zamieć - zjawiska atmosferyczne
+drought - susza - zjawiska atmosferyczne
+dust storm - burza piaskowa - zjawiska atmosferyczne
+heatwave - fala upałów - zjawiska atmosferyczne
