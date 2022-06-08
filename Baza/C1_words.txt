@@ -69,3 +69,5 @@ blizzard - zamieć - zjawiska atmosferyczne
 drought - susza - zjawiska atmosferyczne
 dust storm - burza piaskowa - zjawiska atmosferyczne
 heatwave - fala upałów - zjawiska atmosferyczne
+avalanche - lawina - zjawiska atmosferyczne
+tsunami - tsunami - zjawiska atmosferyczne
