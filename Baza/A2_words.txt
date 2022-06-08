@@ -141,3 +141,4 @@ sunny - słoneczny - zjawiska atmosferyczne
 thunderstorm - burza z piorunami - zjawiska atmosferyczne
 wet - mokry - zjawiska atmosferyczne
 windy - wietrzny - zjawiska atmosferyczne
+fire - pożar - zjawiska atmosferyczne
