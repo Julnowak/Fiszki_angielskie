@@ -126,3 +126,4 @@ sunrise - wschód słońca - zjawiska atmosferyczne
 sunset - zachód słońca - zjawiska atmosferyczne
 sunshine - światło słoneczne - zjawiska atmosferyczne
 thunder - grzmot - zjawiska atmosferyczne
+flood - powódź - zjawiska atmosferyczne
