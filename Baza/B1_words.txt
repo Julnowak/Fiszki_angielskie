@@ -118,3 +118,11 @@ bath plug - zatyczka na odpływ - dom i jego wyposażenie
 shower curtain - zasłona prysznicowa - dom i jego wyposażenie
 soap dish - mydlniczka - dom i jego wyposażenie
 washbasin - umywalka - dom i jego wyposażenie
+breeze - wietrzyk - zjawiska atmosferyczne
+heat - upał - zjawiska atmosferyczne
+lightning - błyskawica - zjawiska atmosferyczne
+season - pora roku - zjawiska atmosferyczne
+sunrise - wschód słońca - zjawiska atmosferyczne
+sunset - zachód słońca - zjawiska atmosferyczne
+sunshine - światło słoneczne - zjawiska atmosferyczne
+thunder - grzmot - zjawiska atmosferyczne
