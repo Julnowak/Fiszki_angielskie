@@ -116,3 +116,7 @@ dining room - jadalnia - dom i jego wyposażenie
 kitchen - kuchnia - dom i jego wyposażenie
 living room - salon - dom i jego wyposażenie
 knife - nóz - dom i jego wyposażenie
+cold - zimno - zjawiska atmosferyczne
+hot - gorąco - zjawiska atmosferyczne
+rain - deszcz - zjawiska atmosferyczne
+snow - śnieg - zjawiska atmosferyczne
