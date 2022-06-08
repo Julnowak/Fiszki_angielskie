@@ -107,3 +107,6 @@ rainbow - tęcza - zjawiska atmosferyczne
 rainfall - opady - zjawiska atmosferyczne
 stormy - burzowy - zjawiska atmosferyczne
 twilight - zmierzch - zjawiska atmosferyczne
+disaster - katastrofa - zjawiska atmosferyczne
+earthquake - trzesięnie ziemi - zjawiska atmosferyczne
+tornado - tornado - zjawiska atmosferyczne
