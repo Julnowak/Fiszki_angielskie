@@ -39,7 +39,6 @@ mudslide - lawina błotna - zjawiska atmosferyczne
 twister - trąba powietrzna - zjawiska atmosferyczne
 typhoon - tajfun - zjawiska atmosferyczne
 volcanic eruption - wybuch wulkanu - zjawiska atmosferyczne
-
 allegation - oskarżenie - słownictwo prawnicze
 attorney - prawnik - słownictwo prawnicze
 counsel - obrońca - słownictwo prawnicze
