@@ -95,7 +95,7 @@ supporter - kibic - sport i rekreacja
 swimmer - pływak - sport i rekreacja
 tournament - turniej - sport i rekreacja
 track - bieżnia - sport i rekreacja
-training - trening
+training - trening - sport i rekreacja
 windsurfing - windsurfing - sport i rekreacja
 workout - trening - sport i rekreacja
 yoga - joga - sport i rekreacja
