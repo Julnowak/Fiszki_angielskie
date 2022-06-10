@@ -99,7 +99,7 @@ cousin - kuzyn - rodzina
 grandchild - wnuk - rodzina
 grandchildren - wnuczęta - rodzina
 granddad - dziadek - rodzina
-granddaughter -  wnuczek - rodzina
+granddaughter - wnuczek - rodzina
 grandfather - dziadek - rodzina
 grandma - babcia - rodzina
 grnadomother - babka - rodzina
