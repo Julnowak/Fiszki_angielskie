@@ -15,7 +15,7 @@ brown - brązowy - kolory
 black - czarny - kolory
 white - biały - kolory
 grey - szary - kolory
-orange - pomarańczowy - kolor
+orange - pomarańczowy - kolory
 coat - płaszcz - ubrania
 skirt - spódnica - ubrania
 hat - kapelusz - ubrania
@@ -108,7 +108,7 @@ bedroom - sypialnia - dom i jego wyposażenie
 dining room - jadalnia - dom i jego wyposażenie
 kitchen - kuchnia - dom i jego wyposażenie
 living room - salon - dom i jego wyposażenie
-knife - nóz - dom i jego wyposażenie
+knife - nóż - dom i jego wyposażenie
 cold - zimno - zjawiska atmosferyczne
 hot - gorąco - zjawiska atmosferyczne
 rain - deszcz - zjawiska atmosferyczne
