@@ -15,7 +15,7 @@ apparel - odzież - ubrania
 jersey - koszulka sportowa - ubrania
 adoration - uwielbienie - uczucia i emocje
 alienation - wyobcowanie - uczucia i emocje
-awe - podziw  - uczucia i emocje
+awe - podziw - uczucia i emocje
 bliss - rozkosz - uczucia i emocje
 contempt - pogarda - uczucia i emocje
 dismay - niepokój - uczucia i emocje
@@ -38,7 +38,7 @@ pipe organ - organy - instrumenty
 saxophone - saksofon - instrumenty
 viola - altówka - instrumenty
 xylophone - ksylofon - instrumenty
-wind instruments - instrumenty
+wind instruments - instrumenty dęte - instrumenty
 vein - żyła - części ciała
 spine - kręgosłup - części ciała
 dumb - niemy - zdrowie
