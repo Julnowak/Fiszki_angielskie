@@ -1,6 +1,6 @@
 dog - pies - zwierzęta
 beaver - bóbr - zwierzęta
-brow - brew
+brow - brew - części ciała
 eyeball - gałka oczna - części ciała
 pupil - źrenica - części ciała
 temple - skroń - części ciała
