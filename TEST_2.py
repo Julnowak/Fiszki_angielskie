@@ -23,7 +23,6 @@ def stop():
 def start():
     global doTick
     doTick = True
-    # Perhaps reset `sec` too?
     tick()
 
 timeLabel = tkinter.Label(root, fg='green',font=('Helvetica',150))

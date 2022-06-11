@@ -3,14 +3,10 @@ from tkinter.ttk import Combobox
 from tkinter import messagebox
 import matplotlib
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import (
-    FigureCanvasTkAgg,
-    NavigationToolbar2Tk
-)
-from PIL import Image, ImageTk
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg)
 import random
 import numpy as np
-import matplotlib.pyplot as plt
+
 import os
 import time
 from math import ceil
@@ -30,7 +26,7 @@ class Page:
 
 class MENU(Page):
     def __init__(self, root, lista, sound=None):
-        super(MENU, self).__init__()
+        super().__init__()
         self.root = root
         self.inter = lista
         self.create()
@@ -383,6 +379,9 @@ class OPCJE_PAGE(Page):
             self.sound = mixer.Sound("Sounds/" + w + '.wav')
         self.sound.set_volume(a)
         self.sound.play(-1)
+
+    def change_time(self):
+        pass
 
     def create(self):
         interface = []
@@ -783,20 +782,8 @@ class EXIT_PAGE(Page):
         label.grid(column=0, columnspan=4, row=3)
         label.after(1500, label.quit)
 
-    def configure(self):
-        # Kolumny
-        self.root.columnconfigure(0, weight=1)
-        self.root.columnconfigure(1, weight=1)
-        self.root.columnconfigure(2, weight=1)
-
-        # Rzędy
-        self.root.rowconfigure(0, weight=2)
-        self.root.rowconfigure(1, weight=1)
-        self.root.rowconfigure(2, weight=1)
-        self.root.rowconfigure(3, weight=1)
 
     def create(self):
-        self.configure()
         interface = []
 
         label2 = Label(self.root, text='Czy na pewno chcesz opuścić grę?', font=('Comic_Sans', 25))
@@ -1001,76 +988,6 @@ class CHOICE_PAGE(Page):
     def back(self, lista):
         destroyer(lista)
         START_PAGE(self.root, lista, self.sound)
-
-    # def keyboard(self, window):
-    #     pass
-    #     # def clicked(txt):
-    #     #     print(txt)
-    #     #
-    #     # A = Button(window, text="A", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("A"))
-    #     # A.grid(column=1, row=1)
-    #     #
-    #     # btn2 = Button(window, text="R", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("R"))
-    #     # btn2.grid(column=2, row=1)
-    #     # btn3 = Button(window, text="B", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("B"))
-    #     # btn3.grid(column=3, row=1)
-    #     # btn4 = Button(window, text="Z", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("Z"))
-    #     # btn4.grid(column=4, row=1)
-    #     # btn5 = Button(window, text="T", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("T"))
-    #     # btn5.grid(column=5, row=1)
-    #     # btn6 = Button(window, text="I", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("I"))
-    #     # btn6.grid(column=6, row=1)
-    #     # btn7 = Button(window, text="C", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("C"))
-    #     # btn7.grid(column=7, row=1)
-    #     # btn8 = Button(window, text="X", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("X"))
-    #     # btn8.grid(column=8, row=1)
-    #     #
-    #     # btn9 = Button(window, text="O", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #               command=lambda: clicked("O"))
-    #     # btn9.grid(column=2, row=2)
-    #     # btn10 = Button(window, text="Y", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("Y"))
-    #     # btn10.grid(column=3, row=2)
-    #     # btn11 = Button(window, text="P", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("P"))
-    #     # btn11.grid(column=4, row=2)
-    #     # btn12 = Button(window, text="N", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("N"))
-    #     # btn12.grid(column=5, row=2)
-    #     # btn13 = Button(window, text="D", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("D"))
-    #     # btn13.grid(column=6, row=2)
-    #     # btn14 = Button(window, text="W", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("W"))
-    #     # btn14.grid(column=7, row=2)
-    #     #
-    #     # btn15 = Button(window, text="V", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("V"))
-    #     # btn15.grid(column=3, row=3)
-    #     # btn16 = Button(window, text="S", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("S"))
-    #     # btn16.grid(column=4, row=3)
-    #     # btn17 = Button(window, text="L", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("L"))
-    #     # btn17.grid(column=5, row=3)
-    #     # btn18 = Button(window, text="U", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("U"))
-    #     # btn18.grid(column=6, row=3)
-    #     #
-    #     # btn19 = Button(window, text="M", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("M"))
-    #     # btn19.grid(column=4, row=4)
-    #     # btn20 = Button(window, text="E", bg="skyBlue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
-    #     #                command=lambda: clicked("E"))
-    #     # btn20.grid(column=5, row=4)
 
     def configure(self):
         self.root.columnconfigure(0, weight=1)
@@ -1299,6 +1216,7 @@ class LEARN_PAGE(Page):
             self.back(self.inter)
 
     def create(self):
+        self.configure()
         interface = []
 
         label = Label(self.root, text="Podpowiedź: ", height=3, width=50,
@@ -1442,14 +1360,53 @@ class CHALLENGE_PAGE(Page):
 
 
 class TIME_PAGE(Page):
-    def __init__(self, root, lista, sound,words):
+    def __init__(self, root, lista, sound,words,cneg=0,cpos=0):
         super().__init__()
         self.inter = []
         self.root = root
         self.list_of_words = words
+        self.counter_pos = cpos
+        self.counter_neg = cneg
         self.sound = sound
         destroyer(lista)
         self.create()
+
+    def countdown(self, count, label, label2):
+        # change text in label
+        mins = count // 60
+        sec = count - 60 * mins
+        try:
+            label['text'] = mins
+            label2['text'] = sec
+
+            if count > 0:
+                self.root.after(1000, self.countdown, count - 1, label, label2)
+            else:
+                SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos)
+        except:
+            pass
+
+
+    def ask(self):
+        ans = messagebox.askyesno('UWAGA!',
+                                  'Czy na pewno chcesz wyjść?\nTwoje postępy zostaną utracone!')
+        if ans:
+            self.back(self.inter)
+
+
+    def show_message_good(self):
+        label = Label(self.root, text="Zgadłeś!", height=3, width=50,
+                      background="lime",
+                      foreground="black")
+        label.grid(columnspan=5, row=5)
+        label.after(2000, label.destroy)
+
+    def show_message_negative(self,correct):
+        label = Label(self.root, text=f"Nie zgadłeś! Poprawna odpowiedź to: {correct}", height=3, width=50,
+                      background="red",
+                      foreground="black")
+        label.grid(columnspan=5, row=5)
+        label.after(2000, label.destroy)
 
     def back(self, lista):
         destroyer(lista)
@@ -1459,23 +1416,93 @@ class TIME_PAGE(Page):
         interface = []
         label2 = Label(self.root, text='Strona wyzwanie-czas', font=('Comic_Sans', 25))
         interface.append(label2)
+        label2.grid()
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next2)
+        przycisk_next2.grid()
 
-        for elem in interface:
-            elem.pack()
+        lab = Label(self.root)
+        interface.append(lab)
+        lab.grid()
+
+        lab2 = Label(self.root)
+        interface.append(lab2)
+        lab2.grid()
+
+        # call countdown first time
+        self.countdown(10,lab,lab2)
+
+        def generate():
+            slowo = random.choice(self.list_of_words)
+            self.counter_help = 0
+            return slowo
+
+        wordos1 = generate()
+        wordos = wordos1.split(' - ')
+
+        label3 = Label(self.root, text= wordos[1], font=('Comic_Sans', 25))
+        interface.append(label3)
+        label3.grid(row=2, columnspan=5)
+
+
+        entry = Entry(self.root)
+        entry.grid(row=3, columnspan=5)
+        interface.append(entry)
+
+        def answear():
+            ans = entry.get()
+            if ans == wordos[0].rstrip():
+                self.show_message_good()
+                self.counter_pos += 1
+            elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
+                if ans == wordos[0][3:]:
+                    self.show_message_good()
+                    self.counter_pos += 1
+                else:
+                    self.show_message_negative(wordos[0])
+                    self.counter_neg += 1
+            else:
+                self.show_message_negative(wordos[0])
+                self.counter_neg += 1
+            self.counter_help = 0
+
+
+
+
+        label = Label(self.root, height=3, width=50)
+        label.grid(columnspan=5, row=5)
+
+
+        przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.ask()])
+        interface.append(przycisk_next5)
+        przycisk_next5.grid(row=7, columnspan=5)
+
+        interface.append(label)
+
+        przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), answear(),
+                                                 TIME_PAGE(self.root, self.inter, self.sound, self.list_of_words,
+                                                           self.counter_pos, self.counter_neg)])
+
+        przycisk_next4.grid(row=4, column=1)
+        interface.append(przycisk_next4)
+        # root.after(0, countdown, 5)
+
 
         self.inter = interface
 
 
 class LIFE_PAGE(Page):
-    def __init__(self, root, lista, sound,words):
+    def __init__(self, root, lista, sound,words,cpos,cneg):
         super().__init__()
         self.inter = []
         self.root = root
         self.sound = sound
+        self.counter_pos = cpos
+        self.counter_neg = cneg
         self.list_of_words = words
         destroyer(lista)
         self.create()
@@ -1492,9 +1519,6 @@ class LIFE_PAGE(Page):
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next2)
-
-        for elem in interface:
-            elem.pack()
 
         self.inter = interface
 
@@ -1559,7 +1583,6 @@ class SUMMARY_PAGE(Page):
             elem.grid()
 
         self.inter = interface
-
 
 
 def beep():
