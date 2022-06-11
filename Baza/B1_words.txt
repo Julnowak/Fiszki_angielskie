@@ -49,3 +49,81 @@ fever - gorączka - zdrowie
 flu - grypa - zdrowie
 heart attack - zawał - zdrowie
 prescription - recepta - zdrowie
+athlete - sportowiec - sport i rekreacja
+athletics - lekkoatletyka - sport i rekreacja
+attack - atak - sport i rekreacja
+boxing - boks - sport i rekreacja
+captain - kapitan - sport i rekreacja
+champion - mistrz - sport i rekreacja
+championship - mistrzostwa - sport i rekreacja
+coach - trener - sport i rekreacja
+competitor - zawodnik - sport i rekreacja
+contest - konkurs - sport i rekreacja
+court - kort - sport i rekreacja
+cup - puchar - sport i rekreacja
+defeat - porażka - sport i rekreacja
+defence - obrona - sport i rekreacja
+diver - nurek - sport i rekreacja
+extreme sports - sporty ekstremalne - sport i rekreacja
+field - boisko - sport i rekreacja
+final - finał - sport i rekreacja
+fishing rod - wędka - sport i rekreacja
+goalkeeper - bramkarz - sport i rekreacja
+gymnastics - gimnastyka - sport i rekreacja
+hockey stick - kij hokejowy - sport i rekreacja
+ice hockey - hokej na lodzie - sport i rekreacja
+ice skating - łyżwiarstwo - sport i rekreacja
+jogging - jogging - sport i rekreacja
+leader - przywódca - sport i rekreacja
+league - liga - sport i rekreacja
+leisure - rekreacja - sport i rekreacja
+lottery - loteria - sport i rekreacja
+net - siatka - sport i rekreacja
+pool - bilard - sport i rekreacja
+position - pozycja - sport i rekreacja
+race - ścigać - sport i rekreacja
+record - rekord - sport i rekreacja
+ride - przejażdzka - sport i rekreacja
+rider - jeździć - sport i rekreacja
+run - bieg - sport i rekreacja
+sailor - marynarz - sport i rekreacja
+score - wynik - sport i rekreacja
+scoreboard - tabela wyników - sport i rekreacja
+ski - narta - sport i rekreacja
+squash - squash - sport i rekreacja
+supporter - kibic - sport i rekreacja
+swimmer - pływak - sport i rekreacja
+tournament - turniej - sport i rekreacja
+track - bieżnia - sport i rekreacja
+training - trening - sport i rekreacja
+windsurfing - windsurfing - sport i rekreacja
+workout - trening - sport i rekreacja
+yoga - joga - sport i rekreacja
+relative - krewny - rodzina
+twin - bliźniak - rodzina
+study - pracownia - dom i jego wyposażenie
+bin - śmietnik - dom i jego wyposażenie
+dishwasher - zmywarka - dom i jego wyposażenie
+eletric kettle - czajnik elektryczny - dom i jego wyposażenie
+freezer - zamrażarka - dom i jego wyposażenie
+frying pan - patelnia - dom i jego wyposażenie
+pot - garnek - dom i jego wyposażenie
+saucepan - rondel - dom i jego wyposażenie
+tap - kran - dom i jego wyposażenie
+teapot - czajniczek do herbaty - dom i jego wyposażenie
+tin opener - otwieracz do puszek - dom i jego wyposażenie
+toaster - toster - dom i jego wyposażenie
+basin - umywalka - dom i jego wyposażenie
+bath plug - zatyczka na odpływ - dom i jego wyposażenie
+shower curtain - zasłona prysznicowa - dom i jego wyposażenie
+soap dish - mydlniczka - dom i jego wyposażenie
+washbasin - umywalka - dom i jego wyposażenie
+breeze - wietrzyk - zjawiska atmosferyczne
+heat - upał - zjawiska atmosferyczne
+lightning - błyskawica - zjawiska atmosferyczne
+season - pora roku - zjawiska atmosferyczne
+sunrise - wschód słońca - zjawiska atmosferyczne
+sunset - zachód słońca - zjawiska atmosferyczne
+sunshine - światło słoneczne - zjawiska atmosferyczne
+thunder - grzmot - zjawiska atmosferyczne
+flood - powódź - zjawiska atmosferyczne

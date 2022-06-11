@@ -43,7 +43,7 @@ nail - paznokieć - części ciała
 muscle - mięsień - części ciała
 skeleton - szkielet - części ciała
 glider - szybowiec - środki transportu
-hang glider - lotnia  - środki transportu
+hang glider - lotnia - środki transportu
 rocket - rakieta - środki transportu
 yacht - jacht - środki transportu
 to faint - zemdleć - zdrowie
@@ -54,3 +54,59 @@ stroke - wylew - zdrowie
 symptom - objaw - zdrowie
 wound - rana - zdrowie
 to itch - swędzieć - zdrowie
+unconscious - nieprzytomny - zdrowie
+dizzy - cierpiący na zawroty głowy - zdrowie
+bruise - siniak - zdrowie
+arrow - strzała - sport i rekreacja
+athletic - atletyczny - sport i rekreacja
+course - pole - sport i rekreacja
+defender - obrońca - sport i rekreacja
+hoop - obręcz - sport i rekreacja
+hunting - polowanie - sport i rekreacja
+lap - okrążenie - sport i rekreacja
+lead - czołówka - sport i rekreacja
+marathon - maraton - sport i rekreacja
+martial arts - sztuki walki - sport i rekreacja
+opponent - przeciwnik - sport i rekreacja
+participant - uczestnik - sport i rekreacja
+pass - podanie - sport i rekreacja
+penalty - rzut karny - sport i rekreacja
+pitch - boisko - sport i rekreacja
+play - zabawa - sport i rekreacja
+poker - poker - sport i rekreacja
+recreation - rekreacja - sport i rekreacja
+referee - sędzia - sport i rekreacja
+rope - lina - sport i rekreacja
+roulette - ruletka - sport i rekreacja
+semi-final - półfinał - sport i rekreacja
+set - set - sport i rekreacja
+shot - strzał - sport i rekreacja
+swing - huśtawka - sport i rekreacja
+target - cel - sport i rekreacja
+trophy - puchar - sport i rekreacja
+victory - zwycięstwo - sport i rekreacja
+siblings - rodzeństwo - rodzina
+stepdaughter - pasierbica - rodzina
+stepfather - ojczym - rodzina
+stepmother - macocha - rodzina
+stepson - pasierb - rodzina
+attic - strych - dom i jego wyposażenie
+basement - piwnic - dom i jego wyposażenie
+cellar - piwnica - dom i jego wyposażenie
+lobby - hol - dom i jego wyposażenie
+cloth - ścierka - dom i jego wyposażenie
+coffee maker - ekspres do kawy - dom i jego wyposażenie
+corkscrew - korkociąg - dom i jego wyposażenie
+scales - waga - dom i jego wyposażenie
+stool - taboret - dom i jego wyposażenie
+bathroom scales - waga łazienkowa - dom i jego wyposażenie
+daylight - światło dzienne - zjawiska atmosferyczne
+hurricane - huragan - zjawiska atmosferyczne
+moonlight - światło księżyca - zjawiska atmosferyczne
+rainbow - tęcza - zjawiska atmosferyczne
+rainfall - opady - zjawiska atmosferyczne
+stormy - burzowy - zjawiska atmosferyczne
+twilight - zmierzch - zjawiska atmosferyczne
+disaster - katastrofa - zjawiska atmosferyczne
+earthquake - trzesięnie ziemi - zjawiska atmosferyczne
+tornado - tornado - zjawiska atmosferyczne

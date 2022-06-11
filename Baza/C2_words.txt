@@ -33,6 +33,12 @@ anemometer - wiatromierz - pogoda
 windsock - wiatrowskaz - pogoda
 to acquit - uniewinnić - słownictwo prawnicze
 affidavit - oświadczenie pod przysięgą - słownictwo prawnicze
+cyclone - cyklon - zjawiska atmosferyczne
+famine - klęska głodowa - zjawiska atmosferyczne
+mudslide - lawina błotna - zjawiska atmosferyczne
+twister - trąba powietrzna - zjawiska atmosferyczne
+typhoon - tajfun - zjawiska atmosferyczne
+volcanic eruption - wybuch wulkanu - zjawiska atmosferyczne
 allegation - oskarżenie - słownictwo prawnicze
 attorney - prawnik - słownictwo prawnicze
 counsel - obrońca - słownictwo prawnicze
@@ -74,3 +80,20 @@ skull - czaszka - części ciała
 insomnia - bezsenność - zdrowie
 short-sighted - krótkowzroczny - zdrowie
 injection - zastrzyk - zdrowie
+diarrhoea - biegunka - zdrowie
+vaccine - szczepionka - zdrowie
+counter - pionek - sport i rekreacja
+dice - kostka do gry - sport i rekreacja
+favourite - faworyt - sport i rekreacja
+foul - faul - sport i rekreacja
+striker - atakujący - sport i rekreacja
+hearts - kierki - sport i rekreacja
+hopscoth - gra w klasy - sport i rekreacja
+mau - makao - sport i rekreacja
+rummy - remik - sport i rekreacja
+spouse - współmałżonek - rodzina
+drizzle - mżawka - zjawiska atmosferyczne
+hail - grad - zjawiska atmosferyczne
+hailstone - kulka gradu - zjawiska atmosferyczne
+hailstorm - gradobicie - zjawiska atmosferyczne
+whirlwind - trąba powietrzna - zjawiska atmosferyczne

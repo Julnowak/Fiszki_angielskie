@@ -15,7 +15,7 @@ brown - brązowy - kolory
 black - czarny - kolory
 white - biały - kolory
 grey - szary - kolory
-orange - pomarańczowy - kolor
+orange - pomarańczowy - kolory
 coat - płaszcz - ubrania
 skirt - spódnica - ubrania
 hat - kapelusz - ubrania
@@ -36,13 +36,6 @@ vegetable - warzywo - jedzenie
 fruit - owoc - jedzenie
 drink - napój - jedzenie
 ticket - bilet - wakacje
-sun - słońce - pogoda
-warm - ciepło - pogoda
-cold - zimno - pogoda
-rain - deszcz - pogoda
-wind - wiatr - pogoda
-snow - śnieg - pogoda
-hot - gorąco - pogoda
 to eat - jeść - czynności
 to write - pisać - czynności
 to sleep - spać - czynności
@@ -84,3 +77,45 @@ car - samochód - środki transportu
 taxi - taksówksa - środki transportu
 train - pociąg - środki transportu
 cold - przeziębienie - zdrowie
+ball - piłka - sport i rekreacja
+basketball - koszykówka - sport i rekreacja
+doll - lalka - sport i rekreacja
+football - piłka nożna - sport i rekreacja
+game - gra - sport i rekreacja
+player - gracz - sport i rekreacja
+sport - sport - sport i rekreacja
+swimming pool - basen - sport i rekreacja
+swim - pływać - sport i rekreacja
+tennis - tenis - sport i rekreacja
+brother - brat - rodzina
+child - dziecko - rodzina
+children - dzieci - rodzina
+dad - tata - rodzina
+daughter - córka - rodzina
+father - ojciec - rodzina
+husband - mąż - rodzina
+mother - matka - rodzina
+mum - mama - rodzina
+parents - rodzice - rodzina
+sister - siostra - rodzina
+son - syn - rodzina
+wife - żona - rodzina
+bath - wanna - dom i jego wyposażenie
+shower - prysznic - dom i jego wyposażenie
+toilet - toaleta - dom i jego wyposażenie
+bathroom - łazienka - dom i jego wyposażenie
+bedroom - sypialnia - dom i jego wyposażenie
+dining room - jadalnia - dom i jego wyposażenie
+kitchen - kuchnia - dom i jego wyposażenie
+living room - salon - dom i jego wyposażenie
+knife - nóż - dom i jego wyposażenie
+cold - zimno - zjawiska atmosferyczne
+hot - gorąco - zjawiska atmosferyczne
+rain - deszcz - zjawiska atmosferyczne
+snow - śnieg - zjawiska atmosferyczne
+summer - lato - zjawiska atmosferyczne
+sun - słońce - zjawiska atmosferyczne
+warm - ciepły - zjawiska atmosferyczne
+weather - pogoda - zjawiska atmosferyczne
+wind - wiatr - zjawiska atmosferyczne
+winter - zima - zjawiska atmosferyczne
