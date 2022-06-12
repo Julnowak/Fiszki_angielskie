@@ -25,7 +25,7 @@ class Page:
 
 
 class MENU(Page):
-    def __init__(self, root, lista, sound=None):
+    def __init__(self, root, lista, sound):
         super().__init__()
         self.root = root
         self.inter = lista
@@ -429,7 +429,7 @@ class BAZA_PAGE(Page):
 
     def back(self, lista):
         destroyer(lista)
-        MENU(self.root, lista)
+        MENU(self.root, lista,self.sound)
 
     def configure(self):
         self.root.columnconfigure(0, weight=1)
@@ -540,7 +540,7 @@ class BAZA_PAGE(Page):
         entry3.pack()
         try:
             przycisk = Button(win, text='Aktualizuj',
-                              command=lambda: [beep(), self.add(entry,entry2,entry3, h, lista,win),BAZA_PAGE(self.root,self.inter,self.sound)])
+                              command=lambda: [beep(), self.add(entry,entry2,entry3, h, lista,win),BAZA_PAGE(self.root, self.inter, self.sound)])
             przycisk.pack()
         except:
             pass
@@ -968,6 +968,7 @@ class POSTEPY_PAGE(Page):
 
         przycisk = Button(self.root, text='Aktualizuj',
                           command=lambda: [self.d(), self.zeren(), self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO)])
+
         przycisk.grid(row=3, columnspan=5)
         interface.append(przycisk)
 
@@ -1360,7 +1361,7 @@ class CHALLENGE_PAGE(Page):
 
 
 class TIME_PAGE(Page):
-    def __init__(self, root, lista, sound,words,cneg=0,cpos=0):
+    def __init__(self, root, lista, sound, words, cneg=0, cpos=0, time=20):
         super().__init__()
         self.inter = []
         self.root = root
@@ -1368,6 +1369,7 @@ class TIME_PAGE(Page):
         self.counter_pos = cpos
         self.counter_neg = cneg
         self.sound = sound
+        self.time = time
         destroyer(lista)
         self.create()
 
@@ -1380,6 +1382,7 @@ class TIME_PAGE(Page):
             label2['text'] = sec
 
             if count > 0:
+                self.time -= 1
                 self.root.after(1000, self.countdown, count - 1, label, label2)
             else:
                 SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos)
@@ -1401,8 +1404,8 @@ class TIME_PAGE(Page):
         label.grid(columnspan=5, row=5)
         label.after(2000, label.destroy)
 
-    def show_message_negative(self,correct):
-        label = Label(self.root, text=f"Nie zgadłeś! Poprawna odpowiedź to: {correct}", height=3, width=50,
+    def show_message_negative(self):
+        label = Label(self.root, text=f"Nie zgadłeś!", height=3, width=50,
                       background="red",
                       foreground="black")
         label.grid(columnspan=5, row=5)
@@ -1431,8 +1434,7 @@ class TIME_PAGE(Page):
         interface.append(lab2)
         lab2.grid()
 
-        # call countdown first time
-        self.countdown(10,lab,lab2)
+        self.countdown(self.time, lab, lab2)
 
         def generate():
             slowo = random.choice(self.list_of_words)
@@ -1446,33 +1448,37 @@ class TIME_PAGE(Page):
         interface.append(label3)
         label3.grid(row=2, columnspan=5)
 
-
         entry = Entry(self.root)
         entry.grid(row=3, columnspan=5)
         interface.append(entry)
 
+        label = Label(self.root, height=3, width=50)
+        label.grid(columnspan=5, row=5)
+        interface.append(label)
+
         def answear():
             ans = entry.get()
+            print(ans)
+            print(wordos[0][0:3])
             if ans == wordos[0].rstrip():
                 self.show_message_good()
+                time.sleep(2)
                 self.counter_pos += 1
             elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
                 if ans == wordos[0][3:]:
                     self.show_message_good()
+                    time.sleep(2)
                     self.counter_pos += 1
                 else:
-                    self.show_message_negative(wordos[0])
+                    self.show_message_negative()
+                    time.sleep(2)
                     self.counter_neg += 1
             else:
-                self.show_message_negative(wordos[0])
+                self.show_message_negative()
+                time.sleep(2)
                 self.counter_neg += 1
             self.counter_help = 0
 
-
-
-
-        label = Label(self.root, height=3, width=50)
-        label.grid(columnspan=5, row=5)
 
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
@@ -1480,23 +1486,20 @@ class TIME_PAGE(Page):
         interface.append(przycisk_next5)
         przycisk_next5.grid(row=7, columnspan=5)
 
-        interface.append(label)
 
         przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), answear(),
                                                  TIME_PAGE(self.root, self.inter, self.sound, self.list_of_words,
-                                                           self.counter_pos, self.counter_neg)])
+                                                           self.counter_pos, self.counter_neg, self.time)])
 
         przycisk_next4.grid(row=4, column=1)
         interface.append(przycisk_next4)
-        # root.after(0, countdown, 5)
-
 
         self.inter = interface
 
 
 class LIFE_PAGE(Page):
-    def __init__(self, root, lista, sound,words,cpos,cneg):
+    def __init__(self, root, lista, sound, words, cpos, cneg):
         super().__init__()
         self.inter = []
         self.root = root
