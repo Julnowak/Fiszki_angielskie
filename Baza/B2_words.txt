@@ -142,3 +142,9 @@ novelist - powieściopisarz - zawody
 pharmacist - farmaceuta - zawody
 plumber - hydrualik - zawody
 psychologist - psycholog - zawody
+publisher - wydawca - zawody
+researcher - badaczka - zawody
+shoemaker - szewc - zawody
+tailor - krawiec - zawody
+ticket inspector - kontroler biletów - zawody
+watchmaker - zegarmistrz - zawody
