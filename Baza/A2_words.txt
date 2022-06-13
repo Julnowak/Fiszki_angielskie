@@ -166,3 +166,7 @@ singer - piosenkarz - zawody
 taxi driver - taksówkarz - zawody
 tour gide - przewodnik wycieczek - zawody
 writer - pisarz - zawody
+cupboard - szafka - dom i jego wyposażenie
+drawer - szuflada - dom i jego wyposażenie
+lamp - lampa - dom i jego wyposażenie
+printer - drukarka - dom i jego wyposażenie
