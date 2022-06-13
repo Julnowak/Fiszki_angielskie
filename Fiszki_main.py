@@ -153,6 +153,22 @@ class App(Page):
         self.root.mainloop()
 
 
+def show_message_isHere(a, p):
+    if a and p:
+        return messagebox.askyesno('Wykryto identyczne słówko!', 'Czy aby na pewno chcesz dodać fiszkę?')
+    elif a:
+        return messagebox.askyesno('Wykryto powtórzenie w słówku angielskim!',
+                                   'Czy aby na pewno chcesz dodać fiszkę?')
+    elif p:
+        return messagebox.askyesno('Wykryto powtórzenie w słówku polskim!',
+                                   'Czy aby na pewno chcesz dodać fiszkę?')
+
+
+def clear_text(entries):
+    for entry in entries:
+        entry.delete(0, 'end')
+
+
 class DODAJ_PAGE(Page):
     baza = {'A1': 'Baza/A1_words.txt',
             'A2': 'Baza/A2_words.txt',
@@ -224,7 +240,7 @@ class DODAJ_PAGE(Page):
         przycisk_submit = Button(self.root, text='Dodaj', height=3, width=20, font=('Comic_Sans', 14),
                                  command=lambda: [beep(), self.submit
                                  (interface[2], interface[4], interface[6], interface[8]),
-                                                  self.clear_text([interface[2], interface[4],
+                                                  clear_text([interface[2], interface[4],
                                                                    interface[6], interface[8]])])
         interface.append(przycisk_submit)
 
@@ -268,16 +284,6 @@ class DODAJ_PAGE(Page):
         label.grid(columnspan=5, row=6)
         label.after(2000, label.destroy)
 
-    def show_message_isHere(self, a, p):
-        if a and p:
-            return messagebox.askyesno('Wykryto identyczne słówko!', 'Czy aby na pewno chcesz dodać fiszkę?')
-        elif a:
-            return messagebox.askyesno('Wykryto powtórzenie w słówku angielskim!',
-                                       'Czy aby na pewno chcesz dodać fiszkę?')
-        elif p:
-            return messagebox.askyesno('Wykryto powtórzenie w słówku polskim!',
-                                       'Czy aby na pewno chcesz dodać fiszkę?')
-
     def show_message_info(self):
         label = Label(self.root, text="Fiszka nie została dodana",
                       background="cyan",
@@ -312,7 +318,7 @@ class DODAJ_PAGE(Page):
                             p = False
 
                         if a or p:
-                            ans = self.show_message_isHere(a, p)
+                            ans = show_message_isHere(a, p)
                             break
                         else:
                             ans = True
@@ -340,7 +346,7 @@ class DODAJ_PAGE(Page):
                             p = False
 
                         if a or p:
-                            ans = self.show_message_isHere(a, p)
+                            ans = show_message_isHere(a, p)
                             break
                 if ans:
                     with open('Baza/Others.txt', 'a+', encoding='UTF-8') as f:
@@ -351,10 +357,6 @@ class DODAJ_PAGE(Page):
             f.close()
         else:
             self.show_message_negative()
-
-    def clear_text(self, entries):
-        for entry in entries:
-            entry.delete(0, 'end')
 
 
 class OPCJE_PAGE(Page):
@@ -443,6 +445,17 @@ class OPCJE_PAGE(Page):
         self.inter = interface
 
 
+def show_message_isHere(a, p):
+    if a and p:
+        return messagebox.askyesno('Wykryto identyczne słówko!', 'Czy aby na pewno chcesz dodać fiszkę?')
+    elif a:
+        return messagebox.askyesno('Wykryto powtórzenie w słówku angielskim!',
+                                   'Czy aby na pewno chcesz dodać fiszkę?')
+    elif p:
+        return messagebox.askyesno('Wykryto powtórzenie w słówku polskim!',
+                                   'Czy aby na pewno chcesz dodać fiszkę?')
+
+
 class BAZA_PAGE(Page):
     def __init__(self, root, lista, sound):
         super().__init__()
@@ -474,16 +487,6 @@ class BAZA_PAGE(Page):
         self.root.rowconfigure(5, weight=1)
         self.root.rowconfigure(6, weight=1)
         self.root.rowconfigure(7, weight=2)
-
-    def show_message_isHere(self, a, p):
-        if a and p:
-            return messagebox.askyesno('Wykryto identyczne słówko!', 'Czy aby na pewno chcesz dodać fiszkę?')
-        elif a:
-            return messagebox.askyesno('Wykryto powtórzenie w słówku angielskim!',
-                                       'Czy aby na pewno chcesz dodać fiszkę?')
-        elif p:
-            return messagebox.askyesno('Wykryto powtórzenie w słówku polskim!',
-                                       'Czy aby na pewno chcesz dodać fiszkę?')
 
     def are_you_sure(self, l, lista):
         h = l.get()
@@ -1212,6 +1215,44 @@ class CHOICE_PAGE(Page):
         self.inter = interface
 
 
+def save(en, file):
+    word = en
+    print(word)
+
+    flaga = True
+    with open(file, 'r+', encoding='UTF-8') as f:
+        try:
+            for line in f:
+                if line == word:
+                    flaga = False
+                    f.close()
+        except:
+            f.close()
+    if flaga:
+        with open(file, 'a+', encoding='UTF-8') as f:
+            f.write(word)
+            f.close()
+
+        if file == 'umiem.txt':
+            with open('nie_umiem.txt', 'r+', encoding='UTF-8') as f:
+                d = f.readlines()
+                f.seek(0)
+                for i in d:
+                    if i != word:
+                        f.write(i)
+                f.truncate()
+                f.close()
+        else:
+            with open('umiem.txt', 'r+', encoding='UTF-8') as f:
+                d = f.readlines()
+                f.seek(0)
+                for i in d:
+                    if i != word:
+                        f.write(i)
+                f.truncate()
+                f.close()
+
+
 class LEARN_PAGE(Page):
 
     def __init__(self, root, lista, sound, words, cpos=0, cneg=0):
@@ -1247,43 +1288,6 @@ class LEARN_PAGE(Page):
     def back(self, lista):
         destroyer(lista)
         CHOICE_PAGE(self.root, lista, 'LEARN', self.sound)
-
-    def save(self, en, file):
-        word = en
-        print(word)
-
-        flaga = True
-        with open(file, 'r+', encoding='UTF-8') as f:
-            try:
-                for line in f:
-                    if line == word:
-                        flaga = False
-                        f.close()
-            except:
-                f.close()
-        if flaga:
-            with open(file, 'a+', encoding='UTF-8') as f:
-                f.write(word)
-                f.close()
-
-            if file == 'umiem.txt':
-                with open('nie_umiem.txt', 'r+', encoding='UTF-8') as f:
-                    d = f.readlines()
-                    f.seek(0)
-                    for i in d:
-                        if i != word:
-                            f.write(i)
-                    f.truncate()
-                    f.close()
-            else:
-                with open('umiem.txt', 'r+', encoding='UTF-8') as f:
-                    d = f.readlines()
-                    f.seek(0)
-                    for i in d:
-                        if i != word:
-                            f.write(i)
-                    f.truncate()
-                    f.close()
 
     def helper(self, word):
         if self.counter_help < len(word):
@@ -1370,12 +1374,12 @@ class LEARN_PAGE(Page):
         label.grid(columnspan=5, row=5)
 
         przycisk_next0 = Button(self.root, text='UMIEM!', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.save(wordos1, 'umiem.txt')])
+                                command=lambda: [beep(), save(wordos1, 'umiem.txt')])
         interface.append(przycisk_next0)
         przycisk_next0.grid(column=3, row=4)
 
         przycisk_next8 = Button(self.root, text='NIE UMIEM!', font=('umiem', 25),
-                                command=lambda: [beep(), self.save(wordos1, 'nie_umiem.txt')])
+                                command=lambda: [beep(), save(wordos1, 'nie_umiem.txt')])
         interface.append(przycisk_next8)
         przycisk_next8.grid(column=4, row=4)
 
@@ -1387,7 +1391,7 @@ class LEARN_PAGE(Page):
         przycisk_next6 = Button(self.root, text='Podsumowanie', font=('Comic_Sans', 25),
                                 command=lambda: [beep(),
                                                  SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg,
-                                                              self.counter_pos,'LEARN')])
+                                                              self.counter_pos, 'LEARN')])
 
         interface.append(przycisk_next6)
         przycisk_next6.grid(row=6, column=1)
@@ -1502,7 +1506,7 @@ class TIME_PAGE(Page):
                 self.root.after(1000, self.countdown, count - 1, label, label2)
             else:
                 destroyer(self.inter)
-                SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos,'CHALLENGE')
+                SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos, 'CHALLENGE')
         except:
             pass
 
@@ -1530,7 +1534,6 @@ class TIME_PAGE(Page):
         destroyer(lista)
         CHALLENGE_PAGE(self.root, lista, self.sound, self.list_of_words)
 
-
     def answear(self, entry, wordos):
         ans = entry.get()
         if ans == wordos[0].rstrip():
@@ -1549,7 +1552,7 @@ class TIME_PAGE(Page):
         self.counter_help = 0
 
         TIME_PAGE(self.root, self.inter, self.sound, self.list_of_words, self.counter_neg,
-                self.counter_pos, self.time)
+                  self.counter_pos, self.time)
 
     def create(self):
         interface = []
@@ -1557,7 +1560,7 @@ class TIME_PAGE(Page):
         interface.append(label2)
         label2.grid(columnspan=5, row=0)
 
-        laber = Label(self.root,text='Pozostały czas:')
+        laber = Label(self.root, text='Pozostały czas:')
         interface.append(laber)
         laber.grid(row=1, column=1)
 
@@ -1587,14 +1590,10 @@ class TIME_PAGE(Page):
         entry.grid(row=3, columnspan=5)
         interface.append(entry)
 
-
-
         przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.answear(entry, wordos)])
         przycisk_next4.grid(row=4, columnspan=5)
         interface.append(przycisk_next4)
-
-
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.ask()])
@@ -1605,7 +1604,7 @@ class TIME_PAGE(Page):
 
 
 class LIFE_PAGE(Page):
-    def __init__(self, root, lista, sound, words, cpos=0, cneg=0,life=3,av_help=3):
+    def __init__(self, root, lista, sound, words, cpos=0, cneg=0, life=3, av_help=3):
         super().__init__()
         self.inter = []
         self.root = root
@@ -1622,7 +1621,6 @@ class LIFE_PAGE(Page):
     def back(self, lista):
         destroyer(lista)
         CHALLENGE_PAGE(self.root, lista, self.sound, self.list_of_words)
-
 
     def configure(self):
         # Kolumny
@@ -1671,9 +1669,7 @@ class LIFE_PAGE(Page):
         if ans:
             self.back(self.inter)
 
-
-
-    def answear(self,entry,wordos):
+    def answear(self, entry, wordos):
         ans = entry.get()
         if ans == wordos[0].rstrip():
             self.counter_pos += 1
@@ -1685,22 +1681,20 @@ class LIFE_PAGE(Page):
             else:
                 self.life -= 1
                 self.counter_neg += 1
-                self.show_message_negative(wordos[0])
+                self.show_message_negative()
 
         else:
             self.life -= 1
             self.counter_neg += 1
-            self.show_message_negative(wordos[0])
+            self.show_message_negative()
 
         self.counter_help = 0
-        
         if self.life == 0:
             time.sleep(1)
             SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos, 'CHALLENGE')
         else:
-            LIFE_PAGE(self.root, self.inter, self.sound, self.list_of_words,self.counter_pos, self.counter_neg,
-                       self.life, self.av_help)
-
+            LIFE_PAGE(self.root, self.inter, self.sound, self.list_of_words, self.counter_pos, self.counter_neg,
+                      self.life, self.av_help)
 
     def create(self):
         self.configure()
@@ -1709,7 +1703,6 @@ class LIFE_PAGE(Page):
         label2 = Label(self.root, text='WYZWANIE NA ŻYCIA', font=('Comic_Sans', 25))
         interface.append(label2)
         label2.grid(columnspan=5, row=0)
-
 
         def generate():
             slowo = random.choice(self.list_of_words)
@@ -1728,17 +1721,14 @@ class LIFE_PAGE(Page):
         interface.append(entry)
 
         przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.answear(entry,wordos)])
+                                command=lambda: [beep(), self.answear(entry, wordos)])
         przycisk_next4.grid(row=4, column=1)
         interface.append(przycisk_next4)
-
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.ask()])
         interface.append(przycisk_next5)
         przycisk_next5.grid(row=7, columnspan=5)
-
-
 
         przycisk_next9 = Button(self.root, text='Podpowiedź', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.helper(wordos[0])])
@@ -1755,13 +1745,12 @@ class LIFE_PAGE(Page):
         label.grid(columnspan=5, row=5)
         label.after(2000, label.destroy)
 
-    def show_message_negative(self, correct):
+    def show_message_negative(self):
         label = Label(self.root, text=f"Nie zgadłeś! Pozostałe szansy: {self.life} ", height=3, width=50,
                       background="red",
                       foreground="black")
         label.grid(columnspan=5, row=5)
         label.after(2000, label.destroy)
-
 
 
 class SUMMARY_PAGE(Page):
@@ -1776,7 +1765,6 @@ class SUMMARY_PAGE(Page):
         self.counter_neg = cneg
         destroyer(lista)
         self.create()
-
 
     def again(self, lista):
         destroyer(lista)
@@ -1811,7 +1799,8 @@ class SUMMARY_PAGE(Page):
         label2.grid(row=0, columnspan=5)
 
         przycisk_next2 = Button(self.root, text='Powrót do Menu', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), destroyer(self.inter), canvas.get_tk_widget().destroy(), MENU(self.root, self.inter, self.sound)])
+                                command=lambda: [beep(), destroyer(self.inter), canvas.get_tk_widget().destroy(),
+                                                 MENU(self.root, self.inter, self.sound)])
         interface.append(przycisk_next2)
         przycisk_next2.grid(row=4, column=3)
 
