@@ -140,3 +140,7 @@ May - maj - miesiące
 November - listopad - miesiące
 October - październik - miesiące
 September - wrzesień - miesiące
+afternoon - popołudnie - pory dnia
+evening - wieczór - pory dnia
+morning - poranek - pory dnia
+night - noc - pory dnia
