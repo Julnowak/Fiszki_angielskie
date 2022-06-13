@@ -126,3 +126,10 @@ economist - ekonomista - zawody
 editor - wydawca - zawody
 electrician - elektryk - zawody
 factory worker - pracownik fabryki - zawody
+flight attendant - steward - zawody
+florist - florysta - zawody
+gardener - ogrodnik - zawody
+graphic designer - grafik - zawody
+inspector - inspektor - zawody
+insurance agent - agent ubezpieczoniowy - zawody
+interior decorator - dekorator wnętrz - zawody
