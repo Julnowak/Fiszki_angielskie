@@ -97,3 +97,7 @@ hail - grad - zjawiska atmosferyczne
 hailstone - kulka gradu - zjawiska atmosferyczne
 hailstorm - gradobicie - zjawiska atmosferyczne
 whirlwind - trąba powietrzna - zjawiska atmosferyczne
+beautician - kosmetyczka - zawody
+blacksmith - kowal - zawody
+bouncer - bramkarz - zawody
+carpenter - cieśla - zawody
