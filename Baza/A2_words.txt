@@ -204,3 +204,6 @@ grapefruit - grejpfrut - jedzenie
 grilled - grillowany - jedzenie
 ham - szynka - jedzenie
 honey - miód - jedzenie
+hot chocolate - gorąca czekolada - jedzenie
+ice - lód - jedzenie
+jam - dżem - jedzenie
