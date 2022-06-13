@@ -113,3 +113,11 @@ psychiatrist - psychiatra - zawody
 stuntman - kaskader - zawody
 translator - tłumacz - zawody
 welder - sprzewdawca - zawody
+calliper - suwmiarka - narzędzia
+chisel - dłuto - narzędzia
+combination pliers - kombinerki - narzędzia
+file - pilnik - narzędzia
+pincers - obcęgi - narzędzia
+pliers - szczypce - narzędzia
+polisher - szlifierka - narzędzia
+tape measure - taśma miernicza - narzędzia
