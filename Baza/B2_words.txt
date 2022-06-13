@@ -133,3 +133,12 @@ graphic designer - grafik - zawody
 inspector - inspektor - zawody
 insurance agent - agent ubezpieczoniowy - zawody
 interior decorator - dekorator wnętrz - zawody
+investigator - śledczy - zawody
+judge - sędzia - zawody
+lecturer - wykładowca - zawody
+librarian - bibliotekarz - zawody
+lifeguard - ratownik - zawody
+novelist - powieściopisarz - zawody
+pharmacist - farmaceuta - zawody
+plumber - hydrualik - zawody
+psychologist - psycholog - zawody
