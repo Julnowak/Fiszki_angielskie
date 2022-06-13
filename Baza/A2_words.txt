@@ -207,3 +207,7 @@ honey - miód - jedzenie
 hot chocolate - gorąca czekolada - jedzenie
 ice - lód - jedzenie
 jam - dżem - jedzenie
+lemon - cytryna - jedzenie
+lemonade - lemoniada - jedzenie
+mango - mango - jedzenie
+melon - melon - jedzenie
