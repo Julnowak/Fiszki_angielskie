@@ -127,3 +127,14 @@ sunset - zachód słońca - zjawiska atmosferyczne
 sunshine - światło słoneczne - zjawiska atmosferyczne
 thunder - grzmot - zjawiska atmosferyczne
 flood - powódź - zjawiska atmosferyczne
+accountant - księgowy - zawody
+architect - architekt - zawody
+babysitter - opiekunka do dziecka - zawody
+baker - piekarz - zawody
+ballet dancer - tancerka baletowa - zawody
+barber - fryzjer męski - zawody
+barman - barman - zawody
+builder - budowniczy - zawody
+butcher - rzeźnik - zawody
+coach - trener - zawody
+computer scientist - informatyk - zawody
