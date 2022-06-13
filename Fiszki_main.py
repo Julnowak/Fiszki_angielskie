@@ -1605,7 +1605,7 @@ class TIME_PAGE(Page):
 
 
 class LIFE_PAGE(Page):
-    def __init__(self, root, lista, sound, words, cpos=0, cneg=0):
+    def __init__(self, root, lista, sound, words, cpos=0, cneg=0,life=3,av_help=3):
         super().__init__()
         self.inter = []
         self.root = root
@@ -1613,9 +1613,9 @@ class LIFE_PAGE(Page):
         self.counter_pos = cpos
         self.counter_neg = cneg
         self.list_of_words = words
-        self.av_help = 3
+        self.av_help = av_help
         self.counter_help = 0
-        self.life = 3
+        self.life = life
         destroyer(lista)
         self.create()
 
@@ -1671,20 +1671,45 @@ class LIFE_PAGE(Page):
         if ans:
             self.back(self.inter)
 
+
+
+    def answear(self,entry,wordos):
+        ans = entry.get()
+        if ans == wordos[0].rstrip():
+            self.counter_pos += 1
+            self.show_message_good()
+        elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
+            if ans == wordos[0][3:]:
+                self.counter_pos += 1
+                self.show_message_good()
+            else:
+                self.life -= 1
+                self.counter_neg += 1
+                self.show_message_negative(wordos[0])
+
+        else:
+            self.life -= 1
+            self.counter_neg += 1
+            self.show_message_negative(wordos[0])
+
+        self.counter_help = 0
+        
+        if self.life == 0:
+            time.sleep(1)
+            SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos, 'CHALLENGE')
+        else:
+            LIFE_PAGE(self.root, self.inter, self.sound, self.list_of_words,self.counter_pos, self.counter_neg,
+                       self.life, self.av_help)
+
+
     def create(self):
         self.configure()
 
         interface = []
         label2 = Label(self.root, text='WYZWANIE NA ŻYCIA', font=('Comic_Sans', 25))
         interface.append(label2)
-        label2.grid(columnspan=5,row=0)
+        label2.grid(columnspan=5, row=0)
 
-
-        label = Label(self.root, text="Podpowiedź: ", height=3, width=50,
-                      background="lime",
-                      foreground="black")
-        label.grid(columnspan=5, row=5)
-        label.after(2000, label.destroy)
 
         def generate():
             slowo = random.choice(self.list_of_words)
@@ -1702,37 +1727,10 @@ class LIFE_PAGE(Page):
         entry.grid(row=3, columnspan=5)
         interface.append(entry)
 
-        def answear():
-            ans = entry.get()
-            if ans == wordos[0].rstrip():
-                self.show_message_good()
-                self.counter_pos += 1
-            elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
-                if ans == wordos[0][3:]:
-                    self.show_message_good()
-                    self.counter_pos += 1
-                else:
-                    self.life -= 1
-                    self.show_message_negative(wordos[0])
-                    self.counter_neg += 1
-            else:
-                self.life -= 1
-                self.show_message_negative(wordos[0])
-                self.counter_neg += 1
-            self.counter_help = 0
-
-            if self.life == 0:
-                time.sleep(1)
-                SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos,'CHALLENGE')
-
-
         przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), answear()])
+                                command=lambda: [beep(), self.answear(entry,wordos)])
         przycisk_next4.grid(row=4, column=1)
         interface.append(przycisk_next4)
-
-        label = Label(self.root, height=3, width=50)
-        label.grid(columnspan=5, row=5)
 
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
@@ -1747,8 +1745,6 @@ class LIFE_PAGE(Page):
 
         interface.append(przycisk_next9)
         przycisk_next9.grid(row=4, column=3)
-
-        interface.append(label)
 
         self.inter = interface
 
