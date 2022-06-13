@@ -119,3 +119,9 @@ warm - ciepły - zjawiska atmosferyczne
 weather - pogoda - zjawiska atmosferyczne
 wind - wiatr - zjawiska atmosferyczne
 winter - zima - zjawiska atmosferyczne
+cook - kucharz - zawody
+doctor - lekarz - zawody
+driver - kierowca - zawody
+teacher - nauczyciel - zawody
+waiter - kelner - zawody
+waitress - kelnerka - zawody
