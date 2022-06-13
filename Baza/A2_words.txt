@@ -171,3 +171,6 @@ drawer - szuflada - dom i jego wyposażenie
 lamp - lampa - dom i jego wyposażenie
 printer - drukarka - dom i jego wyposażenie
 scissors - nożyczki - narzędzia
+midday - południe - pory dnia
+midnight - północ - pory dnia
+noon - południe - pory dnia
