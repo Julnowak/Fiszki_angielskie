@@ -90,3 +90,4 @@ technician - technik - zawody
 therapist - terapeuta - zawody
 plane - strug - narzędzia
 saw - piła - narzędzia
+dusk - zmierzch - pory dnia
