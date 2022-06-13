@@ -119,3 +119,10 @@ compesor - kompozytor - zawody
 conductor - dyrygent - zawody
 consultant - konsultant - zawody
 critic - krytyk - zawody
+dealer - dealer - zawody
+diplomat - dyplomata - zawody
+driving instructor - instruktor nauki jazdy - zawody
+economist - ekonomista - zawody
+editor - wydawca - zawody
+electrician - elektryk - zawody
+factory worker - pracownik fabryki - zawody
