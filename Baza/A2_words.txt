@@ -135,3 +135,34 @@ thunderstorm - burza z piorunami - zjawiska atmosferyczne
 wet - mokry - zjawiska atmosferyczne
 windy - wietrzny - zjawiska atmosferyczne
 fire - pożar - zjawiska atmosferyczne
+actor - aktor - zawody
+actress - aktorka - zawody
+artist - artysta - zawody
+businessman - biznesmen - zawody
+businesswoman - biznesmenka - zawody
+car mechanic - mechanik samochodowy - zawody
+chef - szef kuchni - zawody
+chemist - aptekarz - zawody
+cleaner - sprzątacz - zawody
+dancer - tancerz - zawody
+dentist - dentystka - zawody
+engineer - inżynier - zawody
+farmer - rolnik - zawody
+guide - przewodnik - zawody
+headteacher - dyrektor szkoły - zawody
+manager - menedżer - zawody
+mechanic - mechanik - zawody
+nurse - pielęgniarka - zawody
+painter - malarz - zawody
+photographer - fotograf - zawody
+pilot - pilot - zawody
+police officer - policjant - zawody
+policeman - policjant - zawody
+policewoman - policjantka - zawody
+recepcionist - recepcjonista - zawody
+salesperson - sprzedawca - zawody
+secretary - sekretarz - zawody
+singer - piosenkarz - zawody
+taxi driver - taksówkarz - zawody
+tour gide - przewodnik wycieczek - zawody
+writer - pisarz - zawody
