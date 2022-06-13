@@ -88,3 +88,5 @@ solicitor - adwokat - zawody
 surgeon - chirurg - zawody
 technician - technik - zawody
 therapist - terapeuta - zawody
+plane - strug - narzędzia
+saw - piła - narzędzia
