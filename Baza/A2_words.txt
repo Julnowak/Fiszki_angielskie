@@ -170,3 +170,4 @@ cupboard - szafka - dom i jego wyposażenie
 drawer - szuflada - dom i jego wyposażenie
 lamp - lampa - dom i jego wyposażenie
 printer - drukarka - dom i jego wyposażenie
+scissors - nożyczki - narzędzia
