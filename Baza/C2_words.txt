@@ -121,3 +121,4 @@ pincers - obcęgi - narzędzia
 pliers - szczypce - narzędzia
 polisher - szlifierka - narzędzia
 tape measure - taśma miernicza - narzędzia
+daybreak - brzask - pory dnia
