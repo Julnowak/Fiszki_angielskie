@@ -71,3 +71,20 @@ dust storm - burza piaskowa - zjawiska atmosferyczne
 heatwave - fala upałów - zjawiska atmosferyczne
 avalanche - lawina - zjawiska atmosferyczne
 tsunami - tsunami - zjawiska atmosferyczne
+archeologist - archeolog - zawody
+bricklayer - murarz - zawody
+careers adviser - doradca zawodowy - zawody
+estate agent - agent nieruchomości - zawody
+forester - leśnik - zawody
+glazier - szklarz - zawody
+historian - historyk - zawody
+jeweller - jubiler - zawody
+locksmith - ślusarz - zawody
+maid - pokojówka - zawody
+miner - górnik - zawody
+programmer - programista - zawody
+scriptwriter - scenarzytska - zawody
+solicitor - adwokat - zawody
+surgeon - chirurg - zawody
+technician - technik - zawody
+therapist - terapeuta - zawody
