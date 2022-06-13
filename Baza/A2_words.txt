@@ -211,3 +211,5 @@ lemon - cytryna - jedzenie
 lemonade - lemoniada - jedzenie
 mango - mango - jedzenie
 melon - melon - jedzenie
+menu - menu - jedzenie
+oil - olej - jedzenie
