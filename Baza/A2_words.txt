@@ -215,3 +215,5 @@ menu - menu - jedzenie
 oil - olej - jedzenie
 omlette - omlet - jedzenie
 onion - cebula - jedzenie
+pasta - makaron - jedzenie
+pear - gruszka - jedzenie
