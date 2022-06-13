@@ -22,19 +22,6 @@ hat - kapelusz - ubrania
 shoes - buty - ubrania
 shirt - koszula - ubrania
 trousers - spodnie - ubrania
-jeans - dżinsy - ubrania
-sugar - cukier - jedzenie
-meat - mięso - jedzenie
-ice cream - lody - jedzenie
-egg - jajko - jedzenie
-bread - chleb - jedzenie
-chocolate - czekolada - jedzenie
-biscuit - herbatnik - jedzenie
-rice - ryż - jedzenie
-cheese - ser - jedzenie
-vegetable - warzywo - jedzenie
-fruit - owoc - jedzenie
-drink - napój - jedzenie
 ticket - bilet - wakacje
 to eat - jeść - czynności
 to write - pisać - czynności
@@ -144,3 +131,27 @@ afternoon - popołudnie - pory dnia
 evening - wieczór - pory dnia
 morning - poranek - pory dnia
 night - noc - pory dnia
+chips - frytki - jedzenie
+chocolate - czekolada - jedzenie
+coffee - kawa - jedzenie
+dinner - obiad - jedzenie
+drink - napój - jedzenie
+egg - jajko - jedzenie
+fish - ryba - jedzenie
+food - jedznie - jedzenie
+fruit - owoc - jedzenie
+hungry - głodny - jedzenie
+ice cream - lody - jedzenie
+juice - sok - jedzenie
+lunch - lunch - jedzenie
+meal - posiłek - jedzenie
+meat - mięso - jedzenie
+milk - mleko - jedzenie
+orange - pomarańcza - jedzenie
+pizza - pizza - jedzenie
+potato - ziemniak - jedzenie
+restaurant - restauracja - jedzenie
+rice - ryż - jedzenie
+salt - sól - jedzenie
+sandwich - kanapka - jedzenie
+soup - zupa - jedzenie
