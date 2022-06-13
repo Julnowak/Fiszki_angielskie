@@ -112,3 +112,4 @@ prosecutor - prokurator - zawody
 psychiatrist - psychiatra - zawody
 stuntman - kaskader - zawody
 translator - tłumacz - zawody
+welder - sprzewdawca - zawody
