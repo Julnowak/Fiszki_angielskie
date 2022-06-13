@@ -20,8 +20,6 @@ Pomysły wykonania i propozycje:
 # Przydzielone zadania
 - Julia Nowak: pisanie kodu w Pythonie, realizacja interfejsu tkinker i funkcjonalności
 - Piotr Loch: przygotowanie bazy fiszek
-- f
-- h
 
 
 UWAGA! Foldery trzeba będzie posortować! Miejscie to na uwadze, jeśli chcielibyście coś robić ze ścieżkami do plików.
