@@ -161,3 +161,7 @@ tea - herbata - jedzenie
 tomato - pomidor - jedzenie
 vegetable - warzywo - jedzenie
 wine - wino - jedzenie
+bacon - bekonbacon - jedznie
+baguette - bagietka - jedznie
+beef - wołowina - jedznie
+broccoli - brokół - jedznie
