@@ -101,3 +101,14 @@ beautician - kosmetyczka - zawody
 blacksmith - kowal - zawody
 bouncer - bramkarz - zawody
 carpenter - cieśla - zawody
+chimney sweep - kominiarz - zawody
+counsellor - doradca - zawody
+developer - deweloper - zawody
+freelancer - wolny strzelec - zawody
+midwife - położna - zawody
+optician - optyk - zawody
+physioterapist - fizjoterapeuta - zawody
+prosecutor - prokurator - zawody
+psychiatrist - psychiatra - zawody
+stuntman - kaskader - zawody
+translator - tłumacz - zawody
