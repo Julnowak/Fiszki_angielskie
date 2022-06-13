@@ -217,3 +217,5 @@ omlette - omlet - jedzenie
 onion - cebula - jedzenie
 pasta - makaron - jedzenie
 pear - gruszka - jedzenie
+pepper - pieprz - jedzenie
+roast - pieczony - jedzenie
