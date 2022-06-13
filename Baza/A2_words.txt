@@ -174,3 +174,33 @@ scissors - nożyczki - narzędzia
 midday - południe - pory dnia
 midnight - północ - pory dnia
 noon - południe - pory dnia
+alcohol - alkohol - jedzenie
+bake - piec - jedzenie
+barbecue - grill - jedzenie
+bean - fasola - jedzenie
+boiled - gotowany - jedzenie
+bottle - butelka - jedzenie
+burger - hamburger - jedzenie
+can - puszka - jedzenie
+carrot - marchew - jedzenie
+cereal - płatki zbożowe - jedzenie
+champagne - szampan - jedzenie
+chicken - kurczak - jedzenie
+chill - chili - jedzenie
+cola - cola - jedzenie
+course - danie - jedzenie
+cream - śmietana - jedzenie
+crisps - czipsy - jedzenie
+curry - curry - jedzenie
+dessert - deser - jedzenie
+dish - naczynie - jedzenie
+fast food - fast food - jedzenie
+fresh - świeży - jedzenie
+fridge - lodówka - jedzenie
+fried - smażony - jedzenie
+garlic - czosnek - jedzenie
+grape - winogrono - jedzenie
+grapefruit - grejpfrut - jedzenie
+grilled - grillowany - jedzenie
+ham - szynka - jedzenie
+honey - miód - jedzenie
