@@ -110,3 +110,6 @@ twilight - zmierzch - zjawiska atmosferyczne
 disaster - katastrofa - zjawiska atmosferyczne
 earthquake - trzesięnie ziemi - zjawiska atmosferyczne
 tornado - tornado - zjawiska atmosferyczne
+analyst - analityk - zawody
+banker - bankier - zawody
+bodyguard - ochroniarz - zawody
