@@ -138,3 +138,26 @@ builder - budowniczy - zawody
 butcher - rzeźnik - zawody
 coach - trener - zawody
 computer scientist - informatyk - zawody
+designer - projektant - zawody
+detective - detektyw - zawody
+director - reżyser - zawody
+filmmaker - filmowiec - zawody
+firefighter - strażak - zawody
+guard - strażnik - zawody
+guitarist - gitarzysta - zawody
+hairdresser - fryzjer - zawody
+instructor - instruktor - zawody
+journalist - dziennikarz - zawody
+lawyer - prawnik - zawody
+model - model - zawody
+musician - muzyk - zawody
+politician - polityk - zawody
+postman - listonosz - zawody
+priest - ksiądz - zawody
+reporter - reporter - zawody
+sailor - marynarz - zawody
+salesman - handlarz - zawody
+scientist - naukowiec - zawody
+soldier - żołnierz - zawody
+trainer - trener - zawody
+vet - weterynarz
