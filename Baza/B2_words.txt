@@ -152,3 +152,5 @@ monitor - monitor - dom i jego wyposażenie
 hammer - młotek - narzędzia
 screwdriver - śrubokręt - narzędzia
 tool - narzędzie - narzędzia
+dawn - świt - pory dnia
+twilight - zmierzch - pory dnia
