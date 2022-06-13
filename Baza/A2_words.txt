@@ -222,3 +222,5 @@ roast - pieczony - jedzenie
 salad - sałatka - jedzenie
 sauce - sos - jedzenie
 sausage - kiełbasa - jedzenie
+slice - plasterek
+snack - przekąska - jedzenie
