@@ -149,3 +149,6 @@ tailor - krawiec - zawody
 ticket inspector - kontroler biletów - zawody
 watchmaker - zegarmistrz - zawody
 monitor - monitor - dom i jego wyposażenie
+hammer - młotek - narzędzia
+screwdriver - śrubokręt - narzędzia
+tool - narzędzie - narzędzia
