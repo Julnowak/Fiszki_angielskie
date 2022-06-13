@@ -219,3 +219,6 @@ pasta - makaron - jedzenie
 pear - gruszka - jedzenie
 pepper - pieprz - jedzenie
 roast - pieczony - jedzenie
+salad - sałatka - jedzenie
+sauce - sos - jedzenie
+sausage - kiełbasa - jedzenie
