@@ -125,3 +125,6 @@ driver - kierowca - zawody
 teacher - nauczyciel - zawody
 waiter - kelner - zawody
 waitress - kelnerka - zawody
+clock - zegar - dom i jego wyposażenie
+chair - krzesło - dom i jego wyposażenie
+computer - komputer - dom i jego wyposażenie
