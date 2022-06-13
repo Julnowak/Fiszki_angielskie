@@ -128,3 +128,15 @@ waitress - kelnerka - zawody
 clock - zegar - dom i jego wyposażenie
 chair - krzesło - dom i jego wyposażenie
 computer - komputer - dom i jego wyposażenie
+April - kwiecień - miesiące
+August - sierpień - miesiące
+December - grudzień - miesiące
+February - luty - miesiące
+January - styczeń - miesiące
+July - lipiec - miesiące
+June - czerwiec - miesiące
+March - marzec - miesiące
+May - maj - miesiące
+November - listopad - miesiące
+October - październik - miesiące
+September - wrzesień - miesiące
