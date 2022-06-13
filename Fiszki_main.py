@@ -51,17 +51,22 @@ class MENU(Page):
         EXIT_PAGE(self.root, self.inter, self.sound)
 
     def configure(self):
+        # Kolumny
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
-        self.root.rowconfigure(0, weight=10)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
         self.root.rowconfigure(1, weight=1)
         self.root.rowconfigure(2, weight=1)
         self.root.rowconfigure(3, weight=1)
         self.root.rowconfigure(4, weight=1)
         self.root.rowconfigure(5, weight=1)
         self.root.rowconfigure(6, weight=1)
-        self.root.rowconfigure(7, weight=10)
+        self.root.rowconfigure(7, weight=2)
 
     def create(self):
         self.configure()
@@ -75,6 +80,9 @@ class MENU(Page):
         przycisk_start = Button(self.root, text='Graj', height=3, width=20, font=('Comic_Sans', 14),
                                 command=lambda: [beep(), self.START()])
         interface.append(przycisk_start)
+
+        label.grid(columnspan=5, row=0)
+        przycisk_start.grid(columnspan=5, rows=1)
 
         przycisk_dodaj = Button(self.root, text='Dodaj fiszkę', height=3, width=20, font=('Comic_Sans', 14),
                                 command=lambda: [beep(), self.DODAJ()])
@@ -96,8 +104,6 @@ class MENU(Page):
                                command=lambda: [beep(), self.EXIT()])
         interface.append(przycisk_exit)
 
-        label.grid(columnspan=5, row=0)
-        przycisk_start.grid(columnspan=5, rows=1)
         przycisk_dodaj.grid(columnspan=5, row=2)
         przycisk_usun.grid(columnspan=5, row=3)
         przycisk_postepy.grid(columnspan=5, row=4)
@@ -141,7 +147,6 @@ class App(Page):
         self.sound = mixer.Sound("Sounds/" + s)
         self.sound.set_volume(0.1)
         self.sound.play(-1)
-        print(self.sound)
 
         self.inter = []
         MENU(self.root, self.inter, self.sound)
@@ -169,6 +174,8 @@ class DODAJ_PAGE(Page):
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
 
         # Rzędy
         self.root.rowconfigure(0, weight=2)
@@ -230,18 +237,18 @@ class DODAJ_PAGE(Page):
 
         self.inter = interface
 
-        l.grid(column=1, row=6)
-        label2.grid(column=1, row=0)
-        lvl.grid(column=1, row=1)
-        wejscielvl.grid(column=1, row=2)
+        l.grid(columnspan=5, row=6)
+        label2.grid(columnspan=5, row=0)
+        lvl.grid(columnspan=5, row=1)
+        wejscielvl.grid(columnspan=5, row=2)
         labelANG.grid(column=0, row=3)
         wejscieANG.grid(column=0, row=4)
-        labelPOL.grid(column=1, row=3)
-        wejsciePOL.grid(column=1, row=4)
-        labelKAT.grid(column=2, row=3)
-        wejscieKAT.grid(column=2, row=4)
-        przycisk_submit.grid(column=1, row=5)
-        przycisk_back.grid(column=1, row=7)
+        labelPOL.grid(columnspan=5, row=3)
+        wejsciePOL.grid(columnspan=5, row=4)
+        labelKAT.grid(column=4, row=3)
+        wejscieKAT.grid(column=4, row=4)
+        przycisk_submit.grid(columnspan=5, row=5)
+        przycisk_back.grid(columnspan=5, row=7)
 
     def back(self, lista):
         destroyer(lista)
@@ -251,14 +258,14 @@ class DODAJ_PAGE(Page):
         label = Label(self.root, text="Fiszka została dodana", height=3, width=50,
                       background="lime",
                       foreground="black")
-        label.grid(column=1, row=6)
+        label.grid(columnspan=5, row=6)
         label.after(2000, label.destroy)
 
     def show_message_negative(self):
         label = Label(self.root, text="Nie uzupełniono jednej z rubryk! Spróbuj jeszcze raz", height=3, width=50,
                       background="red",
                       foreground="black")
-        label.grid(column=1, row=6)
+        label.grid(columnspan=5, row=6)
         label.after(2000, label.destroy)
 
     def show_message_isHere(self, a, p):
@@ -275,7 +282,7 @@ class DODAJ_PAGE(Page):
         label = Label(self.root, text="Fiszka nie została dodana",
                       background="cyan",
                       foreground="black", height=3, width=50)
-        label.grid(column=1, row=6)
+        label.grid(columnspan=5, row=6)
         label.after(2000, label.destroy)
 
     def submit(self, lvl, ANG, POL, KAT):
@@ -365,7 +372,7 @@ class OPCJE_PAGE(Page):
 
     def change_volume(self, s):
         a = s.get()
-        self.sound.set_volume(a/100)
+        self.sound.set_volume(a / 100)
 
     def change_music(self, w):
         w = w.get()
@@ -383,36 +390,55 @@ class OPCJE_PAGE(Page):
     def change_time(self):
         pass
 
-    def create(self):
-        interface = []
-        label2 = Label(self.root, text='Strona opcji', font=('Comic_Sans', 25))
-        interface.append(label2)
+    def configure(self):
+        # Kolumny
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
 
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
+
+    def create(self):
+        self.configure()
+        interface = []
+        label2 = Label(self.root, text='OPCJE', font=('Comic_Sans', 25))
+        interface.append(label2)
+        label2.grid(columnspan=5)
         slider = Scale(self.root, from_=0, to=100, orient=HORIZONTAL)
         interface.append(slider)
-        print(ceil(self.sound.get_volume()*100))
-        slider.set(ceil(self.sound.get_volume()*100))
+        slider.grid(columnspan=5)
+        slider.set(ceil(self.sound.get_volume() * 100))
 
-        przycisk_next4 = Button(self.root, text='Ustaw', font=('Comic_Sans', 25),
+        przycisk_next5 = Button(self.root, text='Ustaw', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.change_volume(slider)])
-        interface.append(przycisk_next4)
+        interface.append(przycisk_next5)
+        przycisk_next5.grid(columnspan=5)
 
-
-        wejscie= Combobox(self.root)
+        wejscie = Combobox(self.root)
         wejscie['values'] = [i.removesuffix('.wav') for i in os.listdir("Sounds")] + ['LOSOWA']
         wejscie.current(0)
         interface.append(wejscie)
+        wejscie.grid(columnspan=5)
 
         przycisk_next4 = Button(self.root, text='Zmiana', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.change_music(wejscie)])
         interface.append(przycisk_next4)
+        przycisk_next4.grid(columnspan=5)
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_next2)
-
-        for elem in interface:
-            elem.pack()
+        przycisk_next2.grid(columnspan=5)
 
         self.inter = interface
 
@@ -429,20 +455,25 @@ class BAZA_PAGE(Page):
 
     def back(self, lista):
         destroyer(lista)
-        MENU(self.root, lista,self.sound)
+        MENU(self.root, lista, self.sound)
 
     def configure(self):
+        # Kolumny
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
         self.root.columnconfigure(3, weight=1)
         self.root.columnconfigure(4, weight=1)
-        self.root.rowconfigure(0, weight=10)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
         self.root.rowconfigure(1, weight=1)
         self.root.rowconfigure(2, weight=1)
         self.root.rowconfigure(3, weight=1)
         self.root.rowconfigure(4, weight=1)
-        self.root.rowconfigure(5, weight=10)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
 
     def show_message_isHere(self, a, p):
         if a and p:
@@ -461,23 +492,23 @@ class BAZA_PAGE(Page):
             ans = messagebox.askyesno('Usuwanie fiszki',
                                       f'Czy na pewno chcesz usunąć fiszkę "{new[0]} - {new[1]}" z kategorii "{new[2].rstrip()}" ?')
             if ans:
-                    for plik in lista:
-                        with open(plik, 'r+', encoding='UTF-8') as f:
-                            d = f.readlines()
-                            f.seek(0)
-                            for i in d:
-                                if i != h:
-                                    f.write(i)
-                            f.truncate()
-                            f.close()
-                    self.show_message_positive()
+                for plik in lista:
+                    with open(plik, 'r+', encoding='UTF-8') as f:
+                        d = f.readlines()
+                        f.seek(0)
+                        for i in d:
+                            if i != h:
+                                f.write(i)
+                        f.truncate()
+                        f.close()
+                self.show_message_positive()
             else:
                 self.show_message_info()
 
         except:
             self.show_message_warning()
 
-    def add(self, e, e1, e2,h,lista,roo):
+    def add(self, e, e1, e2, h, lista, roo):
         e = e.get()
         e1 = e1.get()
         e2 = e2.get()
@@ -540,7 +571,8 @@ class BAZA_PAGE(Page):
         entry3.pack()
         try:
             przycisk = Button(win, text='Aktualizuj',
-                              command=lambda: [beep(), self.add(entry,entry2,entry3, h, lista,win),BAZA_PAGE(self.root, self.inter, self.sound)])
+                              command=lambda: [beep(), self.add(entry, entry2, entry3, h, lista, win),
+                                               BAZA_PAGE(self.root, self.inter, self.sound)])
             przycisk.pack()
         except:
             pass
@@ -557,7 +589,7 @@ class BAZA_PAGE(Page):
         label.grid(column=1, row=6)
         label.after(2000, label.destroy)
 
-    def show_message_positive_edit(self,roo):
+    def show_message_positive_edit(self, roo):
         label = Label(roo, text="Poprawnie edytowano fiszkę",
                       background="lime",
                       foreground="black", height=3, width=50)
@@ -628,18 +660,20 @@ class BAZA_PAGE(Page):
         except:
             l.current(None)
 
-        l.grid(column=1, row=2)
+        l.grid(columnspan=5, row=4)
         self.inter.append(l)
 
-        przycisk_remove = Button(self.root, text='Usuń', command=lambda: [beep(), self.are_you_sure(l, lista), BAZA_PAGE(self.root,self.inter,self.sound)])
-        przycisk_remove.grid(row=4, column=0)
+        przycisk_remove = Button(self.root, text='Usuń', command=lambda: [beep(), self.are_you_sure(l, lista),
+                                                                          BAZA_PAGE(self.root, self.inter, self.sound)])
+        przycisk_remove.grid(row=5, column=0)
         self.inter.append(przycisk_remove)
 
-        przycisk_edit = Button(self.root, text='Edytuj', command=lambda: [beep(), self.edit(l,lista)])
-        przycisk_edit.grid(row=4, column=2)
+        przycisk_edit = Button(self.root, text='Edytuj', command=lambda: [beep(), self.edit(l, lista)])
+        przycisk_edit.grid(row=5, column=4)
         self.inter.append(przycisk_edit)
 
     def create(self):
+        self.configure()
         interface = []
 
         label = Label(self.root, text='Baza danych', font=('Comic_Sans', 25))
@@ -647,11 +681,11 @@ class BAZA_PAGE(Page):
         label.grid(row=0, columnspan=5)
 
         label2 = Label(self.root, text='Wybierz zakres', font=('Comic_Sans', 25))
-        label2.grid(row=0, columnspan=5)
+        label2.grid(row=1, columnspan=5)
         interface.append(label2)
 
         frame = Frame(self.root)
-        frame.grid(row=1, columnspan=5)
+        frame.grid(row=2, columnspan=5)
         interface.append(frame)
 
         varA1 = IntVar()
@@ -691,13 +725,13 @@ class BAZA_PAGE(Page):
 
         przycisk = Button(self.root, text='Aktualizuj bazę',
                           command=lambda: [self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO)])
-        przycisk.grid(row=3, columnspan=5)
+        przycisk.grid(row=5, columnspan=5)
         interface.append(przycisk)
 
         przycisk_back = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                command=lambda: [beep(), self.back(interface)])
         interface.append(przycisk_back)
-        przycisk_back.grid(row=5, columnspan=5)
+        przycisk_back.grid(row=6, columnspan=5)
 
         self.inter = interface
 
@@ -728,13 +762,18 @@ class START_PAGE(Page):
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
 
         # Rzędy
         self.root.rowconfigure(0, weight=2)
         self.root.rowconfigure(1, weight=1)
         self.root.rowconfigure(2, weight=1)
         self.root.rowconfigure(3, weight=1)
-        self.root.rowconfigure(4, weight=2)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
 
     def create(self):
         interface = []
@@ -779,25 +818,44 @@ class EXIT_PAGE(Page):
 
     def Quit(self):
         label = Label(self.root, text='Miłego dnia!', font=('Comic_Sans', 25))
-        label.grid(column=0, columnspan=4, row=3)
+        label.grid(columnspan=5, row=3)
         label.after(1500, label.quit)
 
+    def configure(self):
+        # Kolumny
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
 
     def create(self):
+        self.configure()
         interface = []
 
         label2 = Label(self.root, text='Czy na pewno chcesz opuścić grę?', font=('Comic_Sans', 25))
         interface.append(label2)
 
-        przycisk_back = Button(self.root, text='Nie', font=('Comic_Sans', 25),
-                               command=lambda: [beep(), self.back(interface)])
-        interface.append(przycisk_back)
         przycisk_quit = Button(self.root, text='Tak', font=('Comic_Sans', 25), command=lambda: [beep(), self.Quit()])
         interface.append(przycisk_quit)
 
-        label2.grid(columnspan=4, row=0)
-        przycisk_back.grid(column=1, columnspan=2, row=1)
-        przycisk_quit.grid(column=0, columnspan=2, row=1)
+        przycisk_back = Button(self.root, text='Nie', font=('Comic_Sans', 25),
+                               command=lambda: [beep(), self.back(interface)])
+        interface.append(przycisk_back)
+
+        label2.grid(columnspan=5, row=0)
+        przycisk_back.grid(column=3, row=1)
+        przycisk_quit.grid(column=1, row=1)
 
 
 class POSTEPY_PAGE(Page):
@@ -818,7 +876,7 @@ class POSTEPY_PAGE(Page):
         MENU(self.root, lista, self.sound)
 
     def checked(self, a1, a2, b1, b2, c1, c2, o):
-        lista = []
+        listat = []
 
         a1 = a1.get()
         a2 = a2.get()
@@ -829,22 +887,22 @@ class POSTEPY_PAGE(Page):
         o = o.get()
 
         if a1 == 1:
-            lista.append('Baza/A1_words.txt')
+            listat.append('Baza/A1_words.txt')
         if a2 == 1:
-            lista.append('Baza/A2_words.txt')
+            listat.append('Baza/A2_words.txt')
         if b1 == 1:
-            lista.append('Baza/B1_words.txt')
+            listat.append('Baza/B1_words.txt')
         if b2 == 1:
-            lista.append('Baza/B2_words.txt')
+            listat.append('Baza/B2_words.txt')
         if c1 == 1:
-            lista.append('Baza/C1_words.txt')
+            listat.append('Baza/C1_words.txt')
         if c2 == 1:
-            lista.append('Baza/C2_words.txt')
+            listat.append('Baza/C2_words.txt')
         if o == 1:
-            lista.append('Baza/Others.txt')
+            listat.append('Baza/Others.txt')
 
         list_of_words = []
-        for plik in lista:
+        for plik in listat:
             with open(plik, 'r+', encoding='UTF-8') as f:
                 try:
                     next(f)
@@ -876,30 +934,51 @@ class POSTEPY_PAGE(Page):
         labelpos = Label(self.root, text=f'Umiesz: {self.count_pos} z {self.count_max} ', font=('Comic_Sans', 25))
         self.inter.append(labelpos)
         self.container.append(labelpos)
-        labelpos.grid()
+        labelpos.grid(column=4, row=4)
 
         labelneg = Label(self.root, text=f'Nie umiesz: {self.count_neg} z {self.count_max} ', font=('Comic_Sans', 25))
         self.inter.append(labelneg)
-        labelneg.grid()
+        labelneg.grid(column=4, row=5)
         self.container.append(labelneg)
 
-        labelnz = Label(self.root, text=f'Nieoznaczone: {self.count_max - self.count_neg - self.count_pos} z {self.count_max} ', font=('Comic_Sans', 25))
+        labelnz = Label(self.root,
+                        text=f'Nieoznaczone: {self.count_max - self.count_neg - self.count_pos} z {self.count_max} ',
+                        font=('Comic_Sans', 25))
         self.inter.append(labelnz)
-        labelnz.grid()
+        labelnz.grid(column=4, row=6)
         self.container.append(labelnz)
 
-        figure2 = Figure(figsize=(4, 3), dpi=100)
+        figure2 = Figure(figsize=(5, 5), dpi=100)
         subplot2 = figure2.add_subplot(111)
-        labels2 = 'Umiem', 'Nie umiem', 'Nieoznaczone'
+        labels2 = f'Umiem: {round(self.count_pos / self.count_max * 100, 2)}%', f'Nie umiem: {round(self.count_neg / self.count_max * 100, 2)}%', \
+                  f'Nieoznaczone: {round((self.count_max - self.count_neg - self.count_pos) / self.count_max * 100, 2)}%'
         pieSizes = [self.count_pos, self.count_neg, self.count_max]
         my_colors2 = ['lime', 'red', 'silver']
         explode2 = (0, 0.1, 0)
-        subplot2.pie(pieSizes, colors=my_colors2, explode=explode2, labels=labels2, autopct='%.f%%', shadow=True,
-                     startangle=90)
-        subplot2.axis('equal')
+        subplot2.pie(pieSizes, colors=my_colors2, explode=explode2, startangle=90)
+
+        subplot2.legend(labels2, loc='lower left')
         pie2 = FigureCanvasTkAgg(figure2, self.root)
-        pie2.get_tk_widget().grid()
+        pie2.get_tk_widget().grid(row=4, rowspan=3, column=2)
         self.container.append(pie2)
+
+    def configure(self):
+        # Kolumny
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
 
     def zeren(self):
         self.count_pos = 0
@@ -916,19 +995,15 @@ class POSTEPY_PAGE(Page):
         self.container = []
 
     def create(self):
+        self.configure()
         interface = []
 
-        label2 = Label(self.root, text='Druga strona', font=('Comic_Sans', 25))
+        label2 = Label(self.root, text='POSTĘPY', font=('Comic_Sans', 25))
         interface.append(label2)
-        label2.grid()
-
-        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface), self.zeren(), self.d()])
-        interface.append(przycisk_next2)
-        przycisk_next2.grid()
+        label2.grid(columnspan=5)
 
         frame = Frame(self.root)
-        frame.grid()
+        frame.grid(columnspan=5)
         interface.append(frame)
 
         varA1 = IntVar()
@@ -967,10 +1042,16 @@ class POSTEPY_PAGE(Page):
         interface.append(check7)
 
         przycisk = Button(self.root, text='Aktualizuj',
-                          command=lambda: [self.d(), self.zeren(), self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO)])
+                          command=lambda: [self.d(), self.zeren(),
+                                           self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO)])
 
         przycisk.grid(row=3, columnspan=5)
         interface.append(przycisk)
+
+        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.zeren(), self.d(), self.back(interface)])
+        interface.append(przycisk_next2)
+        przycisk_next2.grid(columnspan=5, row=7)
 
         self.inter = interface
 
@@ -991,19 +1072,24 @@ class CHOICE_PAGE(Page):
         START_PAGE(self.root, lista, self.sound)
 
     def configure(self):
+        # Kolumny
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
         self.root.columnconfigure(3, weight=1)
         self.root.columnconfigure(4, weight=1)
-        self.root.rowconfigure(0, weight=10)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
         self.root.rowconfigure(1, weight=1)
         self.root.rowconfigure(2, weight=1)
         self.root.rowconfigure(3, weight=1)
         self.root.rowconfigure(4, weight=1)
-        self.root.rowconfigure(5, weight=10)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
 
-    def checked(self, a1, a2, b1, b2, c1, c2, o,inter):
+    def checked(self, a1, a2, b1, b2, c1, c2, o, inter):
         lista = []
 
         a1 = a1.get()
@@ -1054,9 +1140,9 @@ class CHOICE_PAGE(Page):
     def play(self, lista):
         destroyer(lista)
         if self.tryb == 'LEARN':
-            LEARN_PAGE(self.root, lista, self.sound,self.list_of_words)
+            LEARN_PAGE(self.root, lista, self.sound, self.list_of_words)
         elif self.tryb == 'CHALLENGE':
-            CHALLENGE_PAGE(self.root, lista, self.sound,self.list_of_words)
+            CHALLENGE_PAGE(self.root, lista, self.sound, self.list_of_words)
 
     def create(self):
         interface = []
@@ -1110,7 +1196,7 @@ class CHOICE_PAGE(Page):
         interface.append(check7)
 
         przycisk = Button(self.root, text='Rozpocznij',
-                          command=lambda: [self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO,interface)])
+                          command=lambda: [self.checked(varA1, varA2, varB1, varB2, varC1, varC2, varO, interface)])
         przycisk.grid(row=3, columnspan=5)
         interface.append(przycisk)
 
@@ -1128,7 +1214,7 @@ class CHOICE_PAGE(Page):
 
 class LEARN_PAGE(Page):
 
-    def __init__(self, root, lista, sound, words,cpos=0,cneg=0):
+    def __init__(self, root, lista, sound, words, cpos=0, cneg=0):
         super().__init__()
         self.inter = []
         self.root = root
@@ -1141,17 +1227,22 @@ class LEARN_PAGE(Page):
         self.create()
 
     def configure(self):
+        # Kolumny
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
         self.root.columnconfigure(3, weight=1)
         self.root.columnconfigure(4, weight=1)
-        self.root.rowconfigure(0, weight=10)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
         self.root.rowconfigure(1, weight=1)
         self.root.rowconfigure(2, weight=1)
         self.root.rowconfigure(3, weight=1)
         self.root.rowconfigure(4, weight=1)
-        self.root.rowconfigure(5, weight=10)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
 
     def back(self, lista):
         destroyer(lista)
@@ -1177,13 +1268,13 @@ class LEARN_PAGE(Page):
 
             if file == 'umiem.txt':
                 with open('nie_umiem.txt', 'r+', encoding='UTF-8') as f:
-                        d = f.readlines()
-                        f.seek(0)
-                        for i in d:
-                            if i != word:
-                                f.write(i)
-                        f.truncate()
-                        f.close()
+                    d = f.readlines()
+                    f.seek(0)
+                    for i in d:
+                        if i != word:
+                            f.write(i)
+                    f.truncate()
+                    f.close()
             else:
                 with open('umiem.txt', 'r+', encoding='UTF-8') as f:
                     d = f.readlines()
@@ -1198,10 +1289,10 @@ class LEARN_PAGE(Page):
         if self.counter_help < len(word):
             self.counter_help += 1
 
-        if word[self.counter_help-1] != ' ':
+        if word[self.counter_help - 1] != ' ':
             h = word[0:self.counter_help]
         else:
-            h = word[0:self.counter_help+1]
+            h = word[0:self.counter_help + 1]
             self.counter_help += 1
         label = Label(self.root, text=f"Podpowiedź: {h}",
                       background="cyan",
@@ -1220,6 +1311,10 @@ class LEARN_PAGE(Page):
         self.configure()
         interface = []
 
+        labelz = Label(self.root, text='TRYB NAUKI', font=('Comic_Sans', 25))
+        interface.append(labelz)
+        labelz.grid(row=0, columnspan=5)
+
         label = Label(self.root, text="Podpowiedź: ", height=3, width=50,
                       background="lime",
                       foreground="black")
@@ -1234,10 +1329,9 @@ class LEARN_PAGE(Page):
         wordos1 = generate()
         wordos = wordos1.split(' - ')
 
-        label3 = Label(self.root, text= wordos[1], font=('Comic_Sans', 25))
+        label3 = Label(self.root, text=wordos[1], font=('Comic_Sans', 25))
         interface.append(label3)
         label3.grid(row=2, columnspan=5)
-
 
         entry = Entry(self.root)
         entry.grid(row=3, columnspan=5)
@@ -1261,7 +1355,9 @@ class LEARN_PAGE(Page):
             self.counter_help = 0
 
         przycisk_next2 = Button(self.root, text='Nowe słowo', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), LEARN_PAGE(self.root, self.inter, self.sound, self.list_of_words,self.counter_pos, self.counter_neg)])
+                                command=lambda: [beep(),
+                                                 LEARN_PAGE(self.root, self.inter, self.sound, self.list_of_words,
+                                                            self.counter_pos, self.counter_neg)])
         przycisk_next2.grid(row=4, column=2)
         interface.append(przycisk_next2)
 
@@ -1269,7 +1365,6 @@ class LEARN_PAGE(Page):
                                 command=lambda: [beep(), answear()])
         przycisk_next4.grid(row=4, column=1)
         interface.append(przycisk_next4)
-
 
         label = Label(self.root, height=3, width=50)
         label.grid(columnspan=5, row=5)
@@ -1290,10 +1385,12 @@ class LEARN_PAGE(Page):
         przycisk_next5.grid(row=7, columnspan=5)
 
         przycisk_next6 = Button(self.root, text='Podsumowanie', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos)])
+                                command=lambda: [beep(),
+                                                 SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg,
+                                                              self.counter_pos)])
 
         interface.append(przycisk_next6)
-        przycisk_next6.grid(row=6, column=2)
+        przycisk_next6.grid(row=6, column=1)
 
         przycisk_next9 = Button(self.root, text='Podpowiedź', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.helper(wordos[0])])
@@ -1312,16 +1409,17 @@ class LEARN_PAGE(Page):
         label.grid(columnspan=5, row=5)
         label.after(2000, label.destroy)
 
-    def show_message_negative(self,correct):
+    def show_message_negative(self, correct):
         label = Label(self.root, text=f"Nie zgadłeś! Poprawna odpowiedź to: {correct}", height=3, width=50,
                       background="red",
                       foreground="black")
         label.grid(columnspan=5, row=5)
         label.after(2000, label.destroy)
 
+
 class CHALLENGE_PAGE(Page):
 
-    def __init__(self, root, lista, sound,words):
+    def __init__(self, root, lista, sound, words):
         super().__init__()
         self.inter = []
         self.root = root
@@ -1334,7 +1432,6 @@ class CHALLENGE_PAGE(Page):
         destroyer(lista)
         CHOICE_PAGE(self.root, lista, 'CHALLENGE', self.sound)
 
-
     def create(self):
         interface = []
         label2 = Label(self.root, text='Wybierz tryb gry', font=('Comic_Sans', 25))
@@ -1342,13 +1439,15 @@ class CHALLENGE_PAGE(Page):
         label2.grid(row=1, columnspan=5)
 
         przycisk_next2 = Button(self.root, text='Na czas', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), TIME_PAGE(self.root,self.inter,self.sound,self.list_of_words)])
+                                command=lambda: [beep(),
+                                                 TIME_PAGE(self.root, self.inter, self.sound, self.list_of_words)])
         interface.append(przycisk_next2)
 
         przycisk_next2.grid(row=2, columnspan=5)
 
         przycisk_next3 = Button(self.root, text='Życia', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), LIFE_PAGE(self.root,self.inter,self.sound,self.list_of_words)])
+                                command=lambda: [beep(),
+                                                 LIFE_PAGE(self.root, self.inter, self.sound, self.list_of_words)])
         interface.append(przycisk_next3)
         przycisk_next3.grid(row=3, columnspan=5)
 
@@ -1373,6 +1472,22 @@ class TIME_PAGE(Page):
         destroyer(lista)
         self.create()
 
+    def configure(self):
+        # Kolumny
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
+
     def countdown(self, count, label, label2):
         # change text in label
         mins = count // 60
@@ -1389,13 +1504,11 @@ class TIME_PAGE(Page):
         except:
             pass
 
-
     def ask(self):
         ans = messagebox.askyesno('UWAGA!',
                                   'Czy na pewno chcesz wyjść?\nTwoje postępy zostaną utracone!')
         if ans:
             self.back(self.inter)
-
 
     def show_message_good(self):
         label = Label(self.root, text="Zgadłeś!", height=3, width=50,
@@ -1413,7 +1526,7 @@ class TIME_PAGE(Page):
 
     def back(self, lista):
         destroyer(lista)
-        CHALLENGE_PAGE(self.root, lista, self.sound,self.list_of_words)
+        CHALLENGE_PAGE(self.root, lista, self.sound, self.list_of_words)
 
     def create(self):
         interface = []
@@ -1444,7 +1557,7 @@ class TIME_PAGE(Page):
         wordos1 = generate()
         wordos = wordos1.split(' - ')
 
-        label3 = Label(self.root, text= wordos[1], font=('Comic_Sans', 25))
+        label3 = Label(self.root, text=wordos[1], font=('Comic_Sans', 25))
         interface.append(label3)
         label3.grid(row=2, columnspan=5)
 
@@ -1479,13 +1592,10 @@ class TIME_PAGE(Page):
                 self.counter_neg += 1
             self.counter_help = 0
 
-
-
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.ask()])
         interface.append(przycisk_next5)
         przycisk_next5.grid(row=7, columnspan=5)
-
 
         przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), answear(),
@@ -1512,11 +1622,11 @@ class LIFE_PAGE(Page):
 
     def back(self, lista):
         destroyer(lista)
-        CHALLENGE_PAGE(self.root, lista, self.sound,self.list_of_words)
+        CHALLENGE_PAGE(self.root, lista, self.sound, self.list_of_words)
 
     def create(self):
         interface = []
-        label2 = Label(self.root, text='Strona z życiami', font=('Comic_Sans', 25))
+        label2 = Label(self.root, text='Strona z życiami - WORK IN PROGRESS', font=('Comic_Sans', 25))
         interface.append(label2)
 
         przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
@@ -1524,6 +1634,7 @@ class LIFE_PAGE(Page):
         interface.append(przycisk_next2)
 
         self.inter = interface
+
 
 class SUMMARY_PAGE(Page):
 
@@ -1543,27 +1654,49 @@ class SUMMARY_PAGE(Page):
 
     def again(self, lista):
         destroyer(lista)
-        CHOICE_PAGE(self.root, lista,'LEARN', self.sound)
+        CHOICE_PAGE(self.root, lista, 'LEARN', self.sound)
+
+    def configure(self):
+        # Kolumny
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
 
     def create(self):
         interface = []
         label2 = Label(self.root, text='Podsumowanie', font=('Comic_Sans', 25))
         interface.append(label2)
+        label2.grid(row=0, columnspan=5)
 
         przycisk_next2 = Button(self.root, text='Powrót do Menu', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.menu(interface), canvas.get_tk_widget().destroy()])
         interface.append(przycisk_next2)
+        przycisk_next2.grid(row=4, column=3)
 
         przycisk_next3 = Button(self.root, text='Zagraj ponownie', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.again(interface), canvas.get_tk_widget().destroy()])
         interface.append(przycisk_next3)
+        przycisk_next3.grid(row=4, column=1)
 
         label3 = Label(self.root, text=f'Pozytywnie odpowiedziano {self.counter_pos} razy', font=('Comic_Sans', 25))
         interface.append(label3)
-
+        label3.grid(row=2, columnspan=5)
 
         label4 = Label(self.root, text=f'Negatywnie odpowiedziano {self.counter_neg} razy', font=('Comic_Sans', 25))
         interface.append(label4)
+        label4.grid(row=3, columnspan=5)
 
         matplotlib.use("TkAgg")
 
@@ -1580,10 +1713,7 @@ class SUMMARY_PAGE(Page):
         ax.set_xticks(range(2), ['Prawidłowe', 'Nieprawidłowe'])
 
         canvas = FigureCanvasTkAgg(figure, self.root)
-        canvas.get_tk_widget().grid(row=0, column=0)
-
-        for elem in interface:
-            elem.grid()
+        canvas.get_tk_widget().grid(row=1, columnspan=5)
 
         self.inter = interface
 
