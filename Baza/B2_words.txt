@@ -113,3 +113,9 @@ tornado - tornado - zjawiska atmosferyczne
 analyst - analityk - zawody
 banker - bankier - zawody
 bodyguard - ochroniarz - zawody
+cashier - kasjer - zawody
+comedian - komik - zawody
+compesor - kompozytor - zawody
+conductor - dyrygent - zawody
+consultant - konsultant - zawody
+critic - krytyk - zawody
