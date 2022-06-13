@@ -224,3 +224,4 @@ sauce - sos - jedzenie
 sausage - kiełbasa - jedzenie
 slice - plasterek - jedzenie
 snack - przekąska - jedzenie
+yoghurt - jogurt - jedzenie
