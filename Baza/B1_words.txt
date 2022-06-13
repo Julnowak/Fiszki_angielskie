@@ -159,5 +159,5 @@ sailor - marynarz - zawody
 salesman - handlarz - zawody
 scientist - naukowiec - zawody
 soldier - żołnierz - zawody
-vet - weterynarz
+vet - weterynarzvet - zawody
 trainer - trener - zawody
