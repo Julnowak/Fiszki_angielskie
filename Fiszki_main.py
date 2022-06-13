@@ -59,7 +59,7 @@ class MENU(Page):
         self.root.columnconfigure(4, weight=1)
 
         # Rzędy
-        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(0, weight=10)
         self.root.rowconfigure(1, weight=1)
         self.root.rowconfigure(2, weight=1)
         self.root.rowconfigure(3, weight=1)
@@ -1387,7 +1387,7 @@ class LEARN_PAGE(Page):
         przycisk_next6 = Button(self.root, text='Podsumowanie', font=('Comic_Sans', 25),
                                 command=lambda: [beep(),
                                                  SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg,
-                                                              self.counter_pos)])
+                                                              self.counter_pos,'LEARN')])
 
         interface.append(przycisk_next6)
         przycisk_next6.grid(row=6, column=1)
@@ -1460,7 +1460,7 @@ class CHALLENGE_PAGE(Page):
 
 
 class TIME_PAGE(Page):
-    def __init__(self, root, lista, sound, words, cneg=0, cpos=0, time=20):
+    def __init__(self, root, lista, sound, words, cneg=0, cpos=0, time=120):
         super().__init__()
         self.inter = []
         self.root = root
@@ -1477,6 +1477,8 @@ class TIME_PAGE(Page):
         self.root.columnconfigure(0, weight=1)
         self.root.columnconfigure(1, weight=1)
         self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
 
         # Rzędy
         self.root.rowconfigure(0, weight=2)
@@ -1489,18 +1491,18 @@ class TIME_PAGE(Page):
         self.root.rowconfigure(7, weight=2)
 
     def countdown(self, count, label, label2):
-        # change text in label
         mins = count // 60
         sec = count - 60 * mins
         try:
-            label['text'] = mins
-            label2['text'] = sec
+            label['text'] = f'{mins} minut'
+            label2['text'] = f'{sec} sekund'
 
-            if count > 0:
+            if count >= 0:
                 self.time -= 1
                 self.root.after(1000, self.countdown, count - 1, label, label2)
             else:
-                SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos)
+                destroyer(self.inter)
+                SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos,'CHALLENGE')
         except:
             pass
 
@@ -1528,24 +1530,44 @@ class TIME_PAGE(Page):
         destroyer(lista)
         CHALLENGE_PAGE(self.root, lista, self.sound, self.list_of_words)
 
+
+    def answear(self, entry, wordos):
+        ans = entry.get()
+        if ans == wordos[0].rstrip():
+            self.show_message_good()
+            self.counter_pos += 1
+        elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
+            if ans == wordos[0][3:]:
+                self.show_message_good()
+                self.counter_pos += 1
+            else:
+                self.show_message_negative()
+                self.counter_neg += 1
+        else:
+            self.show_message_negative()
+            self.counter_neg += 1
+        self.counter_help = 0
+
+        TIME_PAGE(self.root, self.inter, self.sound, self.list_of_words, self.counter_neg,
+                self.counter_pos, self.time)
+
     def create(self):
         interface = []
-        label2 = Label(self.root, text='Strona wyzwanie-czas', font=('Comic_Sans', 25))
+        label2 = Label(self.root, text='WYZWANIE CZASOWE', font=('Comic_Sans', 25))
         interface.append(label2)
-        label2.grid()
+        label2.grid(columnspan=5, row=0)
 
-        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface)])
-        interface.append(przycisk_next2)
-        przycisk_next2.grid()
+        laber = Label(self.root,text='Pozostały czas:')
+        interface.append(laber)
+        laber.grid(row=1, column=1)
 
         lab = Label(self.root)
         interface.append(lab)
-        lab.grid()
+        lab.grid(row=1, column=2)
 
         lab2 = Label(self.root)
         interface.append(lab2)
-        lab2.grid()
+        lab2.grid(row=1, column=3)
 
         self.countdown(self.time, lab, lab2)
 
@@ -1565,51 +1587,25 @@ class TIME_PAGE(Page):
         entry.grid(row=3, columnspan=5)
         interface.append(entry)
 
-        label = Label(self.root, height=3, width=50)
-        label.grid(columnspan=5, row=5)
-        interface.append(label)
 
-        def answear():
-            ans = entry.get()
-            print(ans)
-            print(wordos[0][0:3])
-            if ans == wordos[0].rstrip():
-                self.show_message_good()
-                time.sleep(2)
-                self.counter_pos += 1
-            elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
-                if ans == wordos[0][3:]:
-                    self.show_message_good()
-                    time.sleep(2)
-                    self.counter_pos += 1
-                else:
-                    self.show_message_negative()
-                    time.sleep(2)
-                    self.counter_neg += 1
-            else:
-                self.show_message_negative()
-                time.sleep(2)
-                self.counter_neg += 1
-            self.counter_help = 0
+
+        przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.answear(entry, wordos)])
+        przycisk_next4.grid(row=4, columnspan=5)
+        interface.append(przycisk_next4)
+
+
 
         przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
                                 command=lambda: [beep(), self.ask()])
         interface.append(przycisk_next5)
         przycisk_next5.grid(row=7, columnspan=5)
 
-        przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), answear(),
-                                                 TIME_PAGE(self.root, self.inter, self.sound, self.list_of_words,
-                                                           self.counter_pos, self.counter_neg, self.time)])
-
-        przycisk_next4.grid(row=4, column=1)
-        interface.append(przycisk_next4)
-
         self.inter = interface
 
 
 class LIFE_PAGE(Page):
-    def __init__(self, root, lista, sound, words, cpos, cneg):
+    def __init__(self, root, lista, sound, words, cpos=0, cneg=0):
         super().__init__()
         self.inter = []
         self.root = root
@@ -1617,6 +1613,9 @@ class LIFE_PAGE(Page):
         self.counter_pos = cpos
         self.counter_neg = cneg
         self.list_of_words = words
+        self.av_help = 3
+        self.counter_help = 0
+        self.life = 3
         destroyer(lista)
         self.create()
 
@@ -1624,37 +1623,172 @@ class LIFE_PAGE(Page):
         destroyer(lista)
         CHALLENGE_PAGE(self.root, lista, self.sound, self.list_of_words)
 
-    def create(self):
-        interface = []
-        label2 = Label(self.root, text='Strona z życiami - WORK IN PROGRESS', font=('Comic_Sans', 25))
-        interface.append(label2)
 
-        przycisk_next2 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.back(interface)])
-        interface.append(przycisk_next2)
+    def configure(self):
+        # Kolumny
+        self.root.columnconfigure(0, weight=1)
+        self.root.columnconfigure(1, weight=1)
+        self.root.columnconfigure(2, weight=1)
+        self.root.columnconfigure(3, weight=1)
+        self.root.columnconfigure(4, weight=1)
+
+        # Rzędy
+        self.root.rowconfigure(0, weight=2)
+        self.root.rowconfigure(1, weight=1)
+        self.root.rowconfigure(2, weight=1)
+        self.root.rowconfigure(3, weight=1)
+        self.root.rowconfigure(4, weight=1)
+        self.root.rowconfigure(5, weight=1)
+        self.root.rowconfigure(6, weight=1)
+        self.root.rowconfigure(7, weight=2)
+
+    def helper(self, word):
+        if self.av_help != 0:
+            self.av_help -= 1
+            if self.counter_help < len(word):
+                self.counter_help += 1
+
+            if word[self.counter_help - 1] != ' ':
+                h = word[0:self.counter_help]
+            else:
+                h = word[0:self.counter_help + 1]
+                self.counter_help += 1
+            label = Label(self.root, text=f"Podpowiedź: {h}\nPozostałe podpowiedzi: {self.av_help}",
+                          background="cyan",
+                          foreground="black", height=3, width=50)
+            label.grid(columnspan=5, row=5)
+            label.after(2000, label.destroy)
+        else:
+            label = Label(self.root, text=f"Wykorzystano już wszystkie podpowiedzi!",
+                          background="cyan",
+                          foreground="black", height=3, width=50)
+            label.grid(columnspan=5, row=5)
+            label.after(2000, label.destroy)
+
+    def ask(self):
+        ans = messagebox.askyesno('UWAGA!',
+                                  'Czy na pewno chcesz wyjść?\nTwoje postępy zostaną utracone!')
+        if ans:
+            self.back(self.inter)
+
+    def create(self):
+        self.configure()
+
+        interface = []
+        label2 = Label(self.root, text='WYZWANIE NA ŻYCIA', font=('Comic_Sans', 25))
+        interface.append(label2)
+        label2.grid(columnspan=5,row=0)
+
+
+        label = Label(self.root, text="Podpowiedź: ", height=3, width=50,
+                      background="lime",
+                      foreground="black")
+        label.grid(columnspan=5, row=5)
+        label.after(2000, label.destroy)
+
+        def generate():
+            slowo = random.choice(self.list_of_words)
+            self.counter_help = 0
+            return slowo
+
+        wordos1 = generate()
+        wordos = wordos1.split(' - ')
+
+        label3 = Label(self.root, text=wordos[1], font=('Comic_Sans', 25))
+        interface.append(label3)
+        label3.grid(row=2, columnspan=5)
+
+        entry = Entry(self.root)
+        entry.grid(row=3, columnspan=5)
+        interface.append(entry)
+
+        def answear():
+            ans = entry.get()
+            if ans == wordos[0].rstrip():
+                self.show_message_good()
+                self.counter_pos += 1
+            elif len(ans) >= 3 and wordos[0][0:3] == 'to ':
+                if ans == wordos[0][3:]:
+                    self.show_message_good()
+                    self.counter_pos += 1
+                else:
+                    self.life -= 1
+                    self.show_message_negative(wordos[0])
+                    self.counter_neg += 1
+            else:
+                self.life -= 1
+                self.show_message_negative(wordos[0])
+                self.counter_neg += 1
+            self.counter_help = 0
+
+            if self.life == 0:
+                time.sleep(1)
+                SUMMARY_PAGE(self.root, self.inter, self.sound, self.counter_neg, self.counter_pos,'CHALLENGE')
+
+
+        przycisk_next4 = Button(self.root, text='Odpowiadam', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), answear()])
+        przycisk_next4.grid(row=4, column=1)
+        interface.append(przycisk_next4)
+
+        label = Label(self.root, height=3, width=50)
+        label.grid(columnspan=5, row=5)
+
+
+        przycisk_next5 = Button(self.root, text='Poprzednia strona', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.ask()])
+        interface.append(przycisk_next5)
+        przycisk_next5.grid(row=7, columnspan=5)
+
+
+
+        przycisk_next9 = Button(self.root, text='Podpowiedź', font=('Comic_Sans', 25),
+                                command=lambda: [beep(), self.helper(wordos[0])])
+
+        interface.append(przycisk_next9)
+        przycisk_next9.grid(row=4, column=3)
+
+        interface.append(label)
 
         self.inter = interface
+
+    def show_message_good(self):
+        label = Label(self.root, text="Zgadłeś!", height=3, width=50,
+                      background="lime",
+                      foreground="black")
+        label.grid(columnspan=5, row=5)
+        label.after(2000, label.destroy)
+
+    def show_message_negative(self, correct):
+        label = Label(self.root, text=f"Nie zgadłeś! Pozostałe szansy: {self.life} ", height=3, width=50,
+                      background="red",
+                      foreground="black")
+        label.grid(columnspan=5, row=5)
+        label.after(2000, label.destroy)
+
 
 
 class SUMMARY_PAGE(Page):
 
-    def __init__(self, root, lista, sound, cneg, cpos):
+    def __init__(self, root, lista, sound, cneg, cpos, name):
         super().__init__()
         self.inter = []
         self.root = root
+        self.name = name
         self.sound = sound
         self.counter_pos = cpos
         self.counter_neg = cneg
         destroyer(lista)
         self.create()
 
-    def menu(self, lista):
-        destroyer(lista)
-        MENU(self.root, lista, self.sound)
 
     def again(self, lista):
         destroyer(lista)
-        CHOICE_PAGE(self.root, lista, 'LEARN', self.sound)
+
+        if self.name == 'CHALLENGE':
+            CHOICE_PAGE(self.root, lista, 'CHALLENGE', self.sound)
+        else:
+            CHOICE_PAGE(self.root, lista, 'LEARN', self.sound)
 
     def configure(self):
         # Kolumny
@@ -1681,7 +1815,7 @@ class SUMMARY_PAGE(Page):
         label2.grid(row=0, columnspan=5)
 
         przycisk_next2 = Button(self.root, text='Powrót do Menu', font=('Comic_Sans', 25),
-                                command=lambda: [beep(), self.menu(interface), canvas.get_tk_widget().destroy()])
+                                command=lambda: [beep(), destroyer(self.inter), canvas.get_tk_widget().destroy(), MENU(self.root, self.inter, self.sound)])
         interface.append(przycisk_next2)
         przycisk_next2.grid(row=4, column=3)
 
